@@ -1,10 +1,10 @@
 Dark Mode:
 - List View
 - Tree View
-- (Another new Text Box)
 - Scroll Bars
 
 Mage 1.5:
+- Bulk theme export
 - Drag on Minimap Editor
 - Enable apply on "Auto connect" in Edit Door
 - Edit Sprites/Doors with double click
