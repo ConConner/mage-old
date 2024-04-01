@@ -177,20 +177,15 @@ namespace mage
             }
             if (error != null)
             {
-                emuPath = SetEmulatorPath(error);
+                emuPath = AskForNewPath(error);
                 if (emuPath == null)
                     return;
             }
             System.Diagnostics.Process.Start(emuPath, romPath);
         }
 
-        private static string SetEmulatorPath(string msg)
+        public static string SetEmulatorPath()
         {
-            var result = MessageBox.Show(msg, "",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-            if (result != DialogResult.Yes)
-                return null;
-            
             // get emulator path
             var ofd = new OpenFileDialog();
             ofd.Filter = "GBA emulator (*.exe)|*.exe|All files (*.*)|*.*";
@@ -201,6 +196,16 @@ namespace mage
             Settings.Default.emulatorPath = emuPath;
             Settings.Default.Save();
             return emuPath;
+        }
+
+        private static string AskForNewPath(string msg)
+        {
+            var result = MessageBox.Show(msg, "",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            if (result != DialogResult.Yes)
+                return null;
+
+            return SetEmulatorPath();
         }
 
     }

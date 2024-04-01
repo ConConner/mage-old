@@ -2480,5 +2480,7 @@ namespace mage
 
 
         #endregion
+
+        private void changeEmulatorPathToolStripMenuItem_Click(object sender, EventArgs e) => Test.SetEmulatorPath();
     }
 }
