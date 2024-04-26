@@ -8,6 +8,7 @@ using mage.Properties;
 using mage.Theming;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using mage.Tools;
 
 namespace mage
 {
@@ -2482,5 +2483,10 @@ namespace mage
         #endregion
 
         private void changeEmulatorPathToolStripMenuItem_Click(object sender, EventArgs e) => Test.SetEmulatorPath();
+
+        private void btn_grabOffsets_Click(object sender, EventArgs e)
+        {
+            new FormOffsetGrabber(room, roomCursor.X, roomCursor.Y).Show();
+        }
     }
 }
