@@ -36,6 +36,9 @@
             lbl_mmy = new System.Windows.Forms.Label();
             txb_mmx = new Theming.CustomControls.FlatTextBox();
             txb_mmy = new Theming.CustomControls.FlatTextBox();
+            txb_rando = new System.Windows.Forms.TextBox();
+            lbl_text = new System.Windows.Forms.Label();
+            btn_clipboard = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
             // lbl_clip
@@ -134,11 +137,44 @@
             txb_mmy.TabIndex = 7;
             txb_mmy.WordWrap = true;
             // 
+            // txb_rando
+            // 
+            txb_rando.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txb_rando.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txb_rando.Location = new System.Drawing.Point(12, 99);
+            txb_rando.Multiline = true;
+            txb_rando.Name = "txb_rando";
+            txb_rando.ReadOnly = true;
+            txb_rando.Size = new System.Drawing.Size(298, 151);
+            txb_rando.TabIndex = 8;
+            // 
+            // lbl_text
+            // 
+            lbl_text.AutoSize = true;
+            lbl_text.Location = new System.Drawing.Point(12, 74);
+            lbl_text.Name = "lbl_text";
+            lbl_text.Size = new System.Drawing.Size(112, 15);
+            lbl_text.TabIndex = 9;
+            lbl_text.Text = "Text for rando logic:";
+            // 
+            // btn_clipboard
+            // 
+            btn_clipboard.Image = Properties.Resources.toolbar_text;
+            btn_clipboard.Location = new System.Drawing.Point(287, 70);
+            btn_clipboard.Name = "btn_clipboard";
+            btn_clipboard.Size = new System.Drawing.Size(23, 23);
+            btn_clipboard.TabIndex = 10;
+            btn_clipboard.UseVisualStyleBackColor = true;
+            btn_clipboard.Click += btn_clipboard_Click;
+            // 
             // FormOffsetGrabber
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(326, 78);
+            ClientSize = new System.Drawing.Size(326, 262);
+            Controls.Add(btn_clipboard);
+            Controls.Add(lbl_text);
+            Controls.Add(txb_rando);
             Controls.Add(txb_mmy);
             Controls.Add(txb_mmx);
             Controls.Add(lbl_mmy);
@@ -164,5 +200,8 @@
         private System.Windows.Forms.Label lbl_mmy;
         private Theming.CustomControls.FlatTextBox txb_mmx;
         private Theming.CustomControls.FlatTextBox txb_mmy;
+        private System.Windows.Forms.TextBox txb_rando;
+        private System.Windows.Forms.Label lbl_text;
+        private System.Windows.Forms.Button btn_clipboard;
     }
 }

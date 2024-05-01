@@ -2484,9 +2484,27 @@ namespace mage
 
         private void changeEmulatorPathToolStripMenuItem_Click(object sender, EventArgs e) => Test.SetEmulatorPath();
 
+
+        //Field to store the current offset grabber
+        FormOffsetGrabber offGrab
+        {
+            get => offgrab;
+            set
+            {
+                if (offgrab != null)
+                {
+                    offgrab.Close();
+                    offgrab = null;
+                }
+                offgrab = value;
+                offgrab.Show();
+            }
+        }
+        FormOffsetGrabber offgrab = null;
+
         private void btn_grabOffsets_Click(object sender, EventArgs e)
         {
-            new FormOffsetGrabber(room, roomCursor.X, roomCursor.Y).Show();
+            offGrab = new FormOffsetGrabber(room, roomCursor.X, roomCursor.Y);
         }
     }
 }
