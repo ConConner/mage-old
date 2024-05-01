@@ -79,7 +79,45 @@ namespace mage.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
+        internal static System.Drawing.Bitmap status_screen
+        {
+            get {
+                object obj = ResourceManager.GetObject("status_screen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap item_enabled
+        {
+            get {
+                object obj = ResourceManager.GetObject("item_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap item_disabled
+        {
+            get {
+                object obj = ResourceManager.GetObject("item_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap test_cancel
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("test_cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap test_play
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("test_play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to [AMTE]
         ///A2DE0,A2DE4,A2DEC,A2DF4,A2E00,Over 4 hours;0-99%
@@ -2276,7 +2314,8 @@ namespace mage.Properties {
         ///	[
         ///		Name=Wave
         ///		Graphics=328F34
-        ///		Palette=327148        /// [rest of string was truncated]&quot;;.
+        ///		Palette=327148
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ZM_U_weapons {
             get {

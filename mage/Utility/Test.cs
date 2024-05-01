@@ -1,4 +1,5 @@
-﻿using mage.Properties;
+﻿using mage.Data;
+using mage.Properties;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -7,7 +8,7 @@ namespace mage
 {
     public static class Test
     {
-        public static void Room(FormMain main, bool debug, int xPos, int yPos)
+        public static void Room(FormMain main, bool debug, int xPos, int yPos, sRam ram = null)
         {
             ByteStream bs = ROM.Stream;
             Room room = main.Room;
@@ -98,6 +99,10 @@ namespace mage
                 bs.Write16(sramAddr + 0x32, yScreen);
                 bs.Write16(sramAddr + 0x34, xScreen);
                 bs.Write16(sramAddr + 0x36, yScreen);
+
+                //Setting samus equipment
+                ram?.WriteToRom();
+
                 if (ROM.useMotherShipHatches)
                 {
                     bs.Write8(sramAddr + 0x3D, 1);
