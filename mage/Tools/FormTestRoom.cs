@@ -75,16 +75,16 @@ public partial class FormTestRoom : Form
         textBox_yPos.Font =
         new Font(main.pfc.Families[0], 20, FontStyle.Bold);
 
-        txb_missile_cur.drawBorder =
-        txb_missile_max.drawBorder =
-        txb_supers_cur.drawBorder =
-        txb_supers_max.drawBorder =
-        txb_energy_cur.drawBorder =
-        txb_energy_max.drawBorder =
-        txb_power_cur.drawBorder =
-        txb_power_max.drawBorder =
-        textBox_xPos.drawBorder =
-        textBox_yPos.drawBorder =
+        txb_missile_cur.DisplayBorder =
+        txb_missile_max.DisplayBorder =
+        txb_supers_cur.DisplayBorder =
+        txb_supers_max.DisplayBorder =
+        txb_energy_cur.DisplayBorder =
+        txb_energy_max.DisplayBorder =
+        txb_power_cur.DisplayBorder =
+        txb_power_max.DisplayBorder =
+        textBox_xPos.DisplayBorder =
+        textBox_yPos.DisplayBorder =
         false;
     }
 

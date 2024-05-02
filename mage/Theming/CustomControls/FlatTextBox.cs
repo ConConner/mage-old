@@ -39,7 +39,7 @@ partial class FlatTextBox : UserControl
             Invalidate();
         }
     }
-    public bool drawBorder = true;
+    public bool DisplayBorder { get; set; } = true;
 
     public override Color ForeColor { get => textBox.ForeColor; set => textBox.ForeColor = value; }
     public bool ReadOnly { get => textBox.ReadOnly; set => textBox.ReadOnly = value; }
@@ -52,12 +52,12 @@ partial class FlatTextBox : UserControl
             if (value == BorderStyle.None)
             {
                 textBox.Location = new Point(0, 0);
-                drawBorder = false;
+                DisplayBorder = false;
             }
             else
             {
                 textBox.Location = new Point(3, 3);
-                drawBorder = true;
+                DisplayBorder = true;
             }
             base.BorderStyle = BorderStyle.None;
         }
@@ -109,7 +109,7 @@ partial class FlatTextBox : UserControl
         base.OnPaint(e);
 
         //Draw Border
-        if (!drawBorder) return;
+        if (!DisplayBorder) return;
 
         Rectangle border = new Rectangle(Point.Empty, Size);
         border.Width--; border.Height--;
