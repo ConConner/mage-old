@@ -117,6 +117,71 @@ namespace mage.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap item_full_gravity
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("item_full_gravity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap item_full_varia
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("item_full_varia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap item_full_power
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("item_full_power", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap item_gravity
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("item_gravity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap item_varia
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("item_varia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap item_power
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("item_power", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap item_zero
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("item_zero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static Font item_zero
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("item_zero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
 
         /// <summary>
         ///   Looks up a localized string similar to [AMTE]

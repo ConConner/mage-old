@@ -12,12 +12,12 @@ namespace mage.Data;
 /// </summary>
 public class sRam
 {
-    private ByteStream rom;
+    public ByteStream RomStream { get; set; }
     private int sramAddr = 0x7D8000;
 
     public sRam(ByteStream bs)
     {
-        this.rom = bs;
+        this.RomStream = bs;
     }
 
     [JsonConstructor]
@@ -29,12 +29,12 @@ public class sRam
     public int xPos { get; set; } = 0;
     public int yPos { get; set; } = 0;
 
-    public ushort MaxEnergy { get; set; } = 0x99;
+    public ushort MaxEnergy { get; set; } = 99;
     public ushort MaxMissiles { get; set; } = 0x5;
     public byte MaxSupers { get; set; } = 0x2;
     public byte MaxPowerBombs { get; set; } = 0x2;
     public byte CurrentPowerBombs { get; set; } = 0x2;
-    public ushort CurrentEnergy { get; set; } = 0x99;
+    public ushort CurrentEnergy { get; set; } = 99;
     public ushort CurrentMissiles { get; set; } = 0x5;
     public byte CurrentSupers { get; set; } = 0x2;
     public BeamBombs BeamBombs { get; set; } = 0;
@@ -46,27 +46,27 @@ public class sRam
 
     public void WriteToRom()
     {
-        if (rom == null) throw new Exception("No ROM Stream specified");
+        if (RomStream == null) throw new Exception("No ROM Stream specified");
 
         //Writing Samus Equipment Data
-        rom.Seek(sramAddr + 0x19C);
+        RomStream.Seek(sramAddr + 0x19C);
 
-        rom.Write16(MaxEnergy);
-        rom.Write16(MaxMissiles);
-        rom.Write8(MaxSupers);
-        rom.Write8(MaxPowerBombs);
-        rom.Write16(CurrentEnergy);
-        rom.Write16(CurrentMissiles);
-        rom.Write8(CurrentSupers);
-        rom.Write8(CurrentPowerBombs);
-        rom.Write8((byte)BeamBombs);
-        rom.Write8((byte)BeamBombs); //Activation flags
-        rom.Write8((byte)Items);
-        rom.Write8((byte)Items); //Activation flags
-        rom.Write8(MapStatus);
-        rom.Write8(LowHealthFlag);
-        rom.Write8((byte)Suit);
-        rom.Write8(GrabbedByMetroid);
+        RomStream.Write16(MaxEnergy);
+        RomStream.Write16(MaxMissiles);
+        RomStream.Write8(MaxSupers);
+        RomStream.Write8(MaxPowerBombs);
+        RomStream.Write16(CurrentEnergy);
+        RomStream.Write16(CurrentMissiles);
+        RomStream.Write8(CurrentSupers);
+        RomStream.Write8(CurrentPowerBombs);
+        RomStream.Write8((byte)BeamBombs);
+        RomStream.Write8((byte)BeamBombs); //Activation flags
+        RomStream.Write8((byte)Items);
+        RomStream.Write8((byte)Items); //Activation flags
+        RomStream.Write8(MapStatus);
+        RomStream.Write8(LowHealthFlag);
+        RomStream.Write8((byte)Suit);
+        RomStream.Write8(GrabbedByMetroid);
     }
 }
 

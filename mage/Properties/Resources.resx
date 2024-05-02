@@ -277,9 +277,6 @@
   <data name="toolbar_sprite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\toolbar_sprite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="status_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\status_screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="MF_U_debugMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Patches\MF_U_debugMenu.ips;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -515,15 +512,42 @@
     <value>..\Resources\Icons\shortcut_speed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="item_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\item_disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\TestRoom\item_disabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="item_enabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\item_enabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\TestRoom\item_enabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_full_gravity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestRoom\item_full_gravity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_full_power" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestRoom\item_full_power.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_full_varia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestRoom\item_full_varia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_gravity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestRoom\item_gravity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_power" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestRoom\item_power.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_varia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestRoom\item_varia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="item_zero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestRoom\item_zero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="status_screen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestRoom\status_screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="test_cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\test_cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\TestRoom\test_cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="test_play" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\test_play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\TestRoom\test_play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MZM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MZM.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

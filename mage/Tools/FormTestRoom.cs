@@ -27,6 +27,7 @@ public partial class FormTestRoom : Form
 
         SetUIValues();
         SetTextBoxColors();
+        ToggleSuitGraphic();
     }
 
     private void SetTextBoxColors()
@@ -79,6 +80,8 @@ public partial class FormTestRoom : Form
         if (save.DebugMenu) ItemToggle(chb_debug);
 
         cbb_suit_type.SelectedIndex = (int)save.Suit;
+        int oldradix = Hex.radix;
+        Hex.radix = 10;
         txb_energy_cur.Text = Hex.ToString(save.CurrentEnergy);
         txb_energy_max.Text = Hex.ToString(save.MaxEnergy);
         txb_missile_cur.Text = Hex.ToString(save.CurrentMissiles);
@@ -87,6 +90,7 @@ public partial class FormTestRoom : Form
         txb_supers_max.Text = Hex.ToString(save.MaxSupers);
         txb_power_cur.Text = Hex.ToString(save.CurrentPowerBombs);
         txb_power_max.Text = Hex.ToString(save.MaxPowerBombs);
+        Hex.radix = oldradix;
 
         if (save.BeamBombs.HasFlag(BeamBombs.LongBeam)) ItemToggle(chb_long);
         if (save.BeamBombs.HasFlag(BeamBombs.IceBeam)) ItemToggle(chb_ice);
@@ -115,6 +119,8 @@ public partial class FormTestRoom : Form
 
             save.Suit = (Suit)cbb_suit_type.SelectedIndex;
 
+            int oldradix = Hex.radix;
+            Hex.radix = 10;
             save.CurrentEnergy = Hex.ToUshort(txb_energy_cur.Text);
             save.MaxEnergy = Hex.ToUshort(txb_energy_max.Text);
             save.CurrentMissiles = Hex.ToUshort(txb_missile_cur.Text);
@@ -123,6 +129,7 @@ public partial class FormTestRoom : Form
             save.MaxSupers = Hex.ToByte(txb_supers_max.Text);
             save.CurrentPowerBombs = Hex.ToByte(txb_power_cur.Text);
             save.MaxPowerBombs = Hex.ToByte(txb_power_max.Text);
+            Hex.radix = oldradix;
 
             Test.Room(main, debug, xPos, yPos, save);
 
@@ -147,6 +154,23 @@ public partial class FormTestRoom : Form
         else sender.Image = Properties.Resources.item_disabled;
     }
 
+    private void ToggleSuitGraphic()
+    {
+        if (cbb_suit_type.SelectedIndex == (int)Suit.Suitless) pbx_suit.Image = Properties.Resources.item_zero;
+        else if (cbb_suit_type.SelectedIndex == (int)Suit.FullPower)
+        {
+            if (chb_gravity.Checked) pbx_suit.Image = Properties.Resources.item_full_gravity;
+            else if (chb_varia.Checked) pbx_suit.Image = Properties.Resources.item_full_varia;
+            else pbx_suit.Image = Properties.Resources.item_full_power;
+        }
+        else
+        {
+            if (chb_gravity.Checked) pbx_suit.Image = Properties.Resources.item_gravity;
+            else if (chb_varia.Checked) pbx_suit.Image = Properties.Resources.item_varia;
+            else pbx_suit.Image = Properties.Resources.item_power;
+        }
+    }
+
     private void chb_beams_bombs_click(object sender, EventArgs e)
     {
         PictureBoxInterpolation pb = sender as PictureBoxInterpolation;
@@ -167,12 +191,20 @@ public partial class FormTestRoom : Form
         Items bb = (Items)Enum.Parse(typeof(Items), pb.Tag.ToString());
         if (!pb.Checked) save.Items &= ~bb;
         else save.Items |= bb;
+
+        //Toggling suit graphics
+        ToggleSuitGraphic();
     }
 
     private void chb_debug_Click(object sender, EventArgs e)
     {
         PictureBoxInterpolation pb = sender as PictureBoxInterpolation;
         ItemToggle(pb);
+    }
+
+    private void cbb_suit_type_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ToggleSuitGraphic();
     }
 }
 

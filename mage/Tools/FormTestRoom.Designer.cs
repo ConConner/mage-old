@@ -58,6 +58,7 @@
             btn_cancel = new PictureBoxInterpolation();
             cbb_suit_type = new Theming.CustomControls.FlatComboBox();
             chb_debug = new PictureBoxInterpolation();
+            pbx_suit = new PictureBoxInterpolation();
             ((System.ComponentModel.ISupportInitialize)pbx_Background).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chb_long).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chb_charge).BeginInit();
@@ -76,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)btn_play).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_cancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chb_debug).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbx_suit).BeginInit();
             SuspendLayout();
             // 
             // textBox_xPos
@@ -488,6 +490,7 @@
             cbb_suit_type.Name = "cbb_suit_type";
             cbb_suit_type.Size = new System.Drawing.Size(121, 23);
             cbb_suit_type.TabIndex = 30;
+            cbb_suit_type.SelectedIndexChanged += cbb_suit_type_SelectedIndexChanged;
             // 
             // chb_debug
             // 
@@ -503,10 +506,23 @@
             chb_debug.Tag = "SpaceJump";
             chb_debug.Click += chb_debug_Click;
             // 
+            // pbx_suit
+            // 
+            pbx_suit.Checked = false;
+            pbx_suit.Image = Properties.Resources.item_full_gravity;
+            pbx_suit.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            pbx_suit.Location = new System.Drawing.Point(267, 120);
+            pbx_suit.Name = "pbx_suit";
+            pbx_suit.Size = new System.Drawing.Size(141, 264);
+            pbx_suit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pbx_suit.TabIndex = 32;
+            pbx_suit.TabStop = false;
+            // 
             // FormTestRoom
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             ClientSize = new System.Drawing.Size(720, 480);
+            Controls.Add(pbx_suit);
             Controls.Add(chb_debug);
             Controls.Add(cbb_suit_type);
             Controls.Add(btn_cancel);
@@ -560,6 +576,7 @@
             ((System.ComponentModel.ISupportInitialize)btn_play).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_cancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)chb_debug).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbx_suit).EndInit();
             ResumeLayout(false);
         }
 
@@ -593,5 +610,6 @@
         private PictureBoxInterpolation btn_cancel;
         private Theming.CustomControls.FlatComboBox cbb_suit_type;
         private PictureBoxInterpolation chb_debug;
+        private PictureBoxInterpolation pbx_suit;
     }
 }
