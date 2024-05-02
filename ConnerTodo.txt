@@ -15,3 +15,5 @@ MAGE 1.5.0:
 - Drop Probability can be input as Percentage
 - Significantly improved Test Room feature for Zero Mission
 - Room map coordinates can be seleted directly from a map
+- Jump To Room (G) on minimap works on every screen of a room.
+  Not only top left corner.
