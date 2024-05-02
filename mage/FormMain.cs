@@ -11,6 +11,7 @@ using System.Text.Json;
 using System.Runtime.InteropServices;
 using System.Drawing.Text;
 using mage.Data;
+using mage.Tools;
 
 namespace mage
 {
@@ -648,8 +649,16 @@ namespace mage
 
         private void menuItem_testRoom_Click(object sender, EventArgs e)
         {
-            FormTestRoom form = new FormTestRoom(this, TestRoomSettings);
-            form.ShowDialog();
+            if (!Version.IsMF)
+            {
+                FormTestRoom form = new FormTestRoom(this, TestRoomSettings);
+                form.ShowDialog();
+            }
+            else
+            {
+                FormTestRoomFusion form = new FormTestRoomFusion(this);
+                form.ShowDialog();
+            }
         }
 
         private void menuItem_clipShortcuts_Click(object sender, EventArgs e)
@@ -2516,6 +2525,7 @@ namespace mage
             if (Version.IsMF)
             {
                 Test.Room(this, true, roomCursor.X, roomCursor.Y);
+                return;
             }
 
             TestRoomSettings.xPos = roomCursor.X;
