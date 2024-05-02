@@ -39,7 +39,7 @@ partial class FlatTextBox : UserControl
             Invalidate();
         }
     }
-    private bool drawBorder = true;
+    public bool drawBorder = true;
 
     public override Color ForeColor { get => textBox.ForeColor; set => textBox.ForeColor = value; }
     public bool ReadOnly { get => textBox.ReadOnly; set => textBox.ReadOnly = value; }
@@ -68,6 +68,8 @@ partial class FlatTextBox : UserControl
     public bool WordWrap { get => textBox.WordWrap; set => textBox.WordWrap = value; }
 
     public int SelectionStart { get => textBox.SelectionStart; set => textBox.SelectionStart = value; }
+
+    public HorizontalAlignment TextAlign { get => textBox.TextAlign; set => textBox.TextAlign = value; }
 
     public ScrollBars ScrollBars { get => textBox.ScrollBars; set => textBox.ScrollBars = value; }
 

@@ -8,6 +8,8 @@ using mage.Properties;
 using mage.Theming;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Runtime.InteropServices;
+using System.Drawing.Text;
 
 namespace mage
 {
@@ -52,6 +54,8 @@ namespace mage
             set { comboBox_clipdata.SelectedIndex = value; }
         }
 
+        public PrivateFontCollection pfc { get; set; } = new PrivateFontCollection();
+
         #endregion
 
         #region fields
@@ -77,6 +81,7 @@ namespace mage
         {
             InitializeComponent();
 
+            InitFont(Properties.Resources.MZM);
             DisplayRecentFiles();
             InitializeSettings();
             ShowSplash();
@@ -258,6 +263,23 @@ namespace mage
             return false;
         }
 
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+
+        private void InitFont(byte[] FontArray)
+        {
+
+            int fontLength = FontArray.Length;
+            byte[] fontData = FontArray;
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+            Marshal.Copy(fontData, 0, data, fontLength);
+
+            uint cFonts = 0;
+            AddFontMemResourceEx(data, (uint)fontData.Length, IntPtr.Zero, ref cFonts);
+            pfc.AddMemoryFont(data, fontLength);
+
+            Marshal.FreeCoTaskMem(data);
+        }
         #endregion
 
 

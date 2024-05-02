@@ -3,6 +3,8 @@ using mage.Theming;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace mage;
@@ -26,6 +28,7 @@ public partial class FormTestRoom : Form
         this.main = main;
 
         SetUIValues();
+        
         SetTextBoxColors();
         ToggleSuitGraphic();
     }
@@ -70,7 +73,19 @@ public partial class FormTestRoom : Form
         txb_power_max.Font =
         textBox_xPos.Font =
         textBox_yPos.Font =
-        new Font("SegoeUI", 12, FontStyle.Bold);
+        new Font(main.pfc.Families[0], 20, FontStyle.Bold);
+
+        txb_missile_cur.drawBorder =
+        txb_missile_max.drawBorder =
+        txb_supers_cur.drawBorder =
+        txb_supers_max.drawBorder =
+        txb_energy_cur.drawBorder =
+        txb_energy_max.drawBorder =
+        txb_power_cur.drawBorder =
+        txb_power_max.drawBorder =
+        textBox_xPos.drawBorder =
+        textBox_yPos.drawBorder =
+        false;
     }
 
     private void SetUIValues()

@@ -88,13 +88,13 @@
             textBox_xPos.Multiline = false;
             textBox_xPos.Name = "textBox_xPos";
             textBox_xPos.OnTextChanged = null;
-            textBox_xPos.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
+            textBox_xPos.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             textBox_xPos.ReadOnly = false;
-            textBox_xPos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             textBox_xPos.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_xPos.SelectionStart = 0;
             textBox_xPos.Size = new System.Drawing.Size(70, 23);
             textBox_xPos.TabIndex = 0;
+            textBox_xPos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             textBox_xPos.WordWrap = true;
             // 
             // textBox_yPos
@@ -105,12 +105,13 @@
             textBox_yPos.Multiline = false;
             textBox_yPos.Name = "textBox_yPos";
             textBox_yPos.OnTextChanged = null;
-            textBox_yPos.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
+            textBox_yPos.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             textBox_yPos.ReadOnly = false;
             textBox_yPos.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_yPos.SelectionStart = 0;
             textBox_yPos.Size = new System.Drawing.Size(70, 23);
             textBox_yPos.TabIndex = 1;
+            textBox_yPos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_yPos.WordWrap = true;
             // 
             // pbx_Background
@@ -330,13 +331,13 @@
             txb_missile_cur.Multiline = false;
             txb_missile_cur.Name = "txb_missile_cur";
             txb_missile_cur.OnTextChanged = null;
-            txb_missile_cur.Padding = new System.Windows.Forms.Padding(3, 3, 1, 2);
+            txb_missile_cur.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             txb_missile_cur.ReadOnly = false;
-            txb_missile_cur.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             txb_missile_cur.ScrollBars = System.Windows.Forms.ScrollBars.None;
             txb_missile_cur.SelectionStart = 0;
             txb_missile_cur.Size = new System.Drawing.Size(70, 23);
             txb_missile_cur.TabIndex = 20;
+            txb_missile_cur.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             txb_missile_cur.WordWrap = true;
             // 
             // txb_missile_max
@@ -347,13 +348,14 @@
             txb_missile_max.Multiline = false;
             txb_missile_max.Name = "txb_missile_max";
             txb_missile_max.OnTextChanged = null;
-            txb_missile_max.Padding = new System.Windows.Forms.Padding(3, 3, 1, 2);
+            txb_missile_max.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             txb_missile_max.ReadOnly = false;
             txb_missile_max.RightToLeft = System.Windows.Forms.RightToLeft.No;
             txb_missile_max.ScrollBars = System.Windows.Forms.ScrollBars.None;
             txb_missile_max.SelectionStart = 0;
             txb_missile_max.Size = new System.Drawing.Size(70, 23);
             txb_missile_max.TabIndex = 21;
+            txb_missile_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             txb_missile_max.WordWrap = true;
             // 
             // txb_supers_cur
@@ -364,13 +366,13 @@
             txb_supers_cur.Multiline = false;
             txb_supers_cur.Name = "txb_supers_cur";
             txb_supers_cur.OnTextChanged = null;
-            txb_supers_cur.Padding = new System.Windows.Forms.Padding(3, 3, 1, 2);
+            txb_supers_cur.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             txb_supers_cur.ReadOnly = false;
-            txb_supers_cur.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             txb_supers_cur.ScrollBars = System.Windows.Forms.ScrollBars.None;
             txb_supers_cur.SelectionStart = 0;
             txb_supers_cur.Size = new System.Drawing.Size(70, 23);
             txb_supers_cur.TabIndex = 22;
+            txb_supers_cur.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             txb_supers_cur.WordWrap = true;
             // 
             // txb_supers_max
@@ -381,12 +383,13 @@
             txb_supers_max.Multiline = false;
             txb_supers_max.Name = "txb_supers_max";
             txb_supers_max.OnTextChanged = null;
-            txb_supers_max.Padding = new System.Windows.Forms.Padding(3, 3, 1, 2);
+            txb_supers_max.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             txb_supers_max.ReadOnly = false;
             txb_supers_max.ScrollBars = System.Windows.Forms.ScrollBars.None;
             txb_supers_max.SelectionStart = 0;
             txb_supers_max.Size = new System.Drawing.Size(70, 23);
             txb_supers_max.TabIndex = 23;
+            txb_supers_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             txb_supers_max.WordWrap = true;
             // 
             // txb_energy_cur
@@ -397,13 +400,13 @@
             txb_energy_cur.Multiline = false;
             txb_energy_cur.Name = "txb_energy_cur";
             txb_energy_cur.OnTextChanged = null;
-            txb_energy_cur.Padding = new System.Windows.Forms.Padding(3, 3, 1, 2);
+            txb_energy_cur.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             txb_energy_cur.ReadOnly = false;
-            txb_energy_cur.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             txb_energy_cur.ScrollBars = System.Windows.Forms.ScrollBars.None;
             txb_energy_cur.SelectionStart = 0;
             txb_energy_cur.Size = new System.Drawing.Size(70, 23);
             txb_energy_cur.TabIndex = 24;
+            txb_energy_cur.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             txb_energy_cur.WordWrap = true;
             // 
             // txb_energy_max
@@ -414,12 +417,13 @@
             txb_energy_max.Multiline = false;
             txb_energy_max.Name = "txb_energy_max";
             txb_energy_max.OnTextChanged = null;
-            txb_energy_max.Padding = new System.Windows.Forms.Padding(3, 3, 1, 2);
+            txb_energy_max.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             txb_energy_max.ReadOnly = false;
             txb_energy_max.ScrollBars = System.Windows.Forms.ScrollBars.None;
             txb_energy_max.SelectionStart = 0;
             txb_energy_max.Size = new System.Drawing.Size(70, 23);
             txb_energy_max.TabIndex = 25;
+            txb_energy_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             txb_energy_max.WordWrap = true;
             // 
             // txb_power_cur
@@ -430,13 +434,13 @@
             txb_power_cur.Multiline = false;
             txb_power_cur.Name = "txb_power_cur";
             txb_power_cur.OnTextChanged = null;
-            txb_power_cur.Padding = new System.Windows.Forms.Padding(3, 3, 1, 2);
+            txb_power_cur.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             txb_power_cur.ReadOnly = false;
-            txb_power_cur.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             txb_power_cur.ScrollBars = System.Windows.Forms.ScrollBars.None;
             txb_power_cur.SelectionStart = 0;
             txb_power_cur.Size = new System.Drawing.Size(42, 23);
             txb_power_cur.TabIndex = 26;
+            txb_power_cur.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             txb_power_cur.WordWrap = true;
             // 
             // txb_power_max
@@ -447,12 +451,13 @@
             txb_power_max.Multiline = false;
             txb_power_max.Name = "txb_power_max";
             txb_power_max.OnTextChanged = null;
-            txb_power_max.Padding = new System.Windows.Forms.Padding(3, 3, 1, 2);
+            txb_power_max.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             txb_power_max.ReadOnly = false;
             txb_power_max.ScrollBars = System.Windows.Forms.ScrollBars.None;
             txb_power_max.SelectionStart = 0;
             txb_power_max.Size = new System.Drawing.Size(47, 23);
             txb_power_max.TabIndex = 27;
+            txb_power_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             txb_power_max.WordWrap = true;
             // 
             // btn_play
@@ -485,8 +490,8 @@
             // 
             cbb_suit_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cbb_suit_type.FormattingEnabled = true;
-            cbb_suit_type.Items.AddRange(new object[] { "Normal Suit", "Full Power Suit", "Zero Suit" });
-            cbb_suit_type.Location = new System.Drawing.Point(275, 420);
+            cbb_suit_type.Items.AddRange(new object[] { "Normal Suit", "Fully Powered Suit", "Zero Suit" });
+            cbb_suit_type.Location = new System.Drawing.Point(277, 420);
             cbb_suit_type.Name = "cbb_suit_type";
             cbb_suit_type.Size = new System.Drawing.Size(121, 23);
             cbb_suit_type.TabIndex = 30;
@@ -520,7 +525,8 @@
             // 
             // FormTestRoom
             // 
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             ClientSize = new System.Drawing.Size(720, 480);
             Controls.Add(pbx_suit);
             Controls.Add(chb_debug);
