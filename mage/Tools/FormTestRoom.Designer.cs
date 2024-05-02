@@ -83,7 +83,7 @@
             // textBox_xPos
             // 
             textBox_xPos.BorderColor = System.Drawing.Color.Black;
-            textBox_xPos.Location = new System.Drawing.Point(24, 421);
+            textBox_xPos.Location = new System.Drawing.Point(42, 421);
             textBox_xPos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_xPos.Multiline = false;
             textBox_xPos.Name = "textBox_xPos";
@@ -92,7 +92,7 @@
             textBox_xPos.ReadOnly = false;
             textBox_xPos.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_xPos.SelectionStart = 0;
-            textBox_xPos.Size = new System.Drawing.Size(70, 23);
+            textBox_xPos.Size = new System.Drawing.Size(52, 23);
             textBox_xPos.TabIndex = 0;
             textBox_xPos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             textBox_xPos.WordWrap = true;
@@ -109,7 +109,7 @@
             textBox_yPos.ReadOnly = false;
             textBox_yPos.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_yPos.SelectionStart = 0;
-            textBox_yPos.Size = new System.Drawing.Size(70, 23);
+            textBox_yPos.Size = new System.Drawing.Size(52, 23);
             textBox_yPos.TabIndex = 1;
             textBox_yPos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_yPos.WordWrap = true;
