@@ -23,7 +23,7 @@ public partial class FormTestRoom : Form
         ThemeSwitcher.ChangeTheme(Controls, this);
         ThemeSwitcher.InjectPaintOverrides(Controls);
 
-        if (save == null) save = new(ROM.Stream);
+        if (save == null) save = new();
         this.save = save;
         this.main = main;
 

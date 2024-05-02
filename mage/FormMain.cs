@@ -94,7 +94,6 @@ namespace mage
             ThemeSwitcher.ChangeTheme(Controls, this);
             ThemeSwitcher.InjectPaintOverrides(Controls);
 
-            ThemeSwitcher.TestSerialisation();
         }
 
         #region opening/closing
@@ -190,6 +189,7 @@ namespace mage
             {
                 TestRoomSettings = JsonSerializer.Deserialize<sRam>(testRoomSettings);
             }
+            else TestRoomSettings = new();
         }
 
         private void SaveSettings()
@@ -1151,8 +1151,6 @@ namespace mage
             EnableControls(true);
             menuItem_editBGs.Checked = toolStrip_editBGs.Checked = true;
             menuItem_editObjects.Checked = toolStrip_editObjects.Checked = false;
-
-            TestRoomSettings.RomStream = ROM.Stream;
         }
 
         private void EnableControls(bool val)

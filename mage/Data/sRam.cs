@@ -12,14 +12,8 @@ namespace mage.Data;
 /// </summary>
 public class sRam
 {
-    [JsonIgnore]
-    public ByteStream RomStream { get; set; }
     private int sramAddr = 0x7D8000;
 
-    public sRam(ByteStream bs)
-    {
-        this.RomStream = bs;
-    }
 
     [JsonConstructor]
     public sRam() { }
@@ -47,27 +41,27 @@ public class sRam
 
     public void WriteToRom()
     {
-        if (RomStream == null) throw new Exception("No ROM Stream specified");
+        if (ROM.Stream == null) throw new Exception("No ROM Stream specified");
 
         //Writing Samus Equipment Data
-        RomStream.Seek(sramAddr + 0x19C);
+        ROM.Stream.Seek(sramAddr + 0x19C);
 
-        RomStream.Write16(MaxEnergy);
-        RomStream.Write16(MaxMissiles);
-        RomStream.Write8(MaxSupers);
-        RomStream.Write8(MaxPowerBombs);
-        RomStream.Write16(CurrentEnergy);
-        RomStream.Write16(CurrentMissiles);
-        RomStream.Write8(CurrentSupers);
-        RomStream.Write8(CurrentPowerBombs);
-        RomStream.Write8((byte)BeamBombs);
-        RomStream.Write8((byte)BeamBombs); //Activation flags
-        RomStream.Write8((byte)Items);
-        RomStream.Write8((byte)Items); //Activation flags
-        RomStream.Write8(MapStatus);
-        RomStream.Write8(LowHealthFlag);
-        RomStream.Write8((byte)Suit);
-        RomStream.Write8(GrabbedByMetroid);
+        ROM.Stream.Write16(MaxEnergy);
+        ROM.Stream.Write16(MaxMissiles);
+        ROM.Stream.Write8(MaxSupers);
+        ROM.Stream.Write8(MaxPowerBombs);
+        ROM.Stream.Write16(CurrentEnergy);
+        ROM.Stream.Write16(CurrentMissiles);
+        ROM.Stream.Write8(CurrentSupers);
+        ROM.Stream.Write8(CurrentPowerBombs);
+        ROM.Stream.Write8((byte)BeamBombs);
+        ROM.Stream.Write8((byte)BeamBombs); //Activation flags
+        ROM.Stream.Write8((byte)Items);
+        ROM.Stream.Write8((byte)Items); //Activation flags
+        ROM.Stream.Write8(MapStatus);
+        ROM.Stream.Write8(LowHealthFlag);
+        ROM.Stream.Write8((byte)Suit);
+        ROM.Stream.Write8(GrabbedByMetroid);
     }
 }
 

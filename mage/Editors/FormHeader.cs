@@ -1,4 +1,5 @@
 ﻿using mage.Theming;
+using mage.Tools;
 using System;
 using System.Windows.Forms;
 
@@ -236,6 +237,11 @@ namespace mage
         private void button_close_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void label_mapX_Click(object sender, EventArgs e)
+        {
+            //new FormMinimapDialog(main.Room.AreaID).ShowDialog();
         }
     }
 }

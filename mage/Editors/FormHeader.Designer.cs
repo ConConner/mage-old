@@ -824,6 +824,7 @@
             label_mapX.Size = new System.Drawing.Size(44, 15);
             label_mapX.TabIndex = 0;
             label_mapX.Text = "Map X:";
+            label_mapX.Click += label_mapX_Click;
             // 
             // textBox_mapX
             // 
