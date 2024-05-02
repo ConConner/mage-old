@@ -72,6 +72,7 @@
             textBox_firstPointer = new Theming.CustomControls.FlatTextBox();
             textBox_firstSpriteset = new Theming.CustomControls.FlatTextBox();
             groupBox_misc = new System.Windows.Forms.GroupBox();
+            btn_open_map = new System.Windows.Forms.Button();
             label_music = new System.Windows.Forms.Label();
             textBox_music = new Theming.CustomControls.FlatTextBox();
             label_mapY = new System.Windows.Forms.Label();
@@ -79,15 +80,15 @@
             textBox_mapX = new Theming.CustomControls.FlatTextBox();
             textBox_mapY = new Theming.CustomControls.FlatTextBox();
             button_apply = new System.Windows.Forms.Button();
-            button_close = new System.Windows.Forms.Button();
-            label_offset = new System.Windows.Forms.Label();
-            textBox_offsetVal = new Theming.CustomControls.FlatTextBox();
             label_room = new System.Windows.Forms.Label();
             label_area = new System.Windows.Forms.Label();
             comboBox_room = new Theming.CustomControls.FlatComboBox();
             comboBox_area = new Theming.CustomControls.FlatComboBox();
             statusStrip = new System.Windows.Forms.StatusStrip();
             statusLabel_changes = new System.Windows.Forms.ToolStripStatusLabel();
+            lbl_spring = new System.Windows.Forms.ToolStripStatusLabel();
+            lbl_offset = new System.Windows.Forms.ToolStripStatusLabel();
+            button_close = new System.Windows.Forms.Button();
             groupBox_BGdata.SuspendLayout();
             groupBox_spritesetData.SuspendLayout();
             groupBox_misc.SuspendLayout();
@@ -539,7 +540,7 @@
             groupBox_spritesetData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox_spritesetData.Name = "groupBox_spritesetData";
             groupBox_spritesetData.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox_spritesetData.Size = new System.Drawing.Size(239, 136);
+            groupBox_spritesetData.Size = new System.Drawing.Size(239, 168);
             groupBox_spritesetData.TabIndex = 1;
             groupBox_spritesetData.TabStop = false;
             groupBox_spritesetData.Text = "Spriteset Data";
@@ -761,6 +762,7 @@
             // 
             // groupBox_misc
             // 
+            groupBox_misc.Controls.Add(btn_open_map);
             groupBox_misc.Controls.Add(label_music);
             groupBox_misc.Controls.Add(textBox_music);
             groupBox_misc.Controls.Add(label_mapY);
@@ -771,15 +773,26 @@
             groupBox_misc.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox_misc.Name = "groupBox_misc";
             groupBox_misc.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox_misc.Size = new System.Drawing.Size(107, 136);
+            groupBox_misc.Size = new System.Drawing.Size(107, 168);
             groupBox_misc.TabIndex = 2;
             groupBox_misc.TabStop = false;
             groupBox_misc.Text = "Miscellaneous";
             // 
+            // btn_open_map
+            // 
+            btn_open_map.Location = new System.Drawing.Point(7, 98);
+            btn_open_map.Name = "btn_open_map";
+            btn_open_map.Size = new System.Drawing.Size(90, 27);
+            btn_open_map.TabIndex = 3;
+            btn_open_map.Text = "Open Map";
+            btn_open_map.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            btn_open_map.UseVisualStyleBackColor = true;
+            btn_open_map.Click += btn_open_map_Click;
+            // 
             // label_music
             // 
             label_music.AutoSize = true;
-            label_music.Location = new System.Drawing.Point(7, 104);
+            label_music.Location = new System.Drawing.Point(7, 138);
             label_music.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label_music.Name = "label_music";
             label_music.Size = new System.Drawing.Size(42, 15);
@@ -790,7 +803,7 @@
             // 
             textBox_music.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
             textBox_music.DisplayBorder = true;
-            textBox_music.Location = new System.Drawing.Point(62, 100);
+            textBox_music.Location = new System.Drawing.Point(62, 134);
             textBox_music.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_music.Multiline = false;
             textBox_music.Name = "textBox_music";
@@ -824,7 +837,6 @@
             label_mapX.Size = new System.Drawing.Size(44, 15);
             label_mapX.TabIndex = 0;
             label_mapX.Text = "Map X:";
-            label_mapX.Click += label_mapX_Click;
             // 
             // textBox_mapX
             // 
@@ -867,59 +879,19 @@
             // button_apply
             // 
             button_apply.Enabled = false;
-            button_apply.Location = new System.Drawing.Point(186, 358);
+            button_apply.Location = new System.Drawing.Point(260, 386);
             button_apply.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_apply.Name = "button_apply";
-            button_apply.Size = new System.Drawing.Size(88, 27);
+            button_apply.Size = new System.Drawing.Size(107, 27);
             button_apply.TabIndex = 5;
             button_apply.Text = "Apply";
             button_apply.UseVisualStyleBackColor = true;
             button_apply.Click += button_apply_Click;
             // 
-            // button_close
-            // 
-            button_close.Location = new System.Drawing.Point(280, 358);
-            button_close.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button_close.Name = "button_close";
-            button_close.Size = new System.Drawing.Size(88, 27);
-            button_close.TabIndex = 6;
-            button_close.Text = "Close";
-            button_close.UseVisualStyleBackColor = true;
-            button_close.Click += button_close_Click;
-            // 
-            // label_offset
-            // 
-            label_offset.AutoSize = true;
-            label_offset.Location = new System.Drawing.Point(183, 391);
-            label_offset.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label_offset.Name = "label_offset";
-            label_offset.Size = new System.Drawing.Size(42, 15);
-            label_offset.TabIndex = 0;
-            label_offset.Text = "Offset:";
-            // 
-            // textBox_offsetVal
-            // 
-            textBox_offsetVal.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
-            textBox_offsetVal.DisplayBorder = false;
-            textBox_offsetVal.Location = new System.Drawing.Point(233, 388);
-            textBox_offsetVal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox_offsetVal.Multiline = false;
-            textBox_offsetVal.Name = "textBox_offsetVal";
-            textBox_offsetVal.OnTextChanged = null;
-            textBox_offsetVal.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
-            textBox_offsetVal.ReadOnly = true;
-            textBox_offsetVal.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            textBox_offsetVal.SelectionStart = 0;
-            textBox_offsetVal.Size = new System.Drawing.Size(64, 23);
-            textBox_offsetVal.TabIndex = 0;
-            textBox_offsetVal.TabStop = false;
-            textBox_offsetVal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            textBox_offsetVal.WordWrap = true;
-            // 
             // label_room
             // 
             label_room.AutoSize = true;
-            label_room.Location = new System.Drawing.Point(14, 391);
+            label_room.Location = new System.Drawing.Point(20, 421);
             label_room.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label_room.Name = "label_room";
             label_room.Size = new System.Drawing.Size(42, 15);
@@ -929,7 +901,7 @@
             // label_area
             // 
             label_area.AutoSize = true;
-            label_area.Location = new System.Drawing.Point(14, 362);
+            label_area.Location = new System.Drawing.Point(20, 392);
             label_area.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label_area.Name = "label_area";
             label_area.Size = new System.Drawing.Size(34, 15);
@@ -940,10 +912,10 @@
             // 
             comboBox_room.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBox_room.FormattingEnabled = true;
-            comboBox_room.Location = new System.Drawing.Point(64, 388);
+            comboBox_room.Location = new System.Drawing.Point(70, 418);
             comboBox_room.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox_room.Name = "comboBox_room";
-            comboBox_room.Size = new System.Drawing.Size(89, 23);
+            comboBox_room.Size = new System.Drawing.Size(182, 23);
             comboBox_room.TabIndex = 4;
             comboBox_room.SelectedIndexChanged += comboBox_room_SelectedIndexChanged;
             // 
@@ -951,17 +923,17 @@
             // 
             comboBox_area.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBox_area.FormattingEnabled = true;
-            comboBox_area.Location = new System.Drawing.Point(64, 359);
+            comboBox_area.Location = new System.Drawing.Point(70, 389);
             comboBox_area.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox_area.Name = "comboBox_area";
-            comboBox_area.Size = new System.Drawing.Size(89, 23);
+            comboBox_area.Size = new System.Drawing.Size(182, 23);
             comboBox_area.TabIndex = 3;
             comboBox_area.SelectedIndexChanged += comboBox_area_SelectedIndexChanged;
             // 
             // statusStrip
             // 
-            statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { statusLabel_changes });
-            statusStrip.Location = new System.Drawing.Point(0, 421);
+            statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { statusLabel_changes, lbl_spring, lbl_offset });
+            statusStrip.Location = new System.Drawing.Point(0, 451);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
             statusStrip.Size = new System.Drawing.Size(382, 22);
@@ -969,22 +941,44 @@
             // 
             // statusLabel_changes
             // 
+            statusLabel_changes.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             statusLabel_changes.Name = "statusLabel_changes";
             statusLabel_changes.Size = new System.Drawing.Size(12, 17);
             statusLabel_changes.Text = "-";
+            // 
+            // lbl_spring
+            // 
+            lbl_spring.Name = "lbl_spring";
+            lbl_spring.Size = new System.Drawing.Size(311, 17);
+            lbl_spring.Spring = true;
+            // 
+            // lbl_offset
+            // 
+            lbl_offset.Name = "lbl_offset";
+            lbl_offset.Size = new System.Drawing.Size(42, 17);
+            lbl_offset.Text = "Offset:";
+            // 
+            // button_close
+            // 
+            button_close.Location = new System.Drawing.Point(260, 415);
+            button_close.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button_close.Name = "button_close";
+            button_close.Size = new System.Drawing.Size(107, 27);
+            button_close.TabIndex = 6;
+            button_close.Text = "Close";
+            button_close.UseVisualStyleBackColor = true;
+            button_close.Click += button_close_Click;
             // 
             // FormHeader
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(382, 443);
+            ClientSize = new System.Drawing.Size(382, 473);
             Controls.Add(statusStrip);
             Controls.Add(label_room);
             Controls.Add(label_area);
             Controls.Add(comboBox_room);
             Controls.Add(comboBox_area);
-            Controls.Add(textBox_offsetVal);
-            Controls.Add(label_offset);
             Controls.Add(button_close);
             Controls.Add(button_apply);
             Controls.Add(groupBox_misc);
@@ -1059,14 +1053,15 @@
         private mage.Theming.CustomControls.FlatTextBox textBox_mapX;
         private mage.Theming.CustomControls.FlatTextBox textBox_mapY;
         private System.Windows.Forms.Button button_apply;
-        private System.Windows.Forms.Button button_close;
-        private System.Windows.Forms.Label label_offset;
-        private mage.Theming.CustomControls.FlatTextBox textBox_offsetVal;
         private System.Windows.Forms.Label label_room;
         private System.Windows.Forms.Label label_area;
         private mage.Theming.CustomControls.FlatComboBox comboBox_room;
         private mage.Theming.CustomControls.FlatComboBox comboBox_area;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel_changes;
+        private System.Windows.Forms.ToolStripStatusLabel lbl_spring;
+        private System.Windows.Forms.ToolStripStatusLabel lbl_offset;
+        private System.Windows.Forms.Button btn_open_map;
+        private System.Windows.Forms.Button button_close;
     }
 }

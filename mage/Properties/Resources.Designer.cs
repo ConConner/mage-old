@@ -1947,6 +1947,16 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] zm_digits {
+            get {
+                object obj = ResourceManager.GetObject("zm_digits", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ZM_genTileTable {
             get {
                 object obj = ResourceManager.GetObject("ZM_genTileTable", resourceCulture);
@@ -2406,8 +2416,7 @@ namespace mage.Properties {
         ///	[
         ///		Name=Wave
         ///		Graphics=328F34
-        ///		Palette=327148
-        /// [rest of string was truncated]&quot;;.
+        ///		Palette=327148        /// [rest of string was truncated]&quot;;.
         /// </summary>
         public static string ZM_U_weapons {
             get {

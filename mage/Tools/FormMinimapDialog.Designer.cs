@@ -41,6 +41,8 @@
             gfxView_map.Size = new System.Drawing.Size(512, 512);
             gfxView_map.TabIndex = 7;
             gfxView_map.TabStop = false;
+            gfxView_map.MouseClick += gfxView_map_MouseClick;
+            gfxView_map.MouseMove += gfxView_map_MouseMove;
             // 
             // FormMinimapDialog
             // 
@@ -48,7 +50,10 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             ClientSize = new System.Drawing.Size(512, 512);
             Controls.Add(gfxView_map);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormMinimapDialog";
             Text = "Select Map Coordinate";
             ResumeLayout(false);

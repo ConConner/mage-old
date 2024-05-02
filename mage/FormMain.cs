@@ -84,7 +84,8 @@ namespace mage
         {
             InitializeComponent();
 
-            InitFont(Properties.Resources.MZM);
+            InitFont(Properties.Resources.zm_digits);
+
             DisplayRecentFiles();
             InitializeSettings();
             ShowSplash();

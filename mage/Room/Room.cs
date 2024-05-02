@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 
 namespace mage
 {
@@ -11,6 +13,8 @@ namespace mage
         public byte RoomID { get; private set; }
         public byte Width { get { return backgrounds.width; } }
         public byte Height { get { return backgrounds.height; } }
+        public byte WidthInScreens => (byte)Math.Ceiling((double)((Width - 4) / 15));
+        public byte HeightInScreens => (byte)Math.Ceiling((double)((Height - 4) / 10));
 
         public BG BG0 { get { return backgrounds.bg0; } }
         public BG BG1 { get { return backgrounds.bg1; } }

@@ -35,7 +35,6 @@
             linkLabel_forum = new System.Windows.Forms.LinkLabel();
             label_silk = new System.Windows.Forms.Label();
             linkLabel_silk = new System.Windows.Forms.LinkLabel();
-            linklabel_font = new System.Windows.Forms.LinkLabel();
             label_font = new System.Windows.Forms.Label();
             linkLabel_repo = new System.Windows.Forms.LinkLabel();
             label_repo = new System.Windows.Forms.Label();
@@ -106,18 +105,6 @@
             linkLabel_silk.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             linkLabel_silk.LinkClicked += linkLabel_clicked;
             // 
-            // linklabel_font
-            // 
-            linklabel_font.Location = new System.Drawing.Point(15, 306);
-            linklabel_font.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            linklabel_font.Name = "linklabel_font";
-            linklabel_font.Size = new System.Drawing.Size(280, 15);
-            linklabel_font.TabIndex = 11;
-            linklabel_font.TabStop = true;
-            linklabel_font.Text = "https://drive.google.com/file/d/1LeKSt6uQhag41uoosTPkG7kI6CjUsDpi/view";
-            linklabel_font.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            linklabel_font.LinkClicked += linkLabel_clicked;
-            // 
             // label_font
             // 
             label_font.Location = new System.Drawing.Point(15, 291);
@@ -125,7 +112,7 @@
             label_font.Name = "label_font";
             label_font.Size = new System.Drawing.Size(280, 15);
             label_font.TabIndex = 10;
-            label_font.Text = "MZM Font by SlimSlamtheFlimFlam";
+            label_font.Text = "MZM Font by Zidj";
             label_font.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // linkLabel_repo
@@ -154,10 +141,9 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(308, 340);
+            ClientSize = new System.Drawing.Size(308, 321);
             Controls.Add(linkLabel_repo);
             Controls.Add(label_repo);
-            Controls.Add(linklabel_font);
             Controls.Add(label_font);
             Controls.Add(linkLabel_silk);
             Controls.Add(label_silk);
@@ -183,7 +169,6 @@
         private System.Windows.Forms.LinkLabel linkLabel_forum;
         private System.Windows.Forms.Label label_silk;
         private System.Windows.Forms.LinkLabel linkLabel_silk;
-        private System.Windows.Forms.LinkLabel linklabel_font;
         private System.Windows.Forms.Label label_font;
         private System.Windows.Forms.LinkLabel linkLabel_repo;
         private System.Windows.Forms.Label label_repo;
