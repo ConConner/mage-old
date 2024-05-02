@@ -29,11 +29,11 @@ public partial class FormTestRoom : Form
 
         SetUIValues();
         
-        SetTextBoxColors();
+        SetUIColors();
         ToggleSuitGraphic();
     }
 
-    private void SetTextBoxColors()
+    private void SetUIColors()
     {
         txb_missile_cur.BackColor =
         txb_missile_max.BackColor =

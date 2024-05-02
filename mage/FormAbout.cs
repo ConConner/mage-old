@@ -15,15 +15,10 @@ namespace mage
             ThemeSwitcher.InjectPaintOverrides(Controls);
         }
 
-        private void linkLabel_forum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabel_clicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(new ProcessStartInfo(linkLabel_forum.Text) { UseShellExecute = true });
+            LinkLabel lbl = sender as LinkLabel;
+            Process.Start(new ProcessStartInfo(lbl.Text) { UseShellExecute = true });
         }
-
-        private void linkLabel_silk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo(linkLabel_silk.Text) { UseShellExecute = true });
-        }
-
     }
 }

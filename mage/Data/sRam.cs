@@ -12,6 +12,7 @@ namespace mage.Data;
 /// </summary>
 public class sRam
 {
+    [JsonIgnore]
     public ByteStream RomStream { get; set; }
     private int sramAddr = 0x7D8000;
 

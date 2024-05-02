@@ -10,6 +10,7 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Runtime.InteropServices;
 using System.Drawing.Text;
+using mage.Data;
 
 namespace mage
 {
@@ -55,6 +56,7 @@ namespace mage
         }
 
         public PrivateFontCollection pfc { get; set; } = new PrivateFontCollection();
+        public sRam TestRoomSettings { get; set; } = null;
 
         #endregion
 
@@ -180,6 +182,13 @@ namespace mage
             }
             CheckIfThemesExist();
             ThemeSwitcher.ProjectThemeName = Settings.Default.selectedTheme;
+
+            //Loading Test Room settings
+            string testRoomSettings = Settings.Default.testRoomSRAM;
+            if (testRoomSettings != "")
+            {
+                TestRoomSettings = JsonSerializer.Deserialize<sRam>(testRoomSettings);
+            }
         }
 
         private void SaveSettings()
@@ -204,6 +213,10 @@ namespace mage
             string themeDictionary = ThemeSwitcher.Serialize(ThemeSwitcher.Themes);
             Settings.Default.themes = themeDictionary;
             Settings.Default.selectedTheme = ThemeSwitcher.ProjectThemeName;
+
+            //Saving TestROM save
+            string testRoomSettings = JsonSerializer.Serialize(TestRoomSettings);
+            Settings.Default.testRoomSRAM = testRoomSettings;
 
             Settings.Default.Save();
         }
@@ -635,7 +648,7 @@ namespace mage
 
         private void menuItem_testRoom_Click(object sender, EventArgs e)
         {
-            FormTestRoom form = new FormTestRoom(this);
+            FormTestRoom form = new FormTestRoom(this, TestRoomSettings);
             form.ShowDialog();
         }
 
@@ -1129,6 +1142,8 @@ namespace mage
             EnableControls(true);
             menuItem_editBGs.Checked = toolStrip_editBGs.Checked = true;
             menuItem_editObjects.Checked = toolStrip_editObjects.Checked = false;
+
+            TestRoomSettings.RomStream = ROM.Stream;
         }
 
         private void EnableControls(bool val)
@@ -1748,7 +1763,8 @@ namespace mage
                     ResizeDoor(e.KeyCode);
                     break;
                 case Keys.T:
-                    Test.Room(this, true, roomCursor.X, roomCursor.Y);
+                    bool debug = Version.IsMF ? true : TestRoomSettings.DebugMenu;
+                    Test.Room(this, debug, roomCursor.X, roomCursor.Y, TestRoomSettings);
                     break;
                 case Keys.G:
                     GoThroughDoor();
@@ -2497,7 +2513,15 @@ namespace mage
 
         private void contextItem_testRoom_Click(object sender, EventArgs e)
         {
-            Test.Room(this, true, roomCursor.X, roomCursor.Y);
+            if (Version.IsMF)
+            {
+                Test.Room(this, true, roomCursor.X, roomCursor.Y);
+            }
+
+            TestRoomSettings.xPos = roomCursor.X;
+            TestRoomSettings.yPos = roomCursor.Y;
+            FormTestRoom settings = new FormTestRoom(this, TestRoomSettings);
+            settings.ShowDialog();
         }
 
 
