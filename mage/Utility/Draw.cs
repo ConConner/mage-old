@@ -200,6 +200,105 @@ namespace mage
             return new Rectangle(i, j, w, h);
         }
 
+        /// <summary>
+        /// Draws a room image onto a bitmap with the current settings in <see cref="FormMain"/>
+        /// </summary>
+        /// <param name="room"></param>
+        /// <param name="result"></param>
+        /// <param name="rect"></param>
+        /// <param name="main"></param>
+        public static unsafe void DrawRoom(Room room, Bitmap result, FormMain main)
+        {
+            // get rectangles
+            Rectangle roomSize = new Rectangle(0, 0, result.Width, result.Height);
+            Rectangle rect = roomSize;
 
+            BitmapData dstData = result.LockBits(roomSize, ImageLockMode.WriteOnly, PixelFormat.Format16bppRgb555);
+            int imgWidth = result.Width;
+            int dstWidth = rect.Width;
+
+            // fill with black
+            ushort* dstPtr = (ushort*)dstData.Scan0;
+            dstPtr += rect.Y * imgWidth + rect.X;
+            for (int y = 0; y < rect.Height; y++)
+            {
+                for (int x = 0; x < dstWidth; x++)
+                {
+                    *dstPtr++ = 0;
+                }
+                dstPtr += imgWidth - dstWidth;
+            }
+
+            // backgrounds
+            Rectangle region = new Rectangle(rect.X >> 4, rect.Y >> 4, rect.Width >> 4, rect.Height >> 4);
+            Bitmap srcImg = room.vram.Image;
+            BitmapData srcData = srcImg.LockBits(new Rectangle(0, 0, 256, srcImg.Height), ImageLockMode.ReadOnly, srcImg.PixelFormat);
+
+            int nextLayer = 3;
+            for (int i = 0; i < 4; i++)
+            {
+                bool drawSprites = room.backgrounds.DrawNextLayer(region, dstData, srcData, ref nextLayer);
+                if (drawSprites && main.ViewSprites)
+                {
+                    room.enemyList.DrawSprites(rect, dstData, room.spritesets[main.EnemySet], room.vramObj);
+                }
+            }
+
+            srcImg.UnlockBits(srcData);
+
+            result.UnlockBits(dstData);
+
+            using (Graphics g = Graphics.FromImage(result))
+            {
+                if (main.OutlineSprites)
+                {
+                    room.enemyList.DrawOutlines(g, rect);
+                }
+                if (main.OutlineDoors)
+                {
+                    room.doorList.Draw(g, rect);
+                }
+                if (main.OutlineScrolls)
+                {
+                    room.scrollList.Draw(g, rect);
+                }
+                if (main.ViewCollision)
+                {
+                    room.backgrounds.clipTypes.DrawCollision(g, rect);
+                }
+                else if (main.ViewBreakable)
+                {
+                    room.backgrounds.clipTypes.DrawBreakable(g, rect);
+                }
+                else if (main.ViewValues)
+                {
+                    room.backgrounds.clipTypes.DrawValues(g, rect);
+                }
+                if (main.OutlineScreens)
+                {
+                    DrawScreenOutlines(g, rect);
+                }
+            }
+        }
+
+        private static void DrawScreenOutlines(Graphics g, Rectangle rect)
+        {
+            int xEnd = rect.X + rect.Width;
+            int yEnd = rect.Y + rect.Height;
+            Pen sp = new Pen(Color.White, 2);
+
+            int pos = ((rect.X + 192) / 240) * 240 + 32;
+            while (pos <= xEnd)
+            {
+                g.DrawLine(sp, pos, rect.Y, pos, yEnd);
+                pos += 240;
+            }
+            pos = ((rect.Y + 112) / 160) * 160 + 32;
+            while (pos <= yEnd)
+            {
+                g.DrawLine(sp, rect.X, pos, xEnd, pos);
+                pos += 160;
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Drawing.Text;
 using mage.Data;
 using mage.Tools;
+using System.IO.Compression;
 
 namespace mage
 {
@@ -754,6 +755,37 @@ namespace mage
             }
         }
 
+        private void menuItem_bulkExportScreens_Click(object sender, EventArgs e)
+        {
+            //Bulk room exporting
+            //Get Filename
+            SaveFileDialog roomFile = new SaveFileDialog();
+            roomFile.Filter = "MAGE room archive (*.zip)|*.zip";
+            if (roomFile.ShowDialog() != DialogResult.OK) return;
+
+            byte area = Room.AreaID;
+
+            //Setup zip file
+            using (var fileStream = new FileStream(roomFile.FileName, FileMode.CreateNew))
+            using (var archive = new ZipArchive(fileStream, ZipArchiveMode.Create, true))
+            {
+                //Loop through rooms
+                for (byte room = 0; room < Version.RoomsPerArea[area]; room++)
+                {
+                    Room r = new Room(area, room);
+                    ByteStream roomStream = r.ExportToBytestream();
+                    string name = $"{areaNames[area]}_{Hex.ToString(room)}.mgr";
+
+                    //Adding to zip file
+                    var zipArchiveEntry = archive.CreateEntry(name, CompressionLevel.Fastest);
+                    using (var zipStream = zipArchiveEntry.Open())
+                    {
+                        zipStream.Write(roomStream.Data, 0, roomStream.Length);
+                    }
+                }
+            }
+        }
+
         private void menuItem_exportTilesetImage_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveTileset = new SaveFileDialog();
@@ -792,6 +824,38 @@ namespace mage
             {
                 roomView.BackgroundImage.Save(saveRoom.FileName);
             }
+        }
+
+        private void menuItem_areaImage_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveArea = new SaveFileDialog();
+            saveArea.Filter = "PNG files (*.png)|*.png";
+            if (saveArea.ShowDialog() != DialogResult.OK) return;
+
+            //Drawing every Room on a big Bitmap
+            int areaPixelWidth = 15 * 16 * 32;
+            int areaPixelHeight = 10 * 16 * 32;
+            Bitmap areaImage = new(areaPixelWidth, areaPixelHeight);
+            Graphics g = Graphics.FromImage(areaImage);
+
+            int area = Room.AreaID;
+            for (byte room = 0; room < roomsPerArea[area]; room++)
+            {
+                Room r = new Room(area, room);
+                Bitmap roomImage = new Bitmap(r.Width * 16, r.Height * 16);
+                Draw.DrawRoom(r, roomImage, this);
+
+                Rectangle visibleRegion = new Rectangle(16 * 2, 16 * 2, (r.Width - 4) * 16, (r.Height - 4) * 16);
+
+                int areaCoordinateX = r.header.mapX * 15 * 16;
+                int areaCoordinateY = r.header.mapY * 10 * 16;
+                g.DrawImage(roomImage, areaCoordinateX, areaCoordinateY, visibleRegion, GraphicsUnit.Pixel);
+                roomImage.Dispose();
+            }
+
+            g.Dispose();
+            areaImage.Save(saveArea.FileName);
+            areaImage.Dispose();
         }
 
         private void menuItem_LZ77comp_Click(object sender, EventArgs e)
@@ -1999,7 +2063,23 @@ namespace mage
                 else { clip = 0xFFFE; }
             }
 
-            EditBlocks a = new EditBlocks(room.backgrounds, blocks, roomCursor, bgNum, clip, combine);
+            EditBlocks a;
+            //if (blocks.Length == 1)
+            //{ 
+            //    if (clip == 0x13)
+            //    {
+            //        Block b = blocks[0, 0];
+            //        blocks = new Block[2,1];
+            //
+            //        b.CLP = 0x13;
+            //        blocks[0,0] = b;
+            //        b.CLP = 0x14;
+            //        blocks[1,0] = b;
+            //
+            //        clip = 0xFFFE;
+            //    }
+            //}
+            a = new EditBlocks(room.backgrounds, blocks, roomCursor, bgNum, clip, combine);
             PerformAction(a);
         }
 

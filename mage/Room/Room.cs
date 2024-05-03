@@ -207,6 +207,12 @@ namespace mage
 
         public void Export(string filename)
         {
+            ByteStream dst = ExportToBytestream();
+            dst.Export(filename);
+        }
+
+        public ByteStream ExportToBytestream()
+        {
             // file format:
             // 00 MAGE 1.4 ROOM
             // 10 Game# Area# Room#
@@ -275,7 +281,7 @@ namespace mage
             dst.Write32(doorListOffset);    // doors
             dst.Write32(scrollListOffset);  // scrolls
 
-            dst.Export(filename);
+            return dst;
         }
 
         public void Import(ByteStream src, bool[] items, bool diffGame, bool convertClip, bool shared)

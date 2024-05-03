@@ -123,6 +123,10 @@
             menuItem_exportBG0image = new System.Windows.Forms.ToolStripMenuItem();
             menuItem_exportBG3image = new System.Windows.Forms.ToolStripMenuItem();
             menuItem_exportRoomImage = new System.Windows.Forms.ToolStripMenuItem();
+            bulkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            button_exportAllRooms = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
+            button_importAllRooms = new System.Windows.Forms.ToolStripMenuItem();
             menuItem_compression = new System.Windows.Forms.ToolStripMenuItem();
             menuItem_LZ77comp = new System.Windows.Forms.ToolStripMenuItem();
             menuItem_LZ77decomp = new System.Windows.Forms.ToolStripMenuItem();
@@ -242,6 +246,7 @@
             toolStrip_patches = new System.Windows.Forms.ToolStripButton();
             comboBox_spriteset = new Theming.CustomControls.FlatComboBox();
             ToolTip = new System.Windows.Forms.ToolTip(components);
+            button_areaImage = new System.Windows.Forms.ToolStripMenuItem();
             menuStrip.SuspendLayout();
             groupBox_location.SuspendLayout();
             groupBox_tileset.SuspendLayout();
@@ -757,7 +762,7 @@
             // 
             // menuStrip_tools
             // 
-            menuStrip_tools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem_roomOptions, menuItem_testRoom, menuItem_clipShortcuts, toolStripSeparator2, menuItem_import, menuItem_export, menuItem_compression, toolStripSeparator23, menuItem_tileBuilder, menuItem_add, menuItem_patches });
+            menuStrip_tools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem_roomOptions, menuItem_testRoom, menuItem_clipShortcuts, toolStripSeparator2, menuItem_import, menuItem_export, bulkToolStripMenuItem, menuItem_compression, toolStripSeparator23, menuItem_tileBuilder, menuItem_add, menuItem_patches });
             menuStrip_tools.Enabled = false;
             menuStrip_tools.Name = "menuStrip_tools";
             menuStrip_tools.Size = new System.Drawing.Size(46, 20);
@@ -860,56 +865,83 @@
             // menuItem_exportTileset
             // 
             menuItem_exportTileset.Name = "menuItem_exportTileset";
-            menuItem_exportTileset.Size = new System.Drawing.Size(152, 22);
+            menuItem_exportTileset.Size = new System.Drawing.Size(180, 22);
             menuItem_exportTileset.Text = "Tileset...";
             menuItem_exportTileset.Click += menuItem_exportTileset_Click;
             // 
             // menuItem_exportBG
             // 
             menuItem_exportBG.Name = "menuItem_exportBG";
-            menuItem_exportBG.Size = new System.Drawing.Size(152, 22);
+            menuItem_exportBG.Size = new System.Drawing.Size(180, 22);
             menuItem_exportBG.Text = "Background...";
             menuItem_exportBG.Click += menuItem_exportBG_Click;
             // 
             // menuItem_exportRoom
             // 
             menuItem_exportRoom.Name = "menuItem_exportRoom";
-            menuItem_exportRoom.Size = new System.Drawing.Size(152, 22);
+            menuItem_exportRoom.Size = new System.Drawing.Size(180, 22);
             menuItem_exportRoom.Text = "Room...";
             menuItem_exportRoom.Click += menuItem_exportRoom_Click;
             // 
             // toolStripSeparator7
             // 
             toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new System.Drawing.Size(149, 6);
+            toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
             // 
             // menuItem_exportTilesetImage
             // 
             menuItem_exportTilesetImage.Name = "menuItem_exportTilesetImage";
-            menuItem_exportTilesetImage.Size = new System.Drawing.Size(152, 22);
+            menuItem_exportTilesetImage.Size = new System.Drawing.Size(180, 22);
             menuItem_exportTilesetImage.Text = "Tileset Image...";
             menuItem_exportTilesetImage.Click += menuItem_exportTilesetImage_Click;
             // 
             // menuItem_exportBG0image
             // 
             menuItem_exportBG0image.Name = "menuItem_exportBG0image";
-            menuItem_exportBG0image.Size = new System.Drawing.Size(152, 22);
+            menuItem_exportBG0image.Size = new System.Drawing.Size(180, 22);
             menuItem_exportBG0image.Text = "BG0 Image...";
             menuItem_exportBG0image.Click += menuItem_exportBG0image_Click;
             // 
             // menuItem_exportBG3image
             // 
             menuItem_exportBG3image.Name = "menuItem_exportBG3image";
-            menuItem_exportBG3image.Size = new System.Drawing.Size(152, 22);
+            menuItem_exportBG3image.Size = new System.Drawing.Size(180, 22);
             menuItem_exportBG3image.Text = "BG3 Image...";
             menuItem_exportBG3image.Click += menuItem_exportBG3image_Click;
             // 
             // menuItem_exportRoomImage
             // 
             menuItem_exportRoomImage.Name = "menuItem_exportRoomImage";
-            menuItem_exportRoomImage.Size = new System.Drawing.Size(152, 22);
+            menuItem_exportRoomImage.Size = new System.Drawing.Size(180, 22);
             menuItem_exportRoomImage.Text = "Room Image...";
             menuItem_exportRoomImage.Click += menuItem_exportRoomImage_Click;
+            // 
+            // bulkToolStripMenuItem
+            // 
+            bulkToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { button_exportAllRooms, button_areaImage, toolStripSeparator29, button_importAllRooms });
+            bulkToolStripMenuItem.Name = "bulkToolStripMenuItem";
+            bulkToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            bulkToolStripMenuItem.Text = "Bulk";
+            // 
+            // button_exportAllRooms
+            // 
+            button_exportAllRooms.Name = "button_exportAllRooms";
+            button_exportAllRooms.Size = new System.Drawing.Size(180, 22);
+            button_exportAllRooms.Text = "Export Rooms...";
+            button_exportAllRooms.Click += menuItem_bulkExportScreens_Click;
+            // 
+            // toolStripSeparator29
+            // 
+            toolStripSeparator29.Name = "toolStripSeparator29";
+            toolStripSeparator29.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator29.Visible = false;
+            // 
+            // button_importAllRooms
+            // 
+            button_importAllRooms.Name = "button_importAllRooms";
+            button_importAllRooms.Size = new System.Drawing.Size(180, 22);
+            button_importAllRooms.Text = "Import Rooms...";
+            button_importAllRooms.Visible = false;
             // 
             // menuItem_compression
             // 
@@ -1990,6 +2022,13 @@
             comboBox_spriteset.TabIndex = 11;
             comboBox_spriteset.SelectedIndexChanged += comboBox_spriteset_SelectedIndexChanged;
             // 
+            // button_areaImage
+            // 
+            button_areaImage.Name = "button_areaImage";
+            button_areaImage.Size = new System.Drawing.Size(180, 22);
+            button_areaImage.Text = "Export Area Image...";
+            button_areaImage.Click += menuItem_areaImage_Click;
+            // 
             // FormMain
             // 
             AllowDrop = true;
@@ -2253,6 +2292,11 @@
         private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
         private System.Windows.Forms.Button button_clipdata_shortcuts;
         private System.Windows.Forms.ToolTip ToolTip;
+        private System.Windows.Forms.ToolStripMenuItem bulkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem button_exportAllRooms;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator29;
+        private System.Windows.Forms.ToolStripMenuItem button_importAllRooms;
+        private System.Windows.Forms.ToolStripMenuItem button_areaImage;
     }
 }
 
