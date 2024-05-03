@@ -73,7 +73,7 @@ public partial class FormTestRoom : Form
         txb_power_max.Font =
         textBox_xPos.Font =
         textBox_yPos.Font =
-        new Font(main.pfc.Families[0], 20, FontStyle.Bold);
+        new Font(main.pfc.Families[0], 20);
 
         txb_missile_cur.DisplayBorder =
         txb_missile_max.DisplayBorder =

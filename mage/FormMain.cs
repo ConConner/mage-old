@@ -190,7 +190,7 @@ namespace mage
             {
                 TestRoomSettings = JsonSerializer.Deserialize<sRam>(testRoomSettings);
             }
-            else TestRoomSettings = new();
+            if (TestRoomSettings == null) TestRoomSettings = new();
         }
 
         private void SaveSettings()
