@@ -1,5 +1,6 @@
 MAGE 1.5.0:
 - Theming support
+- Fix crashes
 - Drag on Minimap Editor
 - Enable apply on "Auto connect" in Edit Door
 - Edit Sprites/Scrolls/Doors with double click

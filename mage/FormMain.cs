@@ -2205,7 +2205,7 @@ namespace mage
 
         private void roomView_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && pivot.X == -1)
             {
                 if (EditBGs)
                 {
@@ -2284,7 +2284,7 @@ namespace mage
             roomCursor.Y = y;
             ResetRoomTip(true);
 
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && pivot.X == -1)
             {
                 if (EditBGs)
                 {

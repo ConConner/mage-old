@@ -60,6 +60,7 @@ namespace mage
                 for (int x = xStart; x < xEnd; x++)
                 {
                     byte val = clipType[x, y];
+                    if (val > 0xC) val = 0;
                     if (val == 0) { continue; }  // air
 
                     int x1 = x * 16;

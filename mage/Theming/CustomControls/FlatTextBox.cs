@@ -65,6 +65,8 @@ partial class FlatTextBox : UserControl
 
     public string Text { get => textBox.Text; set => textBox.Text = value; }
 
+    public int MaxLength { get => textBox.MaxLength; set => textBox.MaxLength = value; }
+
     public bool WordWrap { get => textBox.WordWrap; set => textBox.WordWrap = value; }
 
     public int SelectionStart { get => textBox.SelectionStart; set => textBox.SelectionStart = value; }
