@@ -242,7 +242,9 @@ namespace mage
 
         private void btn_open_map_Click(object sender, EventArgs e)
         {
-            FormMinimapDialog dialog = new FormMinimapDialog(main.Room.AreaID, new Size(main.Room.WidthInScreens, main.Room.HeightInScreens));
+            Room r = new Room(comboBox_area.SelectedIndex, comboBox_room.SelectedIndex);
+
+            FormMinimapDialog dialog = new FormMinimapDialog(r.AreaID, new Size(r.WidthInScreens, r.HeightInScreens));
             if (dialog.ShowDialog() != DialogResult.OK) return;
 
             Point p = dialog.SelectedPoint;
