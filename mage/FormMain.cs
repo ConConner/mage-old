@@ -833,15 +833,46 @@ namespace mage
             if (saveArea.ShowDialog() != DialogResult.OK) return;
 
             //Drawing every Room on a big Bitmap
+            int area = Room.AreaID;
+
+            //Getting AreaSize
+            List<Room> rooms = new List<Room>();
+            (Point, Point) bounds = new(new Point(16, 16), new Point(0, 0));
+            for (byte room = 0; room < roomsPerArea[area]; room++)
+            {
+                Room r;
+                try { r = new Room(area, room); }
+                catch { continue; }
+
+                //Exclude rooms that have no doors in them since they are unreachable
+                if (r.doorList.Count < 1) continue;
+
+                rooms.Add(r);
+
+                //Figuring out the minimum size of the area in screens
+                if (r.header.mapX < bounds.Item1.X) bounds.Item1.X = r.header.mapX;
+                if (r.header.mapY < bounds.Item1.Y) bounds.Item1.Y = r.header.mapY;
+                if (r.header.mapX + r.WidthInScreens > bounds.Item2.X) bounds.Item2.X = r.header.mapX + r.WidthInScreens;
+                if (r.header.mapY + r.HeightInScreens > bounds.Item2.Y) bounds.Item2.Y = r.header.mapY + r.HeightInScreens;
+            }
+            //Rectangle used to crop image
+            Rectangle areaSize = new Rectangle(
+                bounds.Item1.X * 15 * 16,
+                bounds.Item1.Y * 10 * 16,
+                (bounds.Item2.X - bounds.Item1.X) * 15 * 16,
+                (bounds.Item2.Y - bounds.Item1.Y) * 10 * 16
+            );
+
+            //Maximum Area Size
             int areaPixelWidth = 15 * 16 * 32;
             int areaPixelHeight = 10 * 16 * 32;
+
+            //Creating bitmap
             Bitmap areaImage = new(areaPixelWidth, areaPixelHeight);
             Graphics g = Graphics.FromImage(areaImage);
 
-            int area = Room.AreaID;
-            for (byte room = 0; room < roomsPerArea[area]; room++)
+            foreach (Room r in rooms)
             {
-                Room r = new Room(area, room);
                 Bitmap roomImage = new Bitmap(r.Width * 16, r.Height * 16);
                 Draw.DrawRoom(r, roomImage, this);
 
@@ -854,7 +885,12 @@ namespace mage
             }
 
             g.Dispose();
-            areaImage.Save(saveArea.FileName);
+
+            //Crop image
+            Bitmap clone = areaImage.Clone(areaSize, areaImage.PixelFormat);
+            clone.Save(saveArea.FileName);
+
+            clone.Dispose();
             areaImage.Dispose();
         }
 
