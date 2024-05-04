@@ -2522,15 +2522,16 @@ namespace mage
             enable = (selDoor != -1);
             contextMenu.Items[5].Enabled = enable;
             contextMenu.Items[6].Enabled = enable;
+            contextMenu.Items[7].Enabled = enable;
 
             // add scroll
             enable = (room.scrollList.Count < 16);
-            contextMenu.Items[8].Enabled = enable;
+            contextMenu.Items[9].Enabled = enable;
 
             // edit/remove scroll
             enable = (selScroll != -1);
-            contextMenu.Items[9].Enabled = enable;
             contextMenu.Items[10].Enabled = enable;
+            contextMenu.Items[11].Enabled = enable;
         }
 
         private void contextItem_addSprite_Click(object sender, EventArgs e)
@@ -2577,6 +2578,11 @@ namespace mage
             selDoor = -1;
         }
 
+        private void contextItem_goThroughDoor_Click(object sender, EventArgs e)
+        {
+            GoThroughDoor();
+        }
+
         private void contextItem_addScroll_Click(object sender, EventArgs e)
         {
             AddRemoveRoomObject a = new AddRemoveRoomObject(room, typeof(Scroll), roomCursor);
@@ -2615,5 +2621,6 @@ namespace mage
 
 
         #endregion
+
     }
 }

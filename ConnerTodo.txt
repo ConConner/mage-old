@@ -4,6 +4,7 @@ MAGE 1.5.0:
 - Drag on Minimap Editor
 - Enable apply on "Auto connect" in Edit Door
 - Edit Sprites/Scrolls/Doors with double click
+- Added 'Go through Door' to right-click menu
 - Input screens directly in Room Options
 - Screen number gets displayed as hex
 - Added [MUSIC_STOP] Label for Fusion -> [\xBXXX]

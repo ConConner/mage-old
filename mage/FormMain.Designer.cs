@@ -125,6 +125,7 @@
             menuItem_exportRoomImage = new System.Windows.Forms.ToolStripMenuItem();
             bulkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             button_exportAllRooms = new System.Windows.Forms.ToolStripMenuItem();
+            button_areaImage = new System.Windows.Forms.ToolStripMenuItem();
             toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
             button_importAllRooms = new System.Windows.Forms.ToolStripMenuItem();
             menuItem_compression = new System.Windows.Forms.ToolStripMenuItem();
@@ -246,7 +247,7 @@
             toolStrip_patches = new System.Windows.Forms.ToolStripButton();
             comboBox_spriteset = new Theming.CustomControls.FlatComboBox();
             ToolTip = new System.Windows.Forms.ToolTip(components);
-            button_areaImage = new System.Windows.Forms.ToolStripMenuItem();
+            contextItem_goThroughDoor = new System.Windows.Forms.ToolStripMenuItem();
             menuStrip.SuspendLayout();
             groupBox_location.SuspendLayout();
             groupBox_tileset.SuspendLayout();
@@ -865,54 +866,54 @@
             // menuItem_exportTileset
             // 
             menuItem_exportTileset.Name = "menuItem_exportTileset";
-            menuItem_exportTileset.Size = new System.Drawing.Size(180, 22);
+            menuItem_exportTileset.Size = new System.Drawing.Size(152, 22);
             menuItem_exportTileset.Text = "Tileset...";
             menuItem_exportTileset.Click += menuItem_exportTileset_Click;
             // 
             // menuItem_exportBG
             // 
             menuItem_exportBG.Name = "menuItem_exportBG";
-            menuItem_exportBG.Size = new System.Drawing.Size(180, 22);
+            menuItem_exportBG.Size = new System.Drawing.Size(152, 22);
             menuItem_exportBG.Text = "Background...";
             menuItem_exportBG.Click += menuItem_exportBG_Click;
             // 
             // menuItem_exportRoom
             // 
             menuItem_exportRoom.Name = "menuItem_exportRoom";
-            menuItem_exportRoom.Size = new System.Drawing.Size(180, 22);
+            menuItem_exportRoom.Size = new System.Drawing.Size(152, 22);
             menuItem_exportRoom.Text = "Room...";
             menuItem_exportRoom.Click += menuItem_exportRoom_Click;
             // 
             // toolStripSeparator7
             // 
             toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator7.Size = new System.Drawing.Size(149, 6);
             // 
             // menuItem_exportTilesetImage
             // 
             menuItem_exportTilesetImage.Name = "menuItem_exportTilesetImage";
-            menuItem_exportTilesetImage.Size = new System.Drawing.Size(180, 22);
+            menuItem_exportTilesetImage.Size = new System.Drawing.Size(152, 22);
             menuItem_exportTilesetImage.Text = "Tileset Image...";
             menuItem_exportTilesetImage.Click += menuItem_exportTilesetImage_Click;
             // 
             // menuItem_exportBG0image
             // 
             menuItem_exportBG0image.Name = "menuItem_exportBG0image";
-            menuItem_exportBG0image.Size = new System.Drawing.Size(180, 22);
+            menuItem_exportBG0image.Size = new System.Drawing.Size(152, 22);
             menuItem_exportBG0image.Text = "BG0 Image...";
             menuItem_exportBG0image.Click += menuItem_exportBG0image_Click;
             // 
             // menuItem_exportBG3image
             // 
             menuItem_exportBG3image.Name = "menuItem_exportBG3image";
-            menuItem_exportBG3image.Size = new System.Drawing.Size(180, 22);
+            menuItem_exportBG3image.Size = new System.Drawing.Size(152, 22);
             menuItem_exportBG3image.Text = "BG3 Image...";
             menuItem_exportBG3image.Click += menuItem_exportBG3image_Click;
             // 
             // menuItem_exportRoomImage
             // 
             menuItem_exportRoomImage.Name = "menuItem_exportRoomImage";
-            menuItem_exportRoomImage.Size = new System.Drawing.Size(180, 22);
+            menuItem_exportRoomImage.Size = new System.Drawing.Size(152, 22);
             menuItem_exportRoomImage.Text = "Room Image...";
             menuItem_exportRoomImage.Click += menuItem_exportRoomImage_Click;
             // 
@@ -929,6 +930,13 @@
             button_exportAllRooms.Size = new System.Drawing.Size(180, 22);
             button_exportAllRooms.Text = "Export Rooms...";
             button_exportAllRooms.Click += menuItem_bulkExportScreens_Click;
+            // 
+            // button_areaImage
+            // 
+            button_areaImage.Name = "button_areaImage";
+            button_areaImage.Size = new System.Drawing.Size(180, 22);
+            button_areaImage.Text = "Export Area Image...";
+            button_areaImage.Click += menuItem_areaImage_Click;
             // 
             // toolStripSeparator29
             // 
@@ -1407,93 +1415,93 @@
             // 
             // contextMenu
             // 
-            contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { contextItem_addSprite, contextItem_editSprite, contextItem_removeSprite, toolStripSeparator6, contextItem_addDoor, contextItem_editDoor, contextItem_removeDoor, toolStripSeparator12, contextItem_addScroll, contextItem_editScroll, contextItem_removeScroll, toolStripSeparator14, contextItem_testRoom });
+            contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { contextItem_addSprite, contextItem_editSprite, contextItem_removeSprite, toolStripSeparator6, contextItem_addDoor, contextItem_editDoor, contextItem_removeDoor, contextItem_goThroughDoor, toolStripSeparator12, contextItem_addScroll, contextItem_editScroll, contextItem_removeScroll, toolStripSeparator14, contextItem_testRoom });
             contextMenu.Name = "contextMenu";
-            contextMenu.Size = new System.Drawing.Size(158, 242);
+            contextMenu.Size = new System.Drawing.Size(181, 286);
             contextMenu.Opening += contextMenu_Opening;
             // 
             // contextItem_addSprite
             // 
             contextItem_addSprite.Name = "contextItem_addSprite";
-            contextItem_addSprite.Size = new System.Drawing.Size(157, 22);
+            contextItem_addSprite.Size = new System.Drawing.Size(180, 22);
             contextItem_addSprite.Text = "Add Sprite";
             contextItem_addSprite.Click += contextItem_addSprite_Click;
             // 
             // contextItem_editSprite
             // 
             contextItem_editSprite.Name = "contextItem_editSprite";
-            contextItem_editSprite.Size = new System.Drawing.Size(157, 22);
+            contextItem_editSprite.Size = new System.Drawing.Size(180, 22);
             contextItem_editSprite.Text = "Edit Sprite";
             contextItem_editSprite.Click += contextItem_editSprite_Click;
             // 
             // contextItem_removeSprite
             // 
             contextItem_removeSprite.Name = "contextItem_removeSprite";
-            contextItem_removeSprite.Size = new System.Drawing.Size(157, 22);
+            contextItem_removeSprite.Size = new System.Drawing.Size(180, 22);
             contextItem_removeSprite.Text = "Remove Sprite";
             contextItem_removeSprite.Click += contextItem_removeSprite_Click;
             // 
             // toolStripSeparator6
             // 
             toolStripSeparator6.Name = "toolStripSeparator6";
-            toolStripSeparator6.Size = new System.Drawing.Size(154, 6);
+            toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // contextItem_addDoor
             // 
             contextItem_addDoor.Name = "contextItem_addDoor";
-            contextItem_addDoor.Size = new System.Drawing.Size(157, 22);
+            contextItem_addDoor.Size = new System.Drawing.Size(180, 22);
             contextItem_addDoor.Text = "Add Door";
             contextItem_addDoor.Click += contextItem_addDoor_Click;
             // 
             // contextItem_editDoor
             // 
             contextItem_editDoor.Name = "contextItem_editDoor";
-            contextItem_editDoor.Size = new System.Drawing.Size(157, 22);
+            contextItem_editDoor.Size = new System.Drawing.Size(180, 22);
             contextItem_editDoor.Text = "Edit Door";
             contextItem_editDoor.Click += contextItem_editDoor_Click;
             // 
             // contextItem_removeDoor
             // 
             contextItem_removeDoor.Name = "contextItem_removeDoor";
-            contextItem_removeDoor.Size = new System.Drawing.Size(157, 22);
+            contextItem_removeDoor.Size = new System.Drawing.Size(180, 22);
             contextItem_removeDoor.Text = "Remove Door";
             contextItem_removeDoor.Click += contextItem_removeDoor_Click;
             // 
             // toolStripSeparator12
             // 
             toolStripSeparator12.Name = "toolStripSeparator12";
-            toolStripSeparator12.Size = new System.Drawing.Size(154, 6);
+            toolStripSeparator12.Size = new System.Drawing.Size(177, 6);
             // 
             // contextItem_addScroll
             // 
             contextItem_addScroll.Name = "contextItem_addScroll";
-            contextItem_addScroll.Size = new System.Drawing.Size(157, 22);
+            contextItem_addScroll.Size = new System.Drawing.Size(180, 22);
             contextItem_addScroll.Text = "Add Scroll";
             contextItem_addScroll.Click += contextItem_addScroll_Click;
             // 
             // contextItem_editScroll
             // 
             contextItem_editScroll.Name = "contextItem_editScroll";
-            contextItem_editScroll.Size = new System.Drawing.Size(157, 22);
+            contextItem_editScroll.Size = new System.Drawing.Size(180, 22);
             contextItem_editScroll.Text = "Edit Scroll";
             contextItem_editScroll.Click += contextItem_editScroll_Click;
             // 
             // contextItem_removeScroll
             // 
             contextItem_removeScroll.Name = "contextItem_removeScroll";
-            contextItem_removeScroll.Size = new System.Drawing.Size(157, 22);
+            contextItem_removeScroll.Size = new System.Drawing.Size(180, 22);
             contextItem_removeScroll.Text = "Remove Scroll";
             contextItem_removeScroll.Click += contextItem_removeScroll_Click;
             // 
             // toolStripSeparator14
             // 
             toolStripSeparator14.Name = "toolStripSeparator14";
-            toolStripSeparator14.Size = new System.Drawing.Size(154, 6);
+            toolStripSeparator14.Size = new System.Drawing.Size(177, 6);
             // 
             // contextItem_testRoom
             // 
             contextItem_testRoom.Name = "contextItem_testRoom";
-            contextItem_testRoom.Size = new System.Drawing.Size(157, 22);
+            contextItem_testRoom.Size = new System.Drawing.Size(180, 22);
             contextItem_testRoom.Text = "Test Room Here";
             contextItem_testRoom.Click += contextItem_testRoom_Click;
             // 
@@ -2022,12 +2030,12 @@
             comboBox_spriteset.TabIndex = 11;
             comboBox_spriteset.SelectedIndexChanged += comboBox_spriteset_SelectedIndexChanged;
             // 
-            // button_areaImage
+            // contextItem_goThroughDoor
             // 
-            button_areaImage.Name = "button_areaImage";
-            button_areaImage.Size = new System.Drawing.Size(180, 22);
-            button_areaImage.Text = "Export Area Image...";
-            button_areaImage.Click += menuItem_areaImage_Click;
+            contextItem_goThroughDoor.Name = "contextItem_goThroughDoor";
+            contextItem_goThroughDoor.Size = new System.Drawing.Size(180, 22);
+            contextItem_goThroughDoor.Text = "Go through Door";
+            contextItem_goThroughDoor.Click += contextItem_goThroughDoor_Click;
             // 
             // FormMain
             // 
@@ -2297,6 +2305,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator29;
         private System.Windows.Forms.ToolStripMenuItem button_importAllRooms;
         private System.Windows.Forms.ToolStripMenuItem button_areaImage;
+        private System.Windows.Forms.ToolStripMenuItem contextItem_goThroughDoor;
     }
 }
 
