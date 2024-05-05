@@ -96,6 +96,8 @@ namespace mage
             ThemeSwitcher.ChangeTheme(Controls, this);
             ThemeSwitcher.InjectPaintOverrides(Controls);
 
+            Sound.SoundPacksPath = @"";
+            Sound.SoundPackName = "default";
         }
 
         #region opening/closing
