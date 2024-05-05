@@ -65,14 +65,19 @@
             label_yExitDistance = new System.Windows.Forms.Label();
             statusStrip = new System.Windows.Forms.StatusStrip();
             statusLabel_changes = new System.Windows.Forms.ToolStripStatusLabel();
+            lbl_door_found = new System.Windows.Forms.Label();
+            btn_setup = new System.Windows.Forms.Button();
+            grp_setup = new System.Windows.Forms.GroupBox();
+            btn_auto_link = new System.Windows.Forms.Button();
             groupBox_info.SuspendLayout();
             groupBox_edit.SuspendLayout();
             statusStrip.SuspendLayout();
+            grp_setup.SuspendLayout();
             SuspendLayout();
             // 
             // button_close
             // 
-            button_close.Location = new System.Drawing.Point(292, 253);
+            button_close.Location = new System.Drawing.Point(292, 316);
             button_close.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_close.Name = "button_close";
             button_close.Size = new System.Drawing.Size(86, 27);
@@ -84,7 +89,7 @@
             // button_apply
             // 
             button_apply.Enabled = false;
-            button_apply.Location = new System.Drawing.Point(292, 220);
+            button_apply.Location = new System.Drawing.Point(292, 283);
             button_apply.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_apply.Name = "button_apply";
             button_apply.Size = new System.Drawing.Size(86, 27);
@@ -156,64 +161,80 @@
             // textBox_width
             // 
             textBox_width.BorderColor = System.Drawing.Color.Black;
+            textBox_width.DisplayBorder = true;
             textBox_width.Location = new System.Drawing.Point(63, 107);
             textBox_width.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox_width.MaxLength = 32767;
             textBox_width.Multiline = false;
             textBox_width.Name = "textBox_width";
+            textBox_width.OnTextChanged = null;
             textBox_width.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_width.ReadOnly = false;
             textBox_width.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_width.SelectionStart = 0;
             textBox_width.Size = new System.Drawing.Size(41, 23);
             textBox_width.TabIndex = 3;
+            textBox_width.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_width.WordWrap = true;
             textBox_width.TextChanged += ValueChanged;
             // 
             // textBox_height
             // 
             textBox_height.BorderColor = System.Drawing.Color.Black;
+            textBox_height.DisplayBorder = true;
             textBox_height.Location = new System.Drawing.Point(62, 137);
             textBox_height.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox_height.MaxLength = 32767;
             textBox_height.Multiline = false;
             textBox_height.Name = "textBox_height";
+            textBox_height.OnTextChanged = null;
             textBox_height.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_height.ReadOnly = false;
             textBox_height.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_height.SelectionStart = 0;
             textBox_height.Size = new System.Drawing.Size(41, 23);
             textBox_height.TabIndex = 4;
+            textBox_height.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_height.WordWrap = true;
             textBox_height.TextChanged += ValueChanged;
             // 
             // textBox_connectedDoor
             // 
             textBox_connectedDoor.BorderColor = System.Drawing.Color.Black;
+            textBox_connectedDoor.DisplayBorder = true;
             textBox_connectedDoor.Location = new System.Drawing.Point(312, 52);
             textBox_connectedDoor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox_connectedDoor.MaxLength = 32767;
             textBox_connectedDoor.Multiline = false;
             textBox_connectedDoor.Name = "textBox_connectedDoor";
+            textBox_connectedDoor.OnTextChanged = null;
             textBox_connectedDoor.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_connectedDoor.ReadOnly = false;
             textBox_connectedDoor.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_connectedDoor.SelectionStart = 0;
             textBox_connectedDoor.Size = new System.Drawing.Size(41, 23);
             textBox_connectedDoor.TabIndex = 7;
+            textBox_connectedDoor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_connectedDoor.WordWrap = true;
             textBox_connectedDoor.TextChanged += ValueChanged;
             // 
             // textBox_xExitDistance
             // 
             textBox_xExitDistance.BorderColor = System.Drawing.Color.Black;
+            textBox_xExitDistance.DisplayBorder = true;
             textBox_xExitDistance.Location = new System.Drawing.Point(312, 82);
             textBox_xExitDistance.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox_xExitDistance.MaxLength = 32767;
             textBox_xExitDistance.Multiline = false;
             textBox_xExitDistance.Name = "textBox_xExitDistance";
+            textBox_xExitDistance.OnTextChanged = null;
             textBox_xExitDistance.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_xExitDistance.ReadOnly = false;
             textBox_xExitDistance.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_xExitDistance.SelectionStart = 0;
             textBox_xExitDistance.Size = new System.Drawing.Size(41, 23);
             textBox_xExitDistance.TabIndex = 8;
+            textBox_xExitDistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_xExitDistance.WordWrap = true;
             textBox_xExitDistance.TextChanged += ValueChanged;
             // 
@@ -240,16 +261,20 @@
             // textBox_ownerRoom
             // 
             textBox_ownerRoom.BorderColor = System.Drawing.Color.Black;
+            textBox_ownerRoom.DisplayBorder = true;
             textBox_ownerRoom.Location = new System.Drawing.Point(312, 22);
             textBox_ownerRoom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox_ownerRoom.MaxLength = 32767;
             textBox_ownerRoom.Multiline = false;
             textBox_ownerRoom.Name = "textBox_ownerRoom";
+            textBox_ownerRoom.OnTextChanged = null;
             textBox_ownerRoom.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_ownerRoom.ReadOnly = false;
             textBox_ownerRoom.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_ownerRoom.SelectionStart = 0;
             textBox_ownerRoom.Size = new System.Drawing.Size(41, 23);
             textBox_ownerRoom.TabIndex = 6;
+            textBox_ownerRoom.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_ownerRoom.WordWrap = true;
             textBox_ownerRoom.TextChanged += ValueChanged;
             // 
@@ -266,12 +291,12 @@
             // checkBox_autoConnect
             // 
             checkBox_autoConnect.AutoSize = true;
-            checkBox_autoConnect.Location = new System.Drawing.Point(165, 140);
+            checkBox_autoConnect.Location = new System.Drawing.Point(189, 140);
             checkBox_autoConnect.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBox_autoConnect.Name = "checkBox_autoConnect";
-            checkBox_autoConnect.Size = new System.Drawing.Size(188, 19);
+            checkBox_autoConnect.Size = new System.Drawing.Size(164, 19);
             checkBox_autoConnect.TabIndex = 5;
-            checkBox_autoConnect.Text = "Auto connect destination door";
+            checkBox_autoConnect.Text = "Auto link destination door";
             checkBox_autoConnect.CheckedChanged += checkBox_autoConnect_CheckedChanged;
             // 
             // comboBox_type
@@ -405,7 +430,7 @@
             groupBox_info.Controls.Add(label_srcArea);
             groupBox_info.Controls.Add(label_destination);
             groupBox_info.Controls.Add(label_dstDoor);
-            groupBox_info.Location = new System.Drawing.Point(14, 189);
+            groupBox_info.Location = new System.Drawing.Point(14, 252);
             groupBox_info.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox_info.Name = "groupBox_info";
             groupBox_info.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -467,16 +492,20 @@
             // textBox_yExitDistance
             // 
             textBox_yExitDistance.BorderColor = System.Drawing.Color.Black;
+            textBox_yExitDistance.DisplayBorder = true;
             textBox_yExitDistance.Location = new System.Drawing.Point(312, 112);
             textBox_yExitDistance.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox_yExitDistance.MaxLength = 32767;
             textBox_yExitDistance.Multiline = false;
             textBox_yExitDistance.Name = "textBox_yExitDistance";
+            textBox_yExitDistance.OnTextChanged = null;
             textBox_yExitDistance.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_yExitDistance.ReadOnly = false;
             textBox_yExitDistance.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_yExitDistance.SelectionStart = 0;
             textBox_yExitDistance.Size = new System.Drawing.Size(41, 23);
             textBox_yExitDistance.TabIndex = 15;
+            textBox_yExitDistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_yExitDistance.WordWrap = true;
             textBox_yExitDistance.TextChanged += ValueChanged;
             // 
@@ -493,7 +522,7 @@
             // statusStrip
             // 
             statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { statusLabel_changes });
-            statusStrip.Location = new System.Drawing.Point(0, 288);
+            statusStrip.Location = new System.Drawing.Point(0, 351);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
             statusStrip.Size = new System.Drawing.Size(393, 22);
@@ -506,11 +535,54 @@
             statusLabel_changes.Size = new System.Drawing.Size(12, 17);
             statusLabel_changes.Text = "-";
             // 
+            // lbl_door_found
+            // 
+            lbl_door_found.AutoSize = true;
+            lbl_door_found.Location = new System.Drawing.Point(10, 25);
+            lbl_door_found.Name = "lbl_door_found";
+            lbl_door_found.Size = new System.Drawing.Size(137, 15);
+            lbl_door_found.TabIndex = 4;
+            lbl_door_found.Text = "No adjacent door found.";
+            // 
+            // btn_setup
+            // 
+            btn_setup.Location = new System.Drawing.Point(163, 19);
+            btn_setup.Name = "btn_setup";
+            btn_setup.Size = new System.Drawing.Size(92, 27);
+            btn_setup.TabIndex = 5;
+            btn_setup.Text = "Auto Setup";
+            btn_setup.UseVisualStyleBackColor = true;
+            btn_setup.Click += btn_setup_Click;
+            // 
+            // grp_setup
+            // 
+            grp_setup.Controls.Add(btn_auto_link);
+            grp_setup.Controls.Add(lbl_door_found);
+            grp_setup.Controls.Add(btn_setup);
+            grp_setup.Enabled = false;
+            grp_setup.Location = new System.Drawing.Point(14, 188);
+            grp_setup.Name = "grp_setup";
+            grp_setup.Size = new System.Drawing.Size(364, 58);
+            grp_setup.TabIndex = 6;
+            grp_setup.TabStop = false;
+            grp_setup.Text = "Setups";
+            // 
+            // btn_auto_link
+            // 
+            btn_auto_link.Location = new System.Drawing.Point(261, 19);
+            btn_auto_link.Name = "btn_auto_link";
+            btn_auto_link.Size = new System.Drawing.Size(92, 27);
+            btn_auto_link.TabIndex = 6;
+            btn_auto_link.Text = "Only Link";
+            btn_auto_link.UseVisualStyleBackColor = true;
+            btn_auto_link.Click += btn_auto_link_Click;
+            // 
             // FormEditDoor
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(393, 310);
+            ClientSize = new System.Drawing.Size(393, 373);
+            Controls.Add(grp_setup);
             Controls.Add(statusStrip);
             Controls.Add(groupBox_edit);
             Controls.Add(groupBox_info);
@@ -529,6 +601,8 @@
             groupBox_edit.PerformLayout();
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
+            grp_setup.ResumeLayout(false);
+            grp_setup.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -571,5 +645,9 @@
         private System.Windows.Forms.ToolStripStatusLabel statusLabel_changes;
         private System.Windows.Forms.Button button_preset_y;
         private System.Windows.Forms.Button button_preset_x;
+        private System.Windows.Forms.Label lbl_door_found;
+        private System.Windows.Forms.Button btn_setup;
+        private System.Windows.Forms.GroupBox grp_setup;
+        private System.Windows.Forms.Button btn_auto_link;
     }
 }

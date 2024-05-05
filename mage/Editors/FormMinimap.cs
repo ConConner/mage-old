@@ -464,15 +464,7 @@ namespace mage
             {
                 //Get Data from the room
                 Room room = new Room(area, r);
-
-                byte roomX = room.header.mapX;
-                byte roomY = room.header.mapY;
-                byte width = room.WidthInScreens;
-                byte height = room.HeightInScreens;
-
-                Rectangle bound = new Rectangle(roomX, roomY, width, height);
-                if (bound.Contains(new Point(x, y))) matchingRooms.Add(r);
-
+                if (room.Contains(x, y)) matchingRooms.Add(r);
             }
 
             if (matchingRooms.Count == 1) main.JumpToRoom(area, matchingRooms[0]);

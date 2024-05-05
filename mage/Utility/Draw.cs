@@ -299,18 +299,5 @@ namespace mage
                 pos += 160;
             }
         }
-
-        /// <summary>
-        /// Crops the current Bitmap to the desired rectangle
-        /// </summary>
-        public static void Crop(this Bitmap b, Rectangle region)
-        {
-            Bitmap result = new Bitmap(region.Width, region.Height);
-            Graphics g = Graphics.FromImage(result);
-            g.DrawImage(b, 0, 0, region, GraphicsUnit.Pixel);
-            b.Dispose();
-            b = result;
-            g.Dispose();
-        }
     }
 }

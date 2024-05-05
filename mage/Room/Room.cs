@@ -284,6 +284,15 @@ namespace mage
             return dst;
         }
 
+        /// <summary>
+        /// Check if the room contains the specified map coordinates
+        /// </summary>
+        public bool Contains(int x, int y)
+        {
+            Rectangle bound = new Rectangle(header.mapX, header.mapY, WidthInScreens, HeightInScreens);
+            return bound.Contains(new Point(x, y));
+        }
+
         public void Import(ByteStream src, bool[] items, bool diffGame, bool convertClip, bool shared)
         {
             ByteStream romStream = ROM.Stream;

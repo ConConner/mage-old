@@ -19,6 +19,8 @@ namespace mage
         public byte dstDoor;
         public byte xExitDistance;
         public byte yExitDistance;
+        public int xScreen => (xStart - 2) / 15;
+        public int yScreen => (yStart - 2) / 10;
 
         // constructor
         public Door()
@@ -94,6 +96,44 @@ namespace mage
             yExitDistance = 0;
         }
 
+        public DoorPosition EdgePosition()
+        {
+            Room r = new Room(areaID, srcRoom);
 
+            //Check naive cases where door is behind room edge
+            if (xStart <= 1) return DoorPosition.Left;
+            if (xEnd >= r.Width - 2) return DoorPosition.Right;
+            if (yStart <= 1) return DoorPosition.Top;
+            if (yEnd >= r.Height - 2) return DoorPosition.Down;
+
+            //Check position relative on screen
+            if (xStart - 2 == (xScreen * 15)) return DoorPosition.Left;
+            if (xEnd - 2 == (xScreen * 15) + 14) return DoorPosition.Right;
+            if (yStart - 2 == (yScreen * 10)) return DoorPosition.Top;
+            if (yEnd - 2 == (yScreen * 10) + 9) return DoorPosition.Down;
+
+            return DoorPosition.None;
+        }
+
+        /// <summary>
+        /// Returns a point that fixes for a screen coordinate that lies on the 2 tile border
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
+        public Point ScreenCoordinatesFixed(Room r)
+        {
+            int screenX = Math.Min(xScreen, r.WidthInScreens - 1);
+            int screenY = Math.Min(yScreen, r.HeightInScreens - 1);
+            return new Point(screenX, screenY);
+        }
     }
+}
+
+public enum DoorPosition
+{
+    Left,
+    Top,
+    Right,
+    Down,
+    None
 }

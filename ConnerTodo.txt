@@ -21,3 +21,4 @@ MAGE 1.5.0:
   Not only top left corner.
 - Bulk Room export (per Area)
 - Area Image export
+- Automatically connect doors if they are on adjacent screens
