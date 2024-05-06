@@ -22,3 +22,4 @@ MAGE 1.5.0:
 - Bulk Room export (per Area)
 - Area Image export
 - Automatically connect doors if they are on adjacent screens
+- Edit Effect Y Position inside the room editor
