@@ -1550,6 +1550,16 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap toolbar_outline_effect {
+            get {
+                object obj = ResourceManager.GetObject("toolbar_outline_effect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap toolbar_outline_scrolls {
             get {
                 object obj = ResourceManager.GetObject("toolbar_outline_scrolls", resourceCulture);

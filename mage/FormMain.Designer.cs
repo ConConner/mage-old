@@ -68,6 +68,7 @@
             menuItem_outlineSprites = new System.Windows.Forms.ToolStripMenuItem();
             menuItem_outlineDoors = new System.Windows.Forms.ToolStripMenuItem();
             menuItem_outlineScrolls = new System.Windows.Forms.ToolStripMenuItem();
+            menuItem_outlineEffect = new System.Windows.Forms.ToolStripMenuItem();
             toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
             menuItem_outlineScreens = new System.Windows.Forms.ToolStripMenuItem();
             menuItem_viewAnimPal = new System.Windows.Forms.ToolStripMenuItem();
@@ -189,10 +190,14 @@
             contextItem_addDoor = new System.Windows.Forms.ToolStripMenuItem();
             contextItem_editDoor = new System.Windows.Forms.ToolStripMenuItem();
             contextItem_removeDoor = new System.Windows.Forms.ToolStripMenuItem();
+            contextItem_goThroughDoor = new System.Windows.Forms.ToolStripMenuItem();
             toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             contextItem_addScroll = new System.Windows.Forms.ToolStripMenuItem();
             contextItem_editScroll = new System.Windows.Forms.ToolStripMenuItem();
             contextItem_removeScroll = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator30 = new System.Windows.Forms.ToolStripSeparator();
+            contextItem_setEffectPos = new System.Windows.Forms.ToolStripMenuItem();
+            contextItem_removeEffectPos = new System.Windows.Forms.ToolStripMenuItem();
             toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             contextItem_testRoom = new System.Windows.Forms.ToolStripMenuItem();
             groupBox_viewBG = new System.Windows.Forms.GroupBox();
@@ -224,6 +229,7 @@
             toolStrip_outlineSprites = new System.Windows.Forms.ToolStripButton();
             toolStrip_outlineDoors = new System.Windows.Forms.ToolStripButton();
             toolStrip_outlineScrolls = new System.Windows.Forms.ToolStripButton();
+            toolStrip_outlineEffect = new System.Windows.Forms.ToolStripButton();
             toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             toolStrip_header = new System.Windows.Forms.ToolStripButton();
             toolStrip_tileset = new System.Windows.Forms.ToolStripButton();
@@ -247,7 +253,6 @@
             toolStrip_patches = new System.Windows.Forms.ToolStripButton();
             comboBox_spriteset = new Theming.CustomControls.FlatComboBox();
             ToolTip = new System.Windows.Forms.ToolTip(components);
-            contextItem_goThroughDoor = new System.Windows.Forms.ToolStripMenuItem();
             menuStrip.SuspendLayout();
             groupBox_location.SuspendLayout();
             groupBox_tileset.SuspendLayout();
@@ -434,7 +439,7 @@
             // 
             // menuStrip_view
             // 
-            menuStrip_view.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem_viewBG0, menuItem_viewBG1, menuItem_viewBG2, menuItem_viewBG3, menuItem_viewCLP, toolStripSeparator1, menuItem_viewSprites, menuItem_outlineSprites, menuItem_outlineDoors, menuItem_outlineScrolls, toolStripSeparator27, menuItem_outlineScreens, menuItem_viewAnimPal, menuItem_motherShipHatches, toolStripSeparator18, menuItem_clipboard, menuItem_zoom });
+            menuStrip_view.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem_viewBG0, menuItem_viewBG1, menuItem_viewBG2, menuItem_viewBG3, menuItem_viewCLP, toolStripSeparator1, menuItem_viewSprites, menuItem_outlineSprites, menuItem_outlineDoors, menuItem_outlineScrolls, menuItem_outlineEffect, toolStripSeparator27, menuItem_outlineScreens, menuItem_viewAnimPal, menuItem_motherShipHatches, toolStripSeparator18, menuItem_clipboard, menuItem_zoom });
             menuStrip_view.Enabled = false;
             menuStrip_view.Name = "menuStrip_view";
             menuStrip_view.Size = new System.Drawing.Size(44, 20);
@@ -539,6 +544,13 @@
             menuItem_outlineScrolls.Size = new System.Drawing.Size(204, 22);
             menuItem_outlineScrolls.Text = "Scrolls";
             menuItem_outlineScrolls.Click += menuItem_outlineScrolls_Click;
+            // 
+            // menuItem_outlineEffect
+            // 
+            menuItem_outlineEffect.Name = "menuItem_outlineEffect";
+            menuItem_outlineEffect.Size = new System.Drawing.Size(204, 22);
+            menuItem_outlineEffect.Text = "Effect";
+            menuItem_outlineEffect.Click += menuItem_outlineEffect_Click;
             // 
             // toolStripSeparator27
             // 
@@ -1415,93 +1427,119 @@
             // 
             // contextMenu
             // 
-            contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { contextItem_addSprite, contextItem_editSprite, contextItem_removeSprite, toolStripSeparator6, contextItem_addDoor, contextItem_editDoor, contextItem_removeDoor, contextItem_goThroughDoor, toolStripSeparator12, contextItem_addScroll, contextItem_editScroll, contextItem_removeScroll, toolStripSeparator14, contextItem_testRoom });
+            contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { contextItem_addSprite, contextItem_editSprite, contextItem_removeSprite, toolStripSeparator6, contextItem_addDoor, contextItem_editDoor, contextItem_removeDoor, contextItem_goThroughDoor, toolStripSeparator12, contextItem_addScroll, contextItem_editScroll, contextItem_removeScroll, toolStripSeparator30, contextItem_setEffectPos, contextItem_removeEffectPos, toolStripSeparator14, contextItem_testRoom });
             contextMenu.Name = "contextMenu";
-            contextMenu.Size = new System.Drawing.Size(181, 286);
+            contextMenu.Size = new System.Drawing.Size(197, 314);
             contextMenu.Opening += contextMenu_Opening;
             // 
             // contextItem_addSprite
             // 
             contextItem_addSprite.Name = "contextItem_addSprite";
-            contextItem_addSprite.Size = new System.Drawing.Size(180, 22);
+            contextItem_addSprite.Size = new System.Drawing.Size(196, 22);
             contextItem_addSprite.Text = "Add Sprite";
             contextItem_addSprite.Click += contextItem_addSprite_Click;
             // 
             // contextItem_editSprite
             // 
             contextItem_editSprite.Name = "contextItem_editSprite";
-            contextItem_editSprite.Size = new System.Drawing.Size(180, 22);
+            contextItem_editSprite.Size = new System.Drawing.Size(196, 22);
             contextItem_editSprite.Text = "Edit Sprite";
             contextItem_editSprite.Click += contextItem_editSprite_Click;
             // 
             // contextItem_removeSprite
             // 
             contextItem_removeSprite.Name = "contextItem_removeSprite";
-            contextItem_removeSprite.Size = new System.Drawing.Size(180, 22);
+            contextItem_removeSprite.Size = new System.Drawing.Size(196, 22);
             contextItem_removeSprite.Text = "Remove Sprite";
             contextItem_removeSprite.Click += contextItem_removeSprite_Click;
             // 
             // toolStripSeparator6
             // 
             toolStripSeparator6.Name = "toolStripSeparator6";
-            toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator6.Size = new System.Drawing.Size(193, 6);
             // 
             // contextItem_addDoor
             // 
             contextItem_addDoor.Name = "contextItem_addDoor";
-            contextItem_addDoor.Size = new System.Drawing.Size(180, 22);
+            contextItem_addDoor.Size = new System.Drawing.Size(196, 22);
             contextItem_addDoor.Text = "Add Door";
             contextItem_addDoor.Click += contextItem_addDoor_Click;
             // 
             // contextItem_editDoor
             // 
             contextItem_editDoor.Name = "contextItem_editDoor";
-            contextItem_editDoor.Size = new System.Drawing.Size(180, 22);
+            contextItem_editDoor.Size = new System.Drawing.Size(196, 22);
             contextItem_editDoor.Text = "Edit Door";
             contextItem_editDoor.Click += contextItem_editDoor_Click;
             // 
             // contextItem_removeDoor
             // 
             contextItem_removeDoor.Name = "contextItem_removeDoor";
-            contextItem_removeDoor.Size = new System.Drawing.Size(180, 22);
+            contextItem_removeDoor.Size = new System.Drawing.Size(196, 22);
             contextItem_removeDoor.Text = "Remove Door";
             contextItem_removeDoor.Click += contextItem_removeDoor_Click;
+            // 
+            // contextItem_goThroughDoor
+            // 
+            contextItem_goThroughDoor.Name = "contextItem_goThroughDoor";
+            contextItem_goThroughDoor.Size = new System.Drawing.Size(196, 22);
+            contextItem_goThroughDoor.Text = "Go through Door";
+            contextItem_goThroughDoor.Click += contextItem_goThroughDoor_Click;
             // 
             // toolStripSeparator12
             // 
             toolStripSeparator12.Name = "toolStripSeparator12";
-            toolStripSeparator12.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator12.Size = new System.Drawing.Size(193, 6);
             // 
             // contextItem_addScroll
             // 
             contextItem_addScroll.Name = "contextItem_addScroll";
-            contextItem_addScroll.Size = new System.Drawing.Size(180, 22);
+            contextItem_addScroll.Size = new System.Drawing.Size(196, 22);
             contextItem_addScroll.Text = "Add Scroll";
             contextItem_addScroll.Click += contextItem_addScroll_Click;
             // 
             // contextItem_editScroll
             // 
             contextItem_editScroll.Name = "contextItem_editScroll";
-            contextItem_editScroll.Size = new System.Drawing.Size(180, 22);
+            contextItem_editScroll.Size = new System.Drawing.Size(196, 22);
             contextItem_editScroll.Text = "Edit Scroll";
             contextItem_editScroll.Click += contextItem_editScroll_Click;
             // 
             // contextItem_removeScroll
             // 
             contextItem_removeScroll.Name = "contextItem_removeScroll";
-            contextItem_removeScroll.Size = new System.Drawing.Size(180, 22);
+            contextItem_removeScroll.Size = new System.Drawing.Size(196, 22);
             contextItem_removeScroll.Text = "Remove Scroll";
             contextItem_removeScroll.Click += contextItem_removeScroll_Click;
+            // 
+            // toolStripSeparator30
+            // 
+            toolStripSeparator30.Name = "toolStripSeparator30";
+            toolStripSeparator30.Size = new System.Drawing.Size(193, 6);
+            // 
+            // contextItem_setEffectPos
+            // 
+            contextItem_setEffectPos.Name = "contextItem_setEffectPos";
+            contextItem_setEffectPos.Size = new System.Drawing.Size(196, 22);
+            contextItem_setEffectPos.Text = "Set Effect position here";
+            contextItem_setEffectPos.Click += contextItem_setEffectPos_Click;
+            // 
+            // contextItem_removeEffectPos
+            // 
+            contextItem_removeEffectPos.Name = "contextItem_removeEffectPos";
+            contextItem_removeEffectPos.Size = new System.Drawing.Size(196, 22);
+            contextItem_removeEffectPos.Text = "Remove Effect position";
+            contextItem_removeEffectPos.Click += contextItem_removeEffectPos_Click;
             // 
             // toolStripSeparator14
             // 
             toolStripSeparator14.Name = "toolStripSeparator14";
-            toolStripSeparator14.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator14.Size = new System.Drawing.Size(193, 6);
             // 
             // contextItem_testRoom
             // 
             contextItem_testRoom.Name = "contextItem_testRoom";
-            contextItem_testRoom.Size = new System.Drawing.Size(180, 22);
+            contextItem_testRoom.Size = new System.Drawing.Size(196, 22);
             contextItem_testRoom.Text = "Test Room Here";
             contextItem_testRoom.Click += contextItem_testRoom_Click;
             // 
@@ -1690,7 +1728,7 @@
             // toolStrip
             // 
             toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStrip_open, toolStrip_save, toolStripSeparator9, toolStrip_undo, toolStrip_redo, toolStripSeparator10, toolStrip_editBGs, toolStrip_editObjects, toolStripSeparator15, toolStrip_viewSprites, toolStrip_outlineSprites, toolStrip_outlineDoors, toolStrip_outlineScrolls, toolStripSeparator16, toolStrip_header, toolStrip_tileset, toolStrip_graphics, toolStrip_palette, toolStrip_tileTable, toolStrip_animation, toolStrip_sprite, toolStrip_spriteset, toolStrip_connection, toolStrip_minimap, toolStrip_text, toolStrip_demoEditor, toolStrip_physics, toolStrip_weapon, toolStripSeparator11, toolStrip_options, toolStrip_test, toolStrip_tileBuilder, toolStrip_add, toolStrip_patches });
+            toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStrip_open, toolStrip_save, toolStripSeparator9, toolStrip_undo, toolStrip_redo, toolStripSeparator10, toolStrip_editBGs, toolStrip_editObjects, toolStripSeparator15, toolStrip_viewSprites, toolStrip_outlineSprites, toolStrip_outlineDoors, toolStrip_outlineScrolls, toolStrip_outlineEffect, toolStripSeparator16, toolStrip_header, toolStrip_tileset, toolStrip_graphics, toolStrip_palette, toolStrip_tileTable, toolStrip_animation, toolStrip_sprite, toolStrip_spriteset, toolStrip_connection, toolStrip_minimap, toolStrip_text, toolStrip_demoEditor, toolStrip_physics, toolStrip_weapon, toolStripSeparator11, toolStrip_options, toolStrip_test, toolStrip_tileBuilder, toolStrip_add, toolStrip_patches });
             toolStrip.Location = new System.Drawing.Point(0, 24);
             toolStrip.Name = "toolStrip";
             toolStrip.Padding = new System.Windows.Forms.Padding(4, 0, 1, 0);
@@ -1816,6 +1854,16 @@
             toolStrip_outlineScrolls.Size = new System.Drawing.Size(23, 22);
             toolStrip_outlineScrolls.Text = "Outline scrolls";
             toolStrip_outlineScrolls.Click += menuItem_outlineScrolls_Click;
+            // 
+            // toolStrip_outlineEffect
+            // 
+            toolStrip_outlineEffect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            toolStrip_outlineEffect.Enabled = false;
+            toolStrip_outlineEffect.Image = Properties.Resources.toolbar_outline_effect;
+            toolStrip_outlineEffect.Name = "toolStrip_outlineEffect";
+            toolStrip_outlineEffect.Size = new System.Drawing.Size(23, 22);
+            toolStrip_outlineEffect.Text = "Outline effect y";
+            toolStrip_outlineEffect.Click += menuItem_outlineEffect_Click;
             // 
             // toolStripSeparator16
             // 
@@ -2029,13 +2077,6 @@
             comboBox_spriteset.Size = new System.Drawing.Size(79, 23);
             comboBox_spriteset.TabIndex = 11;
             comboBox_spriteset.SelectedIndexChanged += comboBox_spriteset_SelectedIndexChanged;
-            // 
-            // contextItem_goThroughDoor
-            // 
-            contextItem_goThroughDoor.Name = "contextItem_goThroughDoor";
-            contextItem_goThroughDoor.Size = new System.Drawing.Size(180, 22);
-            contextItem_goThroughDoor.Text = "Go through Door";
-            contextItem_goThroughDoor.Click += contextItem_goThroughDoor_Click;
             // 
             // FormMain
             // 
@@ -2306,6 +2347,11 @@
         private System.Windows.Forms.ToolStripMenuItem button_importAllRooms;
         private System.Windows.Forms.ToolStripMenuItem button_areaImage;
         private System.Windows.Forms.ToolStripMenuItem contextItem_goThroughDoor;
+        private System.Windows.Forms.ToolStripButton toolStrip_outlineEffect;
+        private System.Windows.Forms.ToolStripMenuItem menuItem_outlineEffect;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator30;
+        private System.Windows.Forms.ToolStripMenuItem contextItem_setEffectPos;
+        private System.Windows.Forms.ToolStripMenuItem contextItem_removeEffectPos;
     }
 }
 

@@ -47,6 +47,7 @@ namespace mage
         public bool OutlineSprites { get { return toolStrip_outlineSprites.Checked; } }
         public bool OutlineDoors { get { return toolStrip_outlineDoors.Checked; } }
         public bool OutlineScrolls { get { return toolStrip_outlineScrolls.Checked; } }
+        public bool OutlineEffect { get { return toolStrip_outlineEffect.Checked; } }
         public bool ViewCollision { get { return menuItem_viewClipCollision.Checked; } }
         public bool ViewBreakable { get { return menuItem_viewClipBreakable.Checked; } }
         public bool ViewValues { get { return menuItem_viewClipValues.Checked; } }
@@ -451,6 +452,13 @@ namespace mage
         {
             menuItem_outlineScrolls.Checked = !menuItem_outlineScrolls.Checked;
             toolStrip_outlineScrolls.Checked = !toolStrip_outlineScrolls.Checked;
+            roomView.RedrawAll();
+        }
+
+        private void menuItem_outlineEffect_Click(object sender, EventArgs e)
+        {
+            menuItem_outlineEffect.Checked = !menuItem_outlineEffect.Checked;
+            toolStrip_outlineEffect.Checked = !toolStrip_outlineEffect.Checked;
             roomView.RedrawAll();
         }
 
@@ -2031,6 +2039,7 @@ namespace mage
         private int selEnemy;
         private int selDoor;
         private int selScroll;
+        private bool selEffect;
 
         private Timer roomTimer;
         private Timer tileTimer;
@@ -2152,6 +2161,10 @@ namespace mage
             if (OutlineScrolls)
             {
                 selScroll = room.scrollList.FindScroll(roomCursor);
+            }
+            if (OutlineEffect)
+            {
+                selEffect = (roomCursor.Y == room.header.effectY) && (roomCursor.X == 0 || roomCursor.X == room.Width - 1);
             }
         }
 
@@ -2393,6 +2406,7 @@ namespace mage
                 selEnemy = -1;
                 selDoor = -1;
                 selScroll = -1;
+                selEffect = false;
                 contextMenuOpen = false;
                 return;
             }
@@ -2434,6 +2448,11 @@ namespace mage
                     {
                         obj = room.scrollList[selScroll / 6];
                         selObject = selScroll;
+                    }
+                    else if (selEffect == true)
+                    {
+                        byte val = (byte)roomCursor.Y;
+                        SetNewEffectYPosition(val);
                     }
 
                     if (selObject != -1)
@@ -2481,6 +2500,14 @@ namespace mage
             UpdateStatusCoor();
         }
 
+        private void SetNewEffectYPosition(byte val)
+        {
+            int offset = ROM.Stream.ReadPtr(Version.AreaHeaderOffset + Room.AreaID * 4) + (Room.RoomID * 0x3C);
+
+            ROM.Stream.Write8(offset + 0x38, val);
+            ReloadRoom(false);
+        }
+
         private void roomView_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -2488,6 +2515,7 @@ namespace mage
                 selEnemy = -1;
                 selDoor = -1;
                 selScroll = -1;
+                selEffect = false;
                 undoRedo.FinalizePreviousAction();
             }
             else if (e.Button == MouseButtons.Right)
@@ -2545,31 +2573,36 @@ namespace mage
 
             // add sprite
             bool enable = (room.enemyList.Count < 24);
-            contextMenu.Items[0].Enabled = enable;
+            contextItem_addSprite.Enabled = enable;
 
             // edit/remove sprite
             enable = (selEnemy != -1);
-            contextMenu.Items[1].Enabled = enable;
-            contextMenu.Items[2].Enabled = enable;
+            contextItem_editSprite.Enabled = enable;
+            contextItem_removeSprite.Enabled = enable;
 
             // add door
             enable = DoorData.CanAddDoor((byte)comboBox_area.SelectedIndex);
-            contextMenu.Items[4].Enabled = enable;
+            contextItem_addDoor.Enabled = enable;
 
             // edit/remove door
             enable = (selDoor != -1);
-            contextMenu.Items[5].Enabled = enable;
-            contextMenu.Items[6].Enabled = enable;
-            contextMenu.Items[7].Enabled = enable;
+            contextItem_editDoor.Enabled = enable;
+            contextItem_removeDoor.Enabled = enable;
+            contextItem_goThroughDoor.Enabled = enable;
 
             // add scroll
             enable = (room.scrollList.Count < 16);
-            contextMenu.Items[9].Enabled = enable;
+            contextItem_addScroll.Enabled = enable;
+
+            // edit/remove effect position
+            enable = selEffect;
+            contextItem_setEffectPos.Enabled = !enable;
+            contextItem_removeEffectPos.Enabled = enable;
 
             // edit/remove scroll
             enable = (selScroll != -1);
-            contextMenu.Items[10].Enabled = enable;
-            contextMenu.Items[11].Enabled = enable;
+            contextItem_editScroll.Enabled = enable;
+            contextItem_removeScroll.Enabled = enable;
         }
 
         private void contextItem_addSprite_Click(object sender, EventArgs e)
@@ -2657,8 +2690,9 @@ namespace mage
             settings.ShowDialog();
         }
 
+        private void contextItem_setEffectPos_Click(object sender, EventArgs e) => SetNewEffectYPosition((byte)roomCursor.Y);
 
+        private void contextItem_removeEffectPos_Click(object sender, EventArgs e) => SetNewEffectYPosition(0xFF);
         #endregion
-
     }
 }

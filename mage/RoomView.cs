@@ -29,7 +29,7 @@ namespace mage
         // fields
         public Rectangle redRect;
         public Rectangle selRect;
-        private Pen rp, wp, bp;
+        private Pen rp, wp, bp, mp;
         private int zoom;
 
         private FormMain main;
@@ -46,6 +46,8 @@ namespace mage
             rp = new Pen(Color.Red);
             wp = new Pen(Color.White);
             bp = new Pen(Color.Black);
+            mp = new Pen(Color.FromArgb(0xFF, 0x00, 0x84));
+
             wp.DashPattern = bp.DashPattern = new float[] { 2, 3 };
             bp.DashOffset = 2;
         }
@@ -159,6 +161,10 @@ namespace mage
                 {
                     room.backgrounds.clipTypes.DrawCollision(g, rect);
                 }
+                if (main.OutlineEffect)
+                {
+                    DrawEffectPosition(g, room.header.effectY);
+                }
                 else if (main.ViewBreakable)
                 {
                     room.backgrounds.clipTypes.DrawBreakable(g, rect);
@@ -178,6 +184,36 @@ namespace mage
             rect.Width <<= zoom;
             rect.Height <<= zoom;
             Invalidate(rect);
+        }
+
+        private void DrawEffectPosition(Graphics g, byte effectY)
+        {
+            Point p1 = new Point(0, effectY * 16);
+            Point p2 = new Point(room.Width * 16, effectY * 16);
+            g.DrawLine(mp, p1, p2);
+
+            //Draw rectangle
+            g.FillRectangle(mp.Brush, new Rectangle(p1.X + 4, p1.Y + 14, 8, 2));
+            g.FillRectangle(mp.Brush, new Rectangle(p2.X - 16 + 4, p2.Y + 14, 8, 2));
+
+            //Draw numbers
+            DrawNumber(g, p1, effectY);
+            DrawNumber(g, new Point(p2.X - 16, p2.Y), effectY);
+        }
+
+        private void DrawNumber(Graphics g, Point point, byte num)
+        {
+            //Drawing numbers
+            Point numberTens = new Point(point.X, point.Y + 4);
+            Point numberOnes = new Point(point.X + 8, point.Y + 4);
+            byte tens = (byte)(num >> 4);
+            byte ones = (byte)(num & 0xF);
+
+            Bitmap nums = Properties.Resources.scrollNums;
+            g.DrawImage(nums, new Rectangle(numberOnes.X, numberOnes.Y, 8, 8),
+                new Rectangle((ones + 1) * 8, 0, 8, 8), GraphicsUnit.Pixel);
+            g.DrawImage(nums, new Rectangle(numberTens.X, numberTens.Y, 8, 8),
+                new Rectangle((tens + 1) * 8, 0, 8, 8), GraphicsUnit.Pixel);
         }
 
         private void DrawScreenOutlines(Graphics g, Rectangle rect)
