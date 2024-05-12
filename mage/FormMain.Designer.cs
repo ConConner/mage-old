@@ -253,6 +253,7 @@
             toolStrip_patches = new System.Windows.Forms.ToolStripButton();
             comboBox_spriteset = new Theming.CustomControls.FlatComboBox();
             ToolTip = new System.Windows.Forms.ToolTip(components);
+            btn_soundpacks = new System.Windows.Forms.ToolStripMenuItem();
             menuStrip.SuspendLayout();
             groupBox_location.SuspendLayout();
             groupBox_tileset.SuspendLayout();
@@ -1054,7 +1055,7 @@
             // 
             // menuStrip_options
             // 
-            menuStrip_options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem_defaultView, menuItem_numberBase, toolStripSeparator28, themeToolStripMenuItem, toolStripSeparator21, menuItem_tooltips });
+            menuStrip_options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem_defaultView, menuItem_numberBase, toolStripSeparator28, themeToolStripMenuItem, btn_soundpacks, toolStripSeparator21, menuItem_tooltips });
             menuStrip_options.Name = "menuStrip_options";
             menuStrip_options.Size = new System.Drawing.Size(61, 20);
             menuStrip_options.Text = "Options";
@@ -1064,7 +1065,7 @@
             menuItem_defaultView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem_defaultBG0, menuItem_defaultBG1, menuItem_defaultBG2, menuItem_defaultBG3, menuItem_defaultClipdata, toolStripSeparator13, menuItem_defaultSprites, menuItem_defaultSpriteOutlines, menuItem_defaultDoors, menuItem_defaultScrolls, menuItem_defaultScreens });
             menuItem_defaultView.Enabled = false;
             menuItem_defaultView.Name = "menuItem_defaultView";
-            menuItem_defaultView.Size = new System.Drawing.Size(156, 22);
+            menuItem_defaultView.Size = new System.Drawing.Size(180, 22);
             menuItem_defaultView.Text = "Default View";
             // 
             // menuItem_defaultBG0
@@ -1182,7 +1183,7 @@
             menuItem_numberBase.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem_hexadecimal, menuItem_decimal });
             menuItem_numberBase.Enabled = false;
             menuItem_numberBase.Name = "menuItem_numberBase";
-            menuItem_numberBase.Size = new System.Drawing.Size(156, 22);
+            menuItem_numberBase.Size = new System.Drawing.Size(180, 22);
             menuItem_numberBase.Text = "Number Base";
             // 
             // menuItem_hexadecimal
@@ -1204,25 +1205,25 @@
             // toolStripSeparator28
             // 
             toolStripSeparator28.Name = "toolStripSeparator28";
-            toolStripSeparator28.Size = new System.Drawing.Size(153, 6);
+            toolStripSeparator28.Size = new System.Drawing.Size(177, 6);
             // 
             // themeToolStripMenuItem
             // 
             themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            themeToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            themeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             themeToolStripMenuItem.Text = "Theme";
             themeToolStripMenuItem.Click += themeToolStripMenuItem_Click;
             // 
             // toolStripSeparator21
             // 
             toolStripSeparator21.Name = "toolStripSeparator21";
-            toolStripSeparator21.Size = new System.Drawing.Size(153, 6);
+            toolStripSeparator21.Size = new System.Drawing.Size(177, 6);
             // 
             // menuItem_tooltips
             // 
             menuItem_tooltips.Enabled = false;
             menuItem_tooltips.Name = "menuItem_tooltips";
-            menuItem_tooltips.Size = new System.Drawing.Size(156, 22);
+            menuItem_tooltips.Size = new System.Drawing.Size(180, 22);
             menuItem_tooltips.Text = "Disable Tooltips";
             menuItem_tooltips.Click += menuItem_tooltips_Click;
             // 
@@ -2078,6 +2079,13 @@
             comboBox_spriteset.TabIndex = 11;
             comboBox_spriteset.SelectedIndexChanged += comboBox_spriteset_SelectedIndexChanged;
             // 
+            // btn_soundpacks
+            // 
+            btn_soundpacks.Name = "btn_soundpacks";
+            btn_soundpacks.Size = new System.Drawing.Size(180, 22);
+            btn_soundpacks.Text = "Soundpacks";
+            btn_soundpacks.Click += btn_soundpacks_Click;
+            // 
             // FormMain
             // 
             AllowDrop = true;
@@ -2352,6 +2360,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator30;
         private System.Windows.Forms.ToolStripMenuItem contextItem_setEffectPos;
         private System.Windows.Forms.ToolStripMenuItem contextItem_removeEffectPos;
+        private System.Windows.Forms.ToolStripMenuItem btn_soundpacks;
     }
 }
 

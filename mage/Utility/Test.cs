@@ -116,6 +116,7 @@ namespace mage
                 path = Path.Combine(path, "test.gba");
                 room.SaveObjects();
                 ROM.SaveROM(path, false);
+                Sound.PlaySound("test.wav");
                 RunEmulator(path);
             }
             catch (Exception e)

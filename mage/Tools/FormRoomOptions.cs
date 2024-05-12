@@ -138,6 +138,8 @@ namespace mage
 
             chb_all.Checked = false;
 
+            Sound.PlaySound("clear.wav");
+
             main.ReloadRoom(true);
             room = main.Room;
             main.UpdateUiAfterClear();

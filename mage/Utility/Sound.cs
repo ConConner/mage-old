@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Media;
@@ -13,10 +14,11 @@ namespace mage;
 public class Sound
 {
     public static string SoundPackName { get; set; } = "default";
-    public static string SoundPacksPath { get; set; } = "";
+    public static string SoundPacksPath { get; set; } = @"";
 
     public static void PlaySound(string name, bool silentFail = true)
     {
+
         try
         {
             if (SoundPacksPath == "" || SoundPackName == "") return;

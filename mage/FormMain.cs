@@ -78,7 +78,16 @@ namespace mage
         private int enemySet;
         private UndoRedo undoRedo;
         private int zoom;
-        private bool contextMenuOpen;
+        private bool contextMenuOpen
+        {
+            get => ctxtMenuOpen;
+            set
+            {
+                ctxtMenuOpen = value;
+                if (value == false) Sound.PlaySound("close.wav");
+            }
+        }
+        private bool ctxtMenuOpen = false;
 
         #endregion
 
@@ -96,9 +105,6 @@ namespace mage
 
             ThemeSwitcher.ChangeTheme(Controls, this);
             ThemeSwitcher.InjectPaintOverrides(Controls);
-
-            Sound.SoundPacksPath = @"";
-            Sound.SoundPackName = "default";
         }
 
         #region opening/closing
@@ -195,6 +201,10 @@ namespace mage
                 TestRoomSettings = JsonSerializer.Deserialize<sRam>(testRoomSettings);
             }
             if (TestRoomSettings == null) TestRoomSettings = new();
+
+            //Louding Sound path
+            Sound.SoundPacksPath = Settings.Default.soundPackPath;
+            Sound.SoundPackName = Settings.Default.soundPackName;
         }
 
         private void SaveSettings()
@@ -223,6 +233,10 @@ namespace mage
             //Saving TestROM save
             string testRoomSettings = JsonSerializer.Serialize(TestRoomSettings);
             Settings.Default.testRoomSRAM = testRoomSettings;
+
+            //Sound
+            Settings.Default.soundPackPath = Sound.SoundPacksPath;
+            Settings.Default.soundPackName = Sound.SoundPackName;
 
             Settings.Default.Save();
         }
@@ -1160,6 +1174,8 @@ namespace mage
 
             // rewrite file name
             this.Text = Path.GetFileName(filename) + " - MAGE";
+
+            Sound.PlaySound("save.wav");
         }
 
         private bool CheckUnsaved()
@@ -1262,6 +1278,8 @@ namespace mage
             EnableControls(true);
             menuItem_editBGs.Checked = toolStrip_editBGs.Checked = true;
             menuItem_editObjects.Checked = toolStrip_editObjects.Checked = false;
+
+            Sound.PlaySound("load.wav");
         }
 
         private void EnableControls(bool val)
@@ -1568,6 +1586,8 @@ namespace mage
                 }
             }
 
+            Sound.PlaySound("area.wav");
+
             if (skipEvents) { return; }
             if (comboBox_room.SelectedIndex == 0) { LoadRoom(area, 0, true); }
             else { comboBox_room.SelectedIndex = 0; }
@@ -1575,6 +1595,7 @@ namespace mage
 
         private void comboBox_room_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Sound.PlaySound("door.wav");
             if (skipEvents) { return; }
             int newRoom = comboBox_room.SelectedIndex;
             if (room != null && newRoom == room.RoomID) { return; }
@@ -1597,6 +1618,9 @@ namespace mage
             groupBox_editBG.Enabled = val;
             menuItem_editBGs.Checked = val;
             toolStrip_editBGs.Checked = val;
+
+            if (toolStrip_editBGs.Checked) Sound.PlaySound("bgmode.wav");
+            else Sound.PlaySound("objmode.wav");
 
             // redraw cursor if necessary
             ResetRoomTip(false);
@@ -1773,6 +1797,8 @@ namespace mage
             Action a = undoRedo.Undo(room);
             UpdateUI(a);
             UpdateUndoRedo();
+
+            Sound.PlaySound("undo.wav");
         }
 
         private void Redo()
@@ -1780,6 +1806,8 @@ namespace mage
             Action a = undoRedo.Redo(room);
             UpdateUI(a);
             UpdateUndoRedo();
+
+            Sound.PlaySound("redo.wav");
         }
 
         private void UpdateUI(Action a)
@@ -2096,9 +2124,9 @@ namespace mage
         private void PasteBlocks(bool combine)
         {
             int bgNum = -1;
-            if (EditBG0) { bgNum = 0; }
-            else if (EditBG1) { bgNum = 1; }
-            else if (EditBG2) { bgNum = 2; }
+            if (EditBG0) { bgNum = 0; Sound.PlaySound("bg0.wav"); }
+            else if (EditBG1) { bgNum = 1; Sound.PlaySound("bg1.wav"); }
+            else if (EditBG2) { bgNum = 2; Sound.PlaySound("bg2.wav"); }
 
             ushort clip = 0xFFFF;
             if (EditCLP)
@@ -2108,6 +2136,7 @@ namespace mage
                     clip = Clipdata;
                 }
                 else { clip = 0xFFFE; }
+                Sound.PlaySound("clip.wav");
             }
 
             EditBlocks a;
@@ -2500,14 +2529,6 @@ namespace mage
             UpdateStatusCoor();
         }
 
-        private void SetNewEffectYPosition(byte val)
-        {
-            int offset = ROM.Stream.ReadPtr(Version.AreaHeaderOffset + Room.AreaID * 4) + (Room.RoomID * 0x3C);
-
-            ROM.Stream.Write8(offset + 0x38, val);
-            ReloadRoom(false);
-        }
-
         private void roomView_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -2531,6 +2552,14 @@ namespace mage
                     roomView.Invalidate(rect);
                 }
             }
+        }
+
+        private void SetNewEffectYPosition(byte val)
+        {
+            int offset = ROM.Stream.ReadPtr(Version.AreaHeaderOffset + Room.AreaID * 4) + (Room.RoomID * 0x3C);
+
+            ROM.Stream.Write8(offset + 0x38, val);
+            ReloadRoom(false);
         }
 
         private void roomView_DoubleClick(object sender, EventArgs e)
@@ -2603,6 +2632,8 @@ namespace mage
             enable = (selScroll != -1);
             contextItem_editScroll.Enabled = enable;
             contextItem_removeScroll.Enabled = enable;
+
+            Sound.PlaySound("context.wav");
         }
 
         private void contextItem_addSprite_Click(object sender, EventArgs e)
@@ -2694,5 +2725,10 @@ namespace mage
 
         private void contextItem_removeEffectPos_Click(object sender, EventArgs e) => SetNewEffectYPosition(0xFF);
         #endregion
+
+        private void btn_soundpacks_Click(object sender, EventArgs e)
+        {
+            new FormSoundPack().Show();
+        }
     }
 }

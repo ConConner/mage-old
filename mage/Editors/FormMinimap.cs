@@ -247,6 +247,7 @@ namespace mage
                 g.DrawImage(square, mPos.X * 8, mPos.Y * 8);
             }
 
+            Sound.PlaySound("map.wav");
             status.ChangeMade();
         }
 

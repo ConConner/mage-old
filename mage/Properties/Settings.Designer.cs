@@ -261,5 +261,29 @@ namespace mage.Properties {
                 this["testRoomSRAM"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string soundPackPath {
+            get {
+                return ((string)(this["soundPackPath"]));
+            }
+            set {
+                this["soundPackPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("default")]
+        public string soundPackName {
+            get {
+                return ((string)(this["soundPackName"]));
+            }
+            set {
+                this["soundPackName"] = value;
+            }
+        }
     }
 }
