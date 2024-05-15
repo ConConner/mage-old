@@ -37,9 +37,9 @@ namespace mage.Tools
             int count = -1;
             foreach (string dir in Directory.GetDirectories(Sound.SoundPacksPath))
             {
-                count++;
                 //check if pack.info exists
                 if (!File.Exists(Path.Combine(dir, "pack.info"))) continue;
+                count++;
 
                 string name = Path.GetFileName(dir);
                 lst_packs.Items.Add(name);
