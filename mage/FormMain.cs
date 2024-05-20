@@ -68,7 +68,7 @@ namespace mage
         private PictureBox splash;
 
         // rom and file info
-        private string filename;
+        public string filename { get; private set; }
         private string[] areaNames;
         private byte[] roomsPerArea;
 

@@ -113,9 +113,18 @@ namespace mage
             try
             {
                 string path = Path.GetTempPath();
+                string testSymbolPath = Path.Combine(path, "test.sym");
+                string romName = Path.GetFileNameWithoutExtension(main.filename);
+                romName = Path.Combine(Path.GetDirectoryName(main.filename), romName);
+
                 path = Path.Combine(path, "test.gba");
                 room.SaveObjects();
                 ROM.SaveROM(path, false);
+
+                //Copy a symbol file if it exists
+                string romSymbolPath = romName + ".sym";
+                if (File.Exists(romSymbolPath)) File.Copy(romSymbolPath, testSymbolPath, true);
+
                 Sound.PlaySound("test.wav");
                 RunEmulator(path);
             }
