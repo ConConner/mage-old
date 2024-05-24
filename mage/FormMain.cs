@@ -2726,6 +2726,9 @@ namespace mage
         private void contextItem_removeEffectPos_Click(object sender, EventArgs e) => SetNewEffectYPosition(0xFF);
         #endregion
 
+
+        private void changeEmulatorPathToolStripMenuItem_Click(object sender, EventArgs e) => Test.SetEmulatorPath();
+        
         private void btn_soundpacks_Click(object sender, EventArgs e)
         {
             new FormSoundPack().Show();
