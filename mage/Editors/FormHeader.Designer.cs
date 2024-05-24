@@ -72,6 +72,7 @@
             textBox_firstPointer = new Theming.CustomControls.FlatTextBox();
             textBox_firstSpriteset = new Theming.CustomControls.FlatTextBox();
             groupBox_misc = new System.Windows.Forms.GroupBox();
+            btn_open_map = new System.Windows.Forms.Button();
             label_music = new System.Windows.Forms.Label();
             textBox_music = new Theming.CustomControls.FlatTextBox();
             label_mapY = new System.Windows.Forms.Label();
@@ -79,15 +80,15 @@
             textBox_mapX = new Theming.CustomControls.FlatTextBox();
             textBox_mapY = new Theming.CustomControls.FlatTextBox();
             button_apply = new System.Windows.Forms.Button();
-            button_close = new System.Windows.Forms.Button();
-            label_offset = new System.Windows.Forms.Label();
-            textBox_offsetVal = new Theming.CustomControls.FlatTextBox();
             label_room = new System.Windows.Forms.Label();
             label_area = new System.Windows.Forms.Label();
             comboBox_room = new Theming.CustomControls.FlatComboBox();
             comboBox_area = new Theming.CustomControls.FlatComboBox();
             statusStrip = new System.Windows.Forms.StatusStrip();
             statusLabel_changes = new System.Windows.Forms.ToolStripStatusLabel();
+            lbl_spring = new System.Windows.Forms.ToolStripStatusLabel();
+            lbl_offset = new System.Windows.Forms.ToolStripStatusLabel();
+            button_close = new System.Windows.Forms.Button();
             groupBox_BGdata.SuspendLayout();
             groupBox_spritesetData.SuspendLayout();
             groupBox_misc.SuspendLayout();
@@ -97,16 +98,19 @@
             // textBox_tileset
             // 
             textBox_tileset.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_tileset.DisplayBorder = true;
             textBox_tileset.Location = new System.Drawing.Point(102, 40);
             textBox_tileset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_tileset.Multiline = false;
             textBox_tileset.Name = "textBox_tileset";
+            textBox_tileset.OnTextChanged = null;
             textBox_tileset.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_tileset.ReadOnly = false;
             textBox_tileset.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_tileset.SelectionStart = 0;
             textBox_tileset.Size = new System.Drawing.Size(35, 23);
             textBox_tileset.TabIndex = 0;
+            textBox_tileset.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_tileset.WordWrap = true;
             textBox_tileset.TextChanged += textBox_TextChanged;
             // 
@@ -123,144 +127,171 @@
             // textBox_BG0pointer
             // 
             textBox_BG0pointer.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_BG0pointer.DisplayBorder = true;
             textBox_BG0pointer.Location = new System.Drawing.Point(225, 40);
             textBox_BG0pointer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_BG0pointer.Multiline = false;
             textBox_BG0pointer.Name = "textBox_BG0pointer";
+            textBox_BG0pointer.OnTextChanged = null;
             textBox_BG0pointer.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_BG0pointer.ReadOnly = false;
             textBox_BG0pointer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_BG0pointer.SelectionStart = 0;
             textBox_BG0pointer.Size = new System.Drawing.Size(76, 23);
             textBox_BG0pointer.TabIndex = 5;
+            textBox_BG0pointer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_BG0pointer.WordWrap = true;
             textBox_BG0pointer.TextChanged += textBox_TextChanged;
             // 
             // textBox_BG1pointer
             // 
             textBox_BG1pointer.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_BG1pointer.DisplayBorder = true;
             textBox_BG1pointer.Location = new System.Drawing.Point(225, 70);
             textBox_BG1pointer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_BG1pointer.Multiline = false;
             textBox_BG1pointer.Name = "textBox_BG1pointer";
+            textBox_BG1pointer.OnTextChanged = null;
             textBox_BG1pointer.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_BG1pointer.ReadOnly = false;
             textBox_BG1pointer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_BG1pointer.SelectionStart = 0;
             textBox_BG1pointer.Size = new System.Drawing.Size(76, 23);
             textBox_BG1pointer.TabIndex = 7;
+            textBox_BG1pointer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_BG1pointer.WordWrap = true;
             textBox_BG1pointer.TextChanged += textBox_TextChanged;
             // 
             // textBox_BG2pointer
             // 
             textBox_BG2pointer.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_BG2pointer.DisplayBorder = true;
             textBox_BG2pointer.Location = new System.Drawing.Point(225, 100);
             textBox_BG2pointer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_BG2pointer.Multiline = false;
             textBox_BG2pointer.Name = "textBox_BG2pointer";
+            textBox_BG2pointer.OnTextChanged = null;
             textBox_BG2pointer.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_BG2pointer.ReadOnly = false;
             textBox_BG2pointer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_BG2pointer.SelectionStart = 0;
             textBox_BG2pointer.Size = new System.Drawing.Size(76, 23);
             textBox_BG2pointer.TabIndex = 9;
+            textBox_BG2pointer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_BG2pointer.WordWrap = true;
             textBox_BG2pointer.TextChanged += textBox_TextChanged;
             // 
             // textBox_BG3pointer
             // 
             textBox_BG3pointer.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_BG3pointer.DisplayBorder = true;
             textBox_BG3pointer.Location = new System.Drawing.Point(225, 130);
             textBox_BG3pointer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_BG3pointer.Multiline = false;
             textBox_BG3pointer.Name = "textBox_BG3pointer";
+            textBox_BG3pointer.OnTextChanged = null;
             textBox_BG3pointer.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_BG3pointer.ReadOnly = false;
             textBox_BG3pointer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_BG3pointer.SelectionStart = 0;
             textBox_BG3pointer.Size = new System.Drawing.Size(76, 23);
             textBox_BG3pointer.TabIndex = 11;
+            textBox_BG3pointer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_BG3pointer.WordWrap = true;
             textBox_BG3pointer.TextChanged += textBox_TextChanged;
             // 
             // textBox_CLPpointer
             // 
             textBox_CLPpointer.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_CLPpointer.DisplayBorder = true;
             textBox_CLPpointer.Location = new System.Drawing.Point(225, 160);
             textBox_CLPpointer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_CLPpointer.Multiline = false;
             textBox_CLPpointer.Name = "textBox_CLPpointer";
+            textBox_CLPpointer.OnTextChanged = null;
             textBox_CLPpointer.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_CLPpointer.ReadOnly = false;
             textBox_CLPpointer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_CLPpointer.SelectionStart = 0;
             textBox_CLPpointer.Size = new System.Drawing.Size(76, 23);
             textBox_CLPpointer.TabIndex = 13;
+            textBox_CLPpointer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_CLPpointer.WordWrap = true;
             textBox_CLPpointer.TextChanged += textBox_TextChanged;
             // 
             // textBox_BG0prop
             // 
             textBox_BG0prop.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_BG0prop.DisplayBorder = true;
             textBox_BG0prop.Location = new System.Drawing.Point(308, 40);
             textBox_BG0prop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_BG0prop.Multiline = false;
             textBox_BG0prop.Name = "textBox_BG0prop";
+            textBox_BG0prop.OnTextChanged = null;
             textBox_BG0prop.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_BG0prop.ReadOnly = false;
             textBox_BG0prop.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_BG0prop.SelectionStart = 0;
             textBox_BG0prop.Size = new System.Drawing.Size(35, 23);
             textBox_BG0prop.TabIndex = 6;
+            textBox_BG0prop.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_BG0prop.WordWrap = true;
             textBox_BG0prop.TextChanged += textBox_TextChanged;
             // 
             // textBox_BG1prop
             // 
             textBox_BG1prop.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_BG1prop.DisplayBorder = true;
             textBox_BG1prop.Location = new System.Drawing.Point(308, 70);
             textBox_BG1prop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_BG1prop.Multiline = false;
             textBox_BG1prop.Name = "textBox_BG1prop";
+            textBox_BG1prop.OnTextChanged = null;
             textBox_BG1prop.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_BG1prop.ReadOnly = false;
             textBox_BG1prop.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_BG1prop.SelectionStart = 0;
             textBox_BG1prop.Size = new System.Drawing.Size(35, 23);
             textBox_BG1prop.TabIndex = 8;
+            textBox_BG1prop.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_BG1prop.WordWrap = true;
             textBox_BG1prop.TextChanged += textBox_TextChanged;
             // 
             // textBox_BG2prop
             // 
             textBox_BG2prop.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_BG2prop.DisplayBorder = true;
             textBox_BG2prop.Location = new System.Drawing.Point(308, 100);
             textBox_BG2prop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_BG2prop.Multiline = false;
             textBox_BG2prop.Name = "textBox_BG2prop";
+            textBox_BG2prop.OnTextChanged = null;
             textBox_BG2prop.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_BG2prop.ReadOnly = false;
             textBox_BG2prop.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_BG2prop.SelectionStart = 0;
             textBox_BG2prop.Size = new System.Drawing.Size(35, 23);
             textBox_BG2prop.TabIndex = 10;
+            textBox_BG2prop.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_BG2prop.WordWrap = true;
             textBox_BG2prop.TextChanged += textBox_TextChanged;
             // 
             // textBox_BG3prop
             // 
             textBox_BG3prop.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_BG3prop.DisplayBorder = true;
             textBox_BG3prop.Location = new System.Drawing.Point(308, 130);
             textBox_BG3prop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_BG3prop.Multiline = false;
             textBox_BG3prop.Name = "textBox_BG3prop";
+            textBox_BG3prop.OnTextChanged = null;
             textBox_BG3prop.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_BG3prop.ReadOnly = false;
             textBox_BG3prop.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_BG3prop.SelectionStart = 0;
             textBox_BG3prop.Size = new System.Drawing.Size(35, 23);
             textBox_BG3prop.TabIndex = 12;
+            textBox_BG3prop.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_BG3prop.WordWrap = true;
             textBox_BG3prop.TextChanged += textBox_TextChanged;
             // 
@@ -339,32 +370,38 @@
             // textBox_BG3scroll
             // 
             textBox_BG3scroll.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_BG3scroll.DisplayBorder = true;
             textBox_BG3scroll.Location = new System.Drawing.Point(102, 100);
             textBox_BG3scroll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_BG3scroll.Multiline = false;
             textBox_BG3scroll.Name = "textBox_BG3scroll";
+            textBox_BG3scroll.OnTextChanged = null;
             textBox_BG3scroll.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_BG3scroll.ReadOnly = false;
             textBox_BG3scroll.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_BG3scroll.SelectionStart = 0;
             textBox_BG3scroll.Size = new System.Drawing.Size(35, 23);
             textBox_BG3scroll.TabIndex = 2;
+            textBox_BG3scroll.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_BG3scroll.WordWrap = true;
             textBox_BG3scroll.TextChanged += textBox_TextChanged;
             // 
             // textBox_transparency
             // 
             textBox_transparency.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_transparency.DisplayBorder = true;
             textBox_transparency.Location = new System.Drawing.Point(102, 70);
             textBox_transparency.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_transparency.Multiline = false;
             textBox_transparency.Name = "textBox_transparency";
+            textBox_transparency.OnTextChanged = null;
             textBox_transparency.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_transparency.ReadOnly = false;
             textBox_transparency.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_transparency.SelectionStart = 0;
             textBox_transparency.Size = new System.Drawing.Size(35, 23);
             textBox_transparency.TabIndex = 1;
+            textBox_transparency.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_transparency.WordWrap = true;
             textBox_transparency.TextChanged += textBox_TextChanged;
             // 
@@ -428,16 +465,19 @@
             // textBox_effectYpos
             // 
             textBox_effectYpos.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_effectYpos.DisplayBorder = true;
             textBox_effectYpos.Location = new System.Drawing.Point(102, 160);
             textBox_effectYpos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_effectYpos.Multiline = false;
             textBox_effectYpos.Name = "textBox_effectYpos";
+            textBox_effectYpos.OnTextChanged = null;
             textBox_effectYpos.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_effectYpos.ReadOnly = false;
             textBox_effectYpos.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_effectYpos.SelectionStart = 0;
             textBox_effectYpos.Size = new System.Drawing.Size(35, 23);
             textBox_effectYpos.TabIndex = 4;
+            textBox_effectYpos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_effectYpos.WordWrap = true;
             textBox_effectYpos.TextChanged += textBox_TextChanged;
             // 
@@ -464,16 +504,19 @@
             // textBox_effect
             // 
             textBox_effect.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_effect.DisplayBorder = true;
             textBox_effect.Location = new System.Drawing.Point(102, 130);
             textBox_effect.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_effect.Multiline = false;
             textBox_effect.Name = "textBox_effect";
+            textBox_effect.OnTextChanged = null;
             textBox_effect.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_effect.ReadOnly = false;
             textBox_effect.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_effect.SelectionStart = 0;
             textBox_effect.Size = new System.Drawing.Size(35, 23);
             textBox_effect.TabIndex = 3;
+            textBox_effect.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_effect.WordWrap = true;
             textBox_effect.TextChanged += textBox_TextChanged;
             // 
@@ -497,7 +540,7 @@
             groupBox_spritesetData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox_spritesetData.Name = "groupBox_spritesetData";
             groupBox_spritesetData.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox_spritesetData.Size = new System.Drawing.Size(239, 136);
+            groupBox_spritesetData.Size = new System.Drawing.Size(239, 168);
             groupBox_spritesetData.TabIndex = 1;
             groupBox_spritesetData.TabStop = false;
             groupBox_spritesetData.Text = "Spriteset Data";
@@ -568,133 +611,158 @@
             // textBox_defaultPointer
             // 
             textBox_defaultPointer.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_defaultPointer.DisplayBorder = true;
             textBox_defaultPointer.Location = new System.Drawing.Point(69, 40);
             textBox_defaultPointer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_defaultPointer.Multiline = false;
             textBox_defaultPointer.Name = "textBox_defaultPointer";
+            textBox_defaultPointer.OnTextChanged = null;
             textBox_defaultPointer.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_defaultPointer.ReadOnly = false;
             textBox_defaultPointer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_defaultPointer.SelectionStart = 0;
             textBox_defaultPointer.Size = new System.Drawing.Size(76, 23);
             textBox_defaultPointer.TabIndex = 0;
+            textBox_defaultPointer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_defaultPointer.WordWrap = true;
             textBox_defaultPointer.TextChanged += textBox_TextChanged;
             // 
             // textBox_defaultSpriteset
             // 
             textBox_defaultSpriteset.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_defaultSpriteset.DisplayBorder = true;
             textBox_defaultSpriteset.Location = new System.Drawing.Point(152, 40);
             textBox_defaultSpriteset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_defaultSpriteset.Multiline = false;
             textBox_defaultSpriteset.Name = "textBox_defaultSpriteset";
+            textBox_defaultSpriteset.OnTextChanged = null;
             textBox_defaultSpriteset.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_defaultSpriteset.ReadOnly = false;
             textBox_defaultSpriteset.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_defaultSpriteset.SelectionStart = 0;
             textBox_defaultSpriteset.Size = new System.Drawing.Size(35, 23);
             textBox_defaultSpriteset.TabIndex = 1;
+            textBox_defaultSpriteset.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_defaultSpriteset.WordWrap = true;
             textBox_defaultSpriteset.TextChanged += textBox_TextChanged;
             // 
             // textBox_secondEvent
             // 
             textBox_secondEvent.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_secondEvent.DisplayBorder = true;
             textBox_secondEvent.Location = new System.Drawing.Point(194, 100);
             textBox_secondEvent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_secondEvent.Multiline = false;
             textBox_secondEvent.Name = "textBox_secondEvent";
+            textBox_secondEvent.OnTextChanged = null;
             textBox_secondEvent.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_secondEvent.ReadOnly = false;
             textBox_secondEvent.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_secondEvent.SelectionStart = 0;
             textBox_secondEvent.Size = new System.Drawing.Size(35, 23);
             textBox_secondEvent.TabIndex = 7;
+            textBox_secondEvent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_secondEvent.WordWrap = true;
             textBox_secondEvent.TextChanged += textBox_TextChanged;
             // 
             // textBox_secondPointer
             // 
             textBox_secondPointer.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_secondPointer.DisplayBorder = true;
             textBox_secondPointer.Location = new System.Drawing.Point(69, 100);
             textBox_secondPointer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_secondPointer.Multiline = false;
             textBox_secondPointer.Name = "textBox_secondPointer";
+            textBox_secondPointer.OnTextChanged = null;
             textBox_secondPointer.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_secondPointer.ReadOnly = false;
             textBox_secondPointer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_secondPointer.SelectionStart = 0;
             textBox_secondPointer.Size = new System.Drawing.Size(76, 23);
             textBox_secondPointer.TabIndex = 5;
+            textBox_secondPointer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_secondPointer.WordWrap = true;
             textBox_secondPointer.TextChanged += textBox_TextChanged;
             // 
             // textBox_secondSpriteset
             // 
             textBox_secondSpriteset.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_secondSpriteset.DisplayBorder = true;
             textBox_secondSpriteset.Location = new System.Drawing.Point(152, 100);
             textBox_secondSpriteset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_secondSpriteset.Multiline = false;
             textBox_secondSpriteset.Name = "textBox_secondSpriteset";
+            textBox_secondSpriteset.OnTextChanged = null;
             textBox_secondSpriteset.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_secondSpriteset.ReadOnly = false;
             textBox_secondSpriteset.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_secondSpriteset.SelectionStart = 0;
             textBox_secondSpriteset.Size = new System.Drawing.Size(35, 23);
             textBox_secondSpriteset.TabIndex = 6;
+            textBox_secondSpriteset.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_secondSpriteset.WordWrap = true;
             textBox_secondSpriteset.TextChanged += textBox_TextChanged;
             // 
             // textBox_firstEvent
             // 
             textBox_firstEvent.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_firstEvent.DisplayBorder = true;
             textBox_firstEvent.Location = new System.Drawing.Point(194, 70);
             textBox_firstEvent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_firstEvent.Multiline = false;
             textBox_firstEvent.Name = "textBox_firstEvent";
+            textBox_firstEvent.OnTextChanged = null;
             textBox_firstEvent.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_firstEvent.ReadOnly = false;
             textBox_firstEvent.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_firstEvent.SelectionStart = 0;
             textBox_firstEvent.Size = new System.Drawing.Size(35, 23);
             textBox_firstEvent.TabIndex = 4;
+            textBox_firstEvent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_firstEvent.WordWrap = true;
             textBox_firstEvent.TextChanged += textBox_TextChanged;
             // 
             // textBox_firstPointer
             // 
             textBox_firstPointer.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_firstPointer.DisplayBorder = true;
             textBox_firstPointer.Location = new System.Drawing.Point(69, 70);
             textBox_firstPointer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_firstPointer.Multiline = false;
             textBox_firstPointer.Name = "textBox_firstPointer";
+            textBox_firstPointer.OnTextChanged = null;
             textBox_firstPointer.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_firstPointer.ReadOnly = false;
             textBox_firstPointer.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_firstPointer.SelectionStart = 0;
             textBox_firstPointer.Size = new System.Drawing.Size(76, 23);
             textBox_firstPointer.TabIndex = 2;
+            textBox_firstPointer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_firstPointer.WordWrap = true;
             textBox_firstPointer.TextChanged += textBox_TextChanged;
             // 
             // textBox_firstSpriteset
             // 
             textBox_firstSpriteset.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_firstSpriteset.DisplayBorder = true;
             textBox_firstSpriteset.Location = new System.Drawing.Point(152, 70);
             textBox_firstSpriteset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_firstSpriteset.Multiline = false;
             textBox_firstSpriteset.Name = "textBox_firstSpriteset";
+            textBox_firstSpriteset.OnTextChanged = null;
             textBox_firstSpriteset.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_firstSpriteset.ReadOnly = false;
             textBox_firstSpriteset.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_firstSpriteset.SelectionStart = 0;
             textBox_firstSpriteset.Size = new System.Drawing.Size(35, 23);
             textBox_firstSpriteset.TabIndex = 3;
+            textBox_firstSpriteset.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_firstSpriteset.WordWrap = true;
             textBox_firstSpriteset.TextChanged += textBox_TextChanged;
             // 
             // groupBox_misc
             // 
+            groupBox_misc.Controls.Add(btn_open_map);
             groupBox_misc.Controls.Add(label_music);
             groupBox_misc.Controls.Add(textBox_music);
             groupBox_misc.Controls.Add(label_mapY);
@@ -705,15 +773,26 @@
             groupBox_misc.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox_misc.Name = "groupBox_misc";
             groupBox_misc.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox_misc.Size = new System.Drawing.Size(107, 136);
+            groupBox_misc.Size = new System.Drawing.Size(107, 168);
             groupBox_misc.TabIndex = 2;
             groupBox_misc.TabStop = false;
             groupBox_misc.Text = "Miscellaneous";
             // 
+            // btn_open_map
+            // 
+            btn_open_map.Location = new System.Drawing.Point(7, 98);
+            btn_open_map.Name = "btn_open_map";
+            btn_open_map.Size = new System.Drawing.Size(90, 27);
+            btn_open_map.TabIndex = 3;
+            btn_open_map.Text = "Open Map";
+            btn_open_map.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            btn_open_map.UseVisualStyleBackColor = true;
+            btn_open_map.Click += btn_open_map_Click;
+            // 
             // label_music
             // 
             label_music.AutoSize = true;
-            label_music.Location = new System.Drawing.Point(7, 104);
+            label_music.Location = new System.Drawing.Point(7, 138);
             label_music.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label_music.Name = "label_music";
             label_music.Size = new System.Drawing.Size(42, 15);
@@ -723,16 +802,19 @@
             // textBox_music
             // 
             textBox_music.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
-            textBox_music.Location = new System.Drawing.Point(62, 100);
+            textBox_music.DisplayBorder = true;
+            textBox_music.Location = new System.Drawing.Point(62, 134);
             textBox_music.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_music.Multiline = false;
             textBox_music.Name = "textBox_music";
+            textBox_music.OnTextChanged = null;
             textBox_music.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_music.ReadOnly = false;
             textBox_music.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_music.SelectionStart = 0;
             textBox_music.Size = new System.Drawing.Size(35, 23);
             textBox_music.TabIndex = 2;
+            textBox_music.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_music.WordWrap = true;
             textBox_music.TextChanged += textBox_TextChanged;
             // 
@@ -759,88 +841,57 @@
             // textBox_mapX
             // 
             textBox_mapX.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_mapX.DisplayBorder = true;
             textBox_mapX.Location = new System.Drawing.Point(62, 27);
             textBox_mapX.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_mapX.Multiline = false;
             textBox_mapX.Name = "textBox_mapX";
+            textBox_mapX.OnTextChanged = null;
             textBox_mapX.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_mapX.ReadOnly = false;
             textBox_mapX.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_mapX.SelectionStart = 0;
             textBox_mapX.Size = new System.Drawing.Size(35, 23);
             textBox_mapX.TabIndex = 0;
+            textBox_mapX.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_mapX.WordWrap = true;
             textBox_mapX.TextChanged += textBox_TextChanged;
             // 
             // textBox_mapY
             // 
             textBox_mapY.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
+            textBox_mapY.DisplayBorder = true;
             textBox_mapY.Location = new System.Drawing.Point(62, 63);
             textBox_mapY.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             textBox_mapY.Multiline = false;
             textBox_mapY.Name = "textBox_mapY";
+            textBox_mapY.OnTextChanged = null;
             textBox_mapY.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
             textBox_mapY.ReadOnly = false;
             textBox_mapY.ScrollBars = System.Windows.Forms.ScrollBars.None;
             textBox_mapY.SelectionStart = 0;
             textBox_mapY.Size = new System.Drawing.Size(35, 23);
             textBox_mapY.TabIndex = 1;
+            textBox_mapY.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             textBox_mapY.WordWrap = true;
             textBox_mapY.TextChanged += textBox_TextChanged;
             // 
             // button_apply
             // 
             button_apply.Enabled = false;
-            button_apply.Location = new System.Drawing.Point(186, 358);
+            button_apply.Location = new System.Drawing.Point(260, 386);
             button_apply.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_apply.Name = "button_apply";
-            button_apply.Size = new System.Drawing.Size(88, 27);
+            button_apply.Size = new System.Drawing.Size(107, 27);
             button_apply.TabIndex = 5;
             button_apply.Text = "Apply";
             button_apply.UseVisualStyleBackColor = true;
             button_apply.Click += button_apply_Click;
             // 
-            // button_close
-            // 
-            button_close.Location = new System.Drawing.Point(280, 358);
-            button_close.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button_close.Name = "button_close";
-            button_close.Size = new System.Drawing.Size(88, 27);
-            button_close.TabIndex = 6;
-            button_close.Text = "Close";
-            button_close.UseVisualStyleBackColor = true;
-            button_close.Click += button_close_Click;
-            // 
-            // label_offset
-            // 
-            label_offset.AutoSize = true;
-            label_offset.Location = new System.Drawing.Point(183, 391);
-            label_offset.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label_offset.Name = "label_offset";
-            label_offset.Size = new System.Drawing.Size(42, 15);
-            label_offset.TabIndex = 0;
-            label_offset.Text = "Offset:";
-            // 
-            // textBox_offsetVal
-            // 
-            textBox_offsetVal.BorderColor = System.Drawing.Color.FromArgb(188, 188, 188);
-            textBox_offsetVal.Location = new System.Drawing.Point(233, 388);
-            textBox_offsetVal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox_offsetVal.Multiline = false;
-            textBox_offsetVal.Name = "textBox_offsetVal";
-            textBox_offsetVal.Padding = new System.Windows.Forms.Padding(4, 3, 1, 2);
-            textBox_offsetVal.ReadOnly = true;
-            textBox_offsetVal.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            textBox_offsetVal.SelectionStart = 0;
-            textBox_offsetVal.Size = new System.Drawing.Size(64, 23);
-            textBox_offsetVal.TabIndex = 0;
-            textBox_offsetVal.TabStop = false;
-            textBox_offsetVal.WordWrap = true;
-            // 
             // label_room
             // 
             label_room.AutoSize = true;
-            label_room.Location = new System.Drawing.Point(14, 391);
+            label_room.Location = new System.Drawing.Point(20, 421);
             label_room.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label_room.Name = "label_room";
             label_room.Size = new System.Drawing.Size(42, 15);
@@ -850,7 +901,7 @@
             // label_area
             // 
             label_area.AutoSize = true;
-            label_area.Location = new System.Drawing.Point(14, 362);
+            label_area.Location = new System.Drawing.Point(20, 392);
             label_area.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label_area.Name = "label_area";
             label_area.Size = new System.Drawing.Size(34, 15);
@@ -861,10 +912,10 @@
             // 
             comboBox_room.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBox_room.FormattingEnabled = true;
-            comboBox_room.Location = new System.Drawing.Point(64, 388);
+            comboBox_room.Location = new System.Drawing.Point(70, 418);
             comboBox_room.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox_room.Name = "comboBox_room";
-            comboBox_room.Size = new System.Drawing.Size(89, 23);
+            comboBox_room.Size = new System.Drawing.Size(182, 23);
             comboBox_room.TabIndex = 4;
             comboBox_room.SelectedIndexChanged += comboBox_room_SelectedIndexChanged;
             // 
@@ -872,17 +923,17 @@
             // 
             comboBox_area.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBox_area.FormattingEnabled = true;
-            comboBox_area.Location = new System.Drawing.Point(64, 359);
+            comboBox_area.Location = new System.Drawing.Point(70, 389);
             comboBox_area.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             comboBox_area.Name = "comboBox_area";
-            comboBox_area.Size = new System.Drawing.Size(89, 23);
+            comboBox_area.Size = new System.Drawing.Size(182, 23);
             comboBox_area.TabIndex = 3;
             comboBox_area.SelectedIndexChanged += comboBox_area_SelectedIndexChanged;
             // 
             // statusStrip
             // 
-            statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { statusLabel_changes });
-            statusStrip.Location = new System.Drawing.Point(0, 421);
+            statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { statusLabel_changes, lbl_spring, lbl_offset });
+            statusStrip.Location = new System.Drawing.Point(0, 451);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
             statusStrip.Size = new System.Drawing.Size(382, 22);
@@ -890,22 +941,44 @@
             // 
             // statusLabel_changes
             // 
+            statusLabel_changes.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             statusLabel_changes.Name = "statusLabel_changes";
             statusLabel_changes.Size = new System.Drawing.Size(12, 17);
             statusLabel_changes.Text = "-";
+            // 
+            // lbl_spring
+            // 
+            lbl_spring.Name = "lbl_spring";
+            lbl_spring.Size = new System.Drawing.Size(311, 17);
+            lbl_spring.Spring = true;
+            // 
+            // lbl_offset
+            // 
+            lbl_offset.Name = "lbl_offset";
+            lbl_offset.Size = new System.Drawing.Size(42, 17);
+            lbl_offset.Text = "Offset:";
+            // 
+            // button_close
+            // 
+            button_close.Location = new System.Drawing.Point(260, 415);
+            button_close.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button_close.Name = "button_close";
+            button_close.Size = new System.Drawing.Size(107, 27);
+            button_close.TabIndex = 6;
+            button_close.Text = "Close";
+            button_close.UseVisualStyleBackColor = true;
+            button_close.Click += button_close_Click;
             // 
             // FormHeader
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(382, 443);
+            ClientSize = new System.Drawing.Size(382, 473);
             Controls.Add(statusStrip);
             Controls.Add(label_room);
             Controls.Add(label_area);
             Controls.Add(comboBox_room);
             Controls.Add(comboBox_area);
-            Controls.Add(textBox_offsetVal);
-            Controls.Add(label_offset);
             Controls.Add(button_close);
             Controls.Add(button_apply);
             Controls.Add(groupBox_misc);
@@ -980,14 +1053,15 @@
         private mage.Theming.CustomControls.FlatTextBox textBox_mapX;
         private mage.Theming.CustomControls.FlatTextBox textBox_mapY;
         private System.Windows.Forms.Button button_apply;
-        private System.Windows.Forms.Button button_close;
-        private System.Windows.Forms.Label label_offset;
-        private mage.Theming.CustomControls.FlatTextBox textBox_offsetVal;
         private System.Windows.Forms.Label label_room;
         private System.Windows.Forms.Label label_area;
         private mage.Theming.CustomControls.FlatComboBox comboBox_room;
         private mage.Theming.CustomControls.FlatComboBox comboBox_area;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel_changes;
+        private System.Windows.Forms.ToolStripStatusLabel lbl_spring;
+        private System.Windows.Forms.ToolStripStatusLabel lbl_offset;
+        private System.Windows.Forms.Button btn_open_map;
+        private System.Windows.Forms.Button button_close;
     }
 }

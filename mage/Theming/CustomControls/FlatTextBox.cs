@@ -39,7 +39,7 @@ partial class FlatTextBox : UserControl
             Invalidate();
         }
     }
-    private bool drawBorder = true;
+    public bool DisplayBorder { get; set; } = true;
 
     public override Color ForeColor { get => textBox.ForeColor; set => textBox.ForeColor = value; }
     public bool ReadOnly { get => textBox.ReadOnly; set => textBox.ReadOnly = value; }
@@ -52,22 +52,26 @@ partial class FlatTextBox : UserControl
             if (value == BorderStyle.None)
             {
                 textBox.Location = new Point(0, 0);
-                drawBorder = false;
+                DisplayBorder = false;
             }
             else
             {
                 textBox.Location = new Point(3, 3);
-                drawBorder = true;
+                DisplayBorder = true;
             }
             base.BorderStyle = BorderStyle.None;
         }
     }
 
-    public override string Text { get => textBox.Text; set => textBox.Text = value; }
+    public string Text { get => textBox.Text; set => textBox.Text = value; }
+
+    public int MaxLength { get => textBox.MaxLength; set => textBox.MaxLength = value; }
 
     public bool WordWrap { get => textBox.WordWrap; set => textBox.WordWrap = value; }
 
     public int SelectionStart { get => textBox.SelectionStart; set => textBox.SelectionStart = value; }
+
+    public HorizontalAlignment TextAlign { get => textBox.TextAlign; set => textBox.TextAlign = value; }
 
     public ScrollBars ScrollBars { get => textBox.ScrollBars; set => textBox.ScrollBars = value; }
 
@@ -107,7 +111,7 @@ partial class FlatTextBox : UserControl
         base.OnPaint(e);
 
         //Draw Border
-        if (!drawBorder) return;
+        if (!DisplayBorder) return;
 
         Rectangle border = new Rectangle(Point.Empty, Size);
         border.Width--; border.Height--;

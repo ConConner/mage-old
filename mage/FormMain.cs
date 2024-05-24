@@ -8,6 +8,11 @@ using mage.Properties;
 using mage.Theming;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Runtime.InteropServices;
+using System.Drawing.Text;
+using mage.Data;
+using mage.Tools;
+using System.IO.Compression;
 
 namespace mage
 {
@@ -42,6 +47,7 @@ namespace mage
         public bool OutlineSprites { get { return toolStrip_outlineSprites.Checked; } }
         public bool OutlineDoors { get { return toolStrip_outlineDoors.Checked; } }
         public bool OutlineScrolls { get { return toolStrip_outlineScrolls.Checked; } }
+        public bool OutlineEffect { get { return toolStrip_outlineEffect.Checked; } }
         public bool ViewCollision { get { return menuItem_viewClipCollision.Checked; } }
         public bool ViewBreakable { get { return menuItem_viewClipBreakable.Checked; } }
         public bool ViewValues { get { return menuItem_viewClipValues.Checked; } }
@@ -52,6 +58,9 @@ namespace mage
             set { comboBox_clipdata.SelectedIndex = value; }
         }
 
+        public PrivateFontCollection pfc { get; set; } = new PrivateFontCollection();
+        public sRam TestRoomSettings { get; set; } = null;
+
         #endregion
 
         #region fields
@@ -59,7 +68,7 @@ namespace mage
         private PictureBox splash;
 
         // rom and file info
-        private string filename;
+        public string filename { get; private set; }
         private string[] areaNames;
         private byte[] roomsPerArea;
 
@@ -69,13 +78,24 @@ namespace mage
         private int enemySet;
         private UndoRedo undoRedo;
         private int zoom;
-        private bool contextMenuOpen;
+        private bool contextMenuOpen
+        {
+            get => ctxtMenuOpen;
+            set
+            {
+                ctxtMenuOpen = value;
+                if (value == false) Sound.PlaySound("close.wav");
+            }
+        }
+        private bool ctxtMenuOpen = false;
 
         #endregion
 
         public FormMain()
         {
             InitializeComponent();
+
+            InitFont(Properties.Resources.zm_digits);
 
             DisplayRecentFiles();
             InitializeSettings();
@@ -85,8 +105,6 @@ namespace mage
 
             ThemeSwitcher.ChangeTheme(Controls, this);
             ThemeSwitcher.InjectPaintOverrides(Controls);
-
-            ThemeSwitcher.TestSerialisation();
         }
 
         #region opening/closing
@@ -175,6 +193,18 @@ namespace mage
             }
             CheckIfThemesExist();
             ThemeSwitcher.ProjectThemeName = Settings.Default.selectedTheme;
+
+            //Loading Test Room settings
+            string testRoomSettings = Settings.Default.testRoomSRAM;
+            if (testRoomSettings != "")
+            {
+                TestRoomSettings = JsonSerializer.Deserialize<sRam>(testRoomSettings);
+            }
+            if (TestRoomSettings == null) TestRoomSettings = new();
+
+            //Louding Sound path
+            Sound.SoundPacksPath = Settings.Default.soundPackPath;
+            Sound.SoundPackName = Settings.Default.soundPackName;
         }
 
         private void SaveSettings()
@@ -199,6 +229,14 @@ namespace mage
             string themeDictionary = ThemeSwitcher.Serialize(ThemeSwitcher.Themes);
             Settings.Default.themes = themeDictionary;
             Settings.Default.selectedTheme = ThemeSwitcher.ProjectThemeName;
+
+            //Saving TestROM save
+            string testRoomSettings = JsonSerializer.Serialize(TestRoomSettings);
+            Settings.Default.testRoomSRAM = testRoomSettings;
+
+            //Sound
+            Settings.Default.soundPackPath = Sound.SoundPacksPath;
+            Settings.Default.soundPackName = Sound.SoundPackName;
 
             Settings.Default.Save();
         }
@@ -258,6 +296,23 @@ namespace mage
             return false;
         }
 
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+
+        private void InitFont(byte[] FontArray)
+        {
+
+            int fontLength = FontArray.Length;
+            byte[] fontData = FontArray;
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+            Marshal.Copy(fontData, 0, data, fontLength);
+
+            uint cFonts = 0;
+            AddFontMemResourceEx(data, (uint)fontData.Length, IntPtr.Zero, ref cFonts);
+            pfc.AddMemoryFont(data, fontLength);
+
+            Marshal.FreeCoTaskMem(data);
+        }
         #endregion
 
 
@@ -411,6 +466,13 @@ namespace mage
         {
             menuItem_outlineScrolls.Checked = !menuItem_outlineScrolls.Checked;
             toolStrip_outlineScrolls.Checked = !toolStrip_outlineScrolls.Checked;
+            roomView.RedrawAll();
+        }
+
+        private void menuItem_outlineEffect_Click(object sender, EventArgs e)
+        {
+            menuItem_outlineEffect.Checked = !menuItem_outlineEffect.Checked;
+            toolStrip_outlineEffect.Checked = !toolStrip_outlineEffect.Checked;
             roomView.RedrawAll();
         }
 
@@ -613,8 +675,16 @@ namespace mage
 
         private void menuItem_testRoom_Click(object sender, EventArgs e)
         {
-            FormTestRoom form = new FormTestRoom(this);
-            form.ShowDialog();
+            if (!Version.IsMF)
+            {
+                FormTestRoom form = new FormTestRoom(this, TestRoomSettings);
+                form.ShowDialog();
+            }
+            else
+            {
+                FormTestRoomFusion form = new FormTestRoomFusion(this);
+                form.ShowDialog();
+            }
         }
 
         private void menuItem_clipShortcuts_Click(object sender, EventArgs e)
@@ -709,6 +779,37 @@ namespace mage
             }
         }
 
+        private void menuItem_bulkExportScreens_Click(object sender, EventArgs e)
+        {
+            //Bulk room exporting
+            //Get Filename
+            SaveFileDialog roomFile = new SaveFileDialog();
+            roomFile.Filter = "MAGE room archive (*.zip)|*.zip";
+            if (roomFile.ShowDialog() != DialogResult.OK) return;
+
+            byte area = Room.AreaID;
+
+            //Setup zip file
+            using (var fileStream = new FileStream(roomFile.FileName, FileMode.CreateNew))
+            using (var archive = new ZipArchive(fileStream, ZipArchiveMode.Create, true))
+            {
+                //Loop through rooms
+                for (byte room = 0; room < Version.RoomsPerArea[area]; room++)
+                {
+                    Room r = new Room(area, room);
+                    ByteStream roomStream = r.ExportToBytestream();
+                    string name = $"{areaNames[area]}_{Hex.ToString(room)}.mgr";
+
+                    //Adding to zip file
+                    var zipArchiveEntry = archive.CreateEntry(name, CompressionLevel.Fastest);
+                    using (var zipStream = zipArchiveEntry.Open())
+                    {
+                        zipStream.Write(roomStream.Data, 0, roomStream.Length);
+                    }
+                }
+            }
+        }
+
         private void menuItem_exportTilesetImage_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveTileset = new SaveFileDialog();
@@ -747,6 +848,74 @@ namespace mage
             {
                 roomView.BackgroundImage.Save(saveRoom.FileName);
             }
+        }
+
+        private void menuItem_areaImage_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveArea = new SaveFileDialog();
+            saveArea.Filter = "PNG files (*.png)|*.png";
+            if (saveArea.ShowDialog() != DialogResult.OK) return;
+
+            //Drawing every Room on a big Bitmap
+            int area = Room.AreaID;
+
+            //Getting AreaSize
+            List<Room> rooms = new List<Room>();
+            (Point, Point) bounds = new(new Point(16, 16), new Point(0, 0));
+            for (byte room = 0; room < roomsPerArea[area]; room++)
+            {
+                Room r;
+                try { r = new Room(area, room); }
+                catch { continue; }
+
+                //Exclude rooms that have no doors in them since they are unreachable
+                if (r.doorList.Count < 1) continue;
+
+                rooms.Add(r);
+
+                //Figuring out the minimum size of the area in screens
+                if (r.header.mapX < bounds.Item1.X) bounds.Item1.X = r.header.mapX;
+                if (r.header.mapY < bounds.Item1.Y) bounds.Item1.Y = r.header.mapY;
+                if (r.header.mapX + r.WidthInScreens > bounds.Item2.X) bounds.Item2.X = r.header.mapX + r.WidthInScreens;
+                if (r.header.mapY + r.HeightInScreens > bounds.Item2.Y) bounds.Item2.Y = r.header.mapY + r.HeightInScreens;
+            }
+            //Rectangle used to crop image
+            Rectangle areaSize = new Rectangle(
+                bounds.Item1.X * 15 * 16,
+                bounds.Item1.Y * 10 * 16,
+                (bounds.Item2.X - bounds.Item1.X) * 15 * 16,
+                (bounds.Item2.Y - bounds.Item1.Y) * 10 * 16
+            );
+
+            //Maximum Area Size
+            int areaPixelWidth = 15 * 16 * 32;
+            int areaPixelHeight = 10 * 16 * 32;
+
+            //Creating bitmap
+            Bitmap areaImage = new(areaPixelWidth, areaPixelHeight);
+            Graphics g = Graphics.FromImage(areaImage);
+
+            foreach (Room r in rooms)
+            {
+                Bitmap roomImage = new Bitmap(r.Width * 16, r.Height * 16);
+                Draw.DrawRoom(r, roomImage, this);
+
+                Rectangle visibleRegion = new Rectangle(16 * 2, 16 * 2, (r.Width - 4) * 16, (r.Height - 4) * 16);
+
+                int areaCoordinateX = r.header.mapX * 15 * 16;
+                int areaCoordinateY = r.header.mapY * 10 * 16;
+                g.DrawImage(roomImage, areaCoordinateX, areaCoordinateY, visibleRegion, GraphicsUnit.Pixel);
+                roomImage.Dispose();
+            }
+
+            g.Dispose();
+
+            //Crop image
+            Bitmap clone = areaImage.Clone(areaSize, areaImage.PixelFormat);
+            clone.Save(saveArea.FileName);
+
+            clone.Dispose();
+            areaImage.Dispose();
         }
 
         private void menuItem_LZ77comp_Click(object sender, EventArgs e)
@@ -1005,6 +1174,8 @@ namespace mage
 
             // rewrite file name
             this.Text = Path.GetFileName(filename) + " - MAGE";
+
+            Sound.PlaySound("save.wav");
         }
 
         private bool CheckUnsaved()
@@ -1107,6 +1278,8 @@ namespace mage
             EnableControls(true);
             menuItem_editBGs.Checked = toolStrip_editBGs.Checked = true;
             menuItem_editObjects.Checked = toolStrip_editObjects.Checked = false;
+
+            Sound.PlaySound("load.wav");
         }
 
         private void EnableControls(bool val)
@@ -1413,6 +1586,8 @@ namespace mage
                 }
             }
 
+            Sound.PlaySound("area.wav");
+
             if (skipEvents) { return; }
             if (comboBox_room.SelectedIndex == 0) { LoadRoom(area, 0, true); }
             else { comboBox_room.SelectedIndex = 0; }
@@ -1420,6 +1595,7 @@ namespace mage
 
         private void comboBox_room_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Sound.PlaySound("door.wav");
             if (skipEvents) { return; }
             int newRoom = comboBox_room.SelectedIndex;
             if (room != null && newRoom == room.RoomID) { return; }
@@ -1442,6 +1618,9 @@ namespace mage
             groupBox_editBG.Enabled = val;
             menuItem_editBGs.Checked = val;
             toolStrip_editBGs.Checked = val;
+
+            if (toolStrip_editBGs.Checked) Sound.PlaySound("bgmode.wav");
+            else Sound.PlaySound("objmode.wav");
 
             // redraw cursor if necessary
             ResetRoomTip(false);
@@ -1618,6 +1797,8 @@ namespace mage
             Action a = undoRedo.Undo(room);
             UpdateUI(a);
             UpdateUndoRedo();
+
+            Sound.PlaySound("undo.wav");
         }
 
         private void Redo()
@@ -1625,6 +1806,8 @@ namespace mage
             Action a = undoRedo.Redo(room);
             UpdateUI(a);
             UpdateUndoRedo();
+
+            Sound.PlaySound("redo.wav");
         }
 
         private void UpdateUI(Action a)
@@ -1726,7 +1909,8 @@ namespace mage
                     ResizeDoor(e.KeyCode);
                     break;
                 case Keys.T:
-                    Test.Room(this, true, roomCursor.X, roomCursor.Y);
+                    bool debug = Version.IsMF ? true : TestRoomSettings.DebugMenu;
+                    Test.Room(this, debug, roomCursor.X, roomCursor.Y, TestRoomSettings);
                     break;
                 case Keys.G:
                     GoThroughDoor();
@@ -1883,6 +2067,7 @@ namespace mage
         private int selEnemy;
         private int selDoor;
         private int selScroll;
+        private bool selEffect;
 
         private Timer roomTimer;
         private Timer tileTimer;
@@ -1939,9 +2124,9 @@ namespace mage
         private void PasteBlocks(bool combine)
         {
             int bgNum = -1;
-            if (EditBG0) { bgNum = 0; }
-            else if (EditBG1) { bgNum = 1; }
-            else if (EditBG2) { bgNum = 2; }
+            if (EditBG0) { bgNum = 0; Sound.PlaySound("bg0.wav"); }
+            else if (EditBG1) { bgNum = 1; Sound.PlaySound("bg1.wav"); }
+            else if (EditBG2) { bgNum = 2; Sound.PlaySound("bg2.wav"); }
 
             ushort clip = 0xFFFF;
             if (EditCLP)
@@ -1951,9 +2136,26 @@ namespace mage
                     clip = Clipdata;
                 }
                 else { clip = 0xFFFE; }
+                Sound.PlaySound("clip.wav");
             }
 
-            EditBlocks a = new EditBlocks(room.backgrounds, blocks, roomCursor, bgNum, clip, combine);
+            EditBlocks a;
+            //if (blocks.Length == 1)
+            //{ 
+            //    if (clip == 0x13)
+            //    {
+            //        Block b = blocks[0, 0];
+            //        blocks = new Block[2,1];
+            //
+            //        b.CLP = 0x13;
+            //        blocks[0,0] = b;
+            //        b.CLP = 0x14;
+            //        blocks[1,0] = b;
+            //
+            //        clip = 0xFFFE;
+            //    }
+            //}
+            a = new EditBlocks(room.backgrounds, blocks, roomCursor, bgNum, clip, combine);
             PerformAction(a);
         }
 
@@ -1988,6 +2190,10 @@ namespace mage
             if (OutlineScrolls)
             {
                 selScroll = room.scrollList.FindScroll(roomCursor);
+            }
+            if (OutlineEffect)
+            {
+                selEffect = (roomCursor.Y == room.header.effectY) && (roomCursor.X == 0 || roomCursor.X == room.Width - 1);
             }
         }
 
@@ -2159,7 +2365,7 @@ namespace mage
 
         private void roomView_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && pivot.X == -1)
             {
                 if (EditBGs)
                 {
@@ -2229,6 +2435,7 @@ namespace mage
                 selEnemy = -1;
                 selDoor = -1;
                 selScroll = -1;
+                selEffect = false;
                 contextMenuOpen = false;
                 return;
             }
@@ -2238,7 +2445,7 @@ namespace mage
             roomCursor.Y = y;
             ResetRoomTip(true);
 
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && pivot.X == -1)
             {
                 if (EditBGs)
                 {
@@ -2270,6 +2477,11 @@ namespace mage
                     {
                         obj = room.scrollList[selScroll / 6];
                         selObject = selScroll;
+                    }
+                    else if (selEffect == true)
+                    {
+                        byte val = (byte)roomCursor.Y;
+                        SetNewEffectYPosition(val);
                     }
 
                     if (selObject != -1)
@@ -2324,6 +2536,7 @@ namespace mage
                 selEnemy = -1;
                 selDoor = -1;
                 selScroll = -1;
+                selEffect = false;
                 undoRedo.FinalizePreviousAction();
             }
             else if (e.Button == MouseButtons.Right)
@@ -2339,6 +2552,14 @@ namespace mage
                     roomView.Invalidate(rect);
                 }
             }
+        }
+
+        private void SetNewEffectYPosition(byte val)
+        {
+            int offset = ROM.Stream.ReadPtr(Version.AreaHeaderOffset + Room.AreaID * 4) + (Room.RoomID * 0x3C);
+
+            ROM.Stream.Write8(offset + 0x38, val);
+            ReloadRoom(false);
         }
 
         private void roomView_DoubleClick(object sender, EventArgs e)
@@ -2381,30 +2602,38 @@ namespace mage
 
             // add sprite
             bool enable = (room.enemyList.Count < 24);
-            contextMenu.Items[0].Enabled = enable;
+            contextItem_addSprite.Enabled = enable;
 
             // edit/remove sprite
             enable = (selEnemy != -1);
-            contextMenu.Items[1].Enabled = enable;
-            contextMenu.Items[2].Enabled = enable;
+            contextItem_editSprite.Enabled = enable;
+            contextItem_removeSprite.Enabled = enable;
 
             // add door
             enable = DoorData.CanAddDoor((byte)comboBox_area.SelectedIndex);
-            contextMenu.Items[4].Enabled = enable;
+            contextItem_addDoor.Enabled = enable;
 
             // edit/remove door
             enable = (selDoor != -1);
-            contextMenu.Items[5].Enabled = enable;
-            contextMenu.Items[6].Enabled = enable;
+            contextItem_editDoor.Enabled = enable;
+            contextItem_removeDoor.Enabled = enable;
+            contextItem_goThroughDoor.Enabled = enable;
 
             // add scroll
             enable = (room.scrollList.Count < 16);
-            contextMenu.Items[8].Enabled = enable;
+            contextItem_addScroll.Enabled = enable;
+
+            // edit/remove effect position
+            enable = selEffect;
+            contextItem_setEffectPos.Enabled = !enable;
+            contextItem_removeEffectPos.Enabled = enable;
 
             // edit/remove scroll
             enable = (selScroll != -1);
-            contextMenu.Items[9].Enabled = enable;
-            contextMenu.Items[10].Enabled = enable;
+            contextItem_editScroll.Enabled = enable;
+            contextItem_removeScroll.Enabled = enable;
+
+            Sound.PlaySound("context.wav");
         }
 
         private void contextItem_addSprite_Click(object sender, EventArgs e)
@@ -2451,6 +2680,11 @@ namespace mage
             selDoor = -1;
         }
 
+        private void contextItem_goThroughDoor_Click(object sender, EventArgs e)
+        {
+            GoThroughDoor();
+        }
+
         private void contextItem_addScroll_Click(object sender, EventArgs e)
         {
             AddRemoveRoomObject a = new AddRemoveRoomObject(room, typeof(Scroll), roomCursor);
@@ -2475,12 +2709,29 @@ namespace mage
 
         private void contextItem_testRoom_Click(object sender, EventArgs e)
         {
-            Test.Room(this, true, roomCursor.X, roomCursor.Y);
+            if (Version.IsMF)
+            {
+                Test.Room(this, true, roomCursor.X, roomCursor.Y);
+                return;
+            }
+
+            TestRoomSettings.xPos = roomCursor.X;
+            TestRoomSettings.yPos = roomCursor.Y;
+            FormTestRoom settings = new FormTestRoom(this, TestRoomSettings);
+            settings.ShowDialog();
         }
 
+        private void contextItem_setEffectPos_Click(object sender, EventArgs e) => SetNewEffectYPosition((byte)roomCursor.Y);
 
+        private void contextItem_removeEffectPos_Click(object sender, EventArgs e) => SetNewEffectYPosition(0xFF);
         #endregion
 
+
         private void changeEmulatorPathToolStripMenuItem_Click(object sender, EventArgs e) => Test.SetEmulatorPath();
+        
+        private void btn_soundpacks_Click(object sender, EventArgs e)
+        {
+            new FormSoundPack().Show();
+        }
     }
 }

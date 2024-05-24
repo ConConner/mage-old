@@ -1,7 +1,9 @@
 ﻿using mage.Theming;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace mage
@@ -245,6 +247,7 @@ namespace mage
                 g.DrawImage(square, mPos.X * 8, mPos.Y * 8);
             }
 
+            Sound.PlaySound("map.wav");
             status.ChangeMade();
         }
 
@@ -439,6 +442,10 @@ namespace mage
             }
         }
 
+        //These fields will be used for map room cycling if multiple rooms overlap
+        int lastIndex = 0;
+        List<byte> lastList = new();
+
         private void FormMinimap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.G) { return; }
@@ -450,19 +457,37 @@ namespace mage
             byte x = (byte)mPos.X;
             byte y = (byte)mPos.Y;
 
-            int offset = romStream.ReadPtr(Version.AreaHeaderOffset + area * 4);
             int numOfRooms = Version.RoomsPerArea[area];
+
+            //Loop throug all rooms and get list of rooms that match
+            List<byte> matchingRooms = new();
             for (byte r = 0; r < numOfRooms; r++)
             {
-                byte roomX = romStream.Read8(offset + 0x35);
-                byte roomY = romStream.Read8(offset + 0x36);
-                if (roomX == x && roomY == y)
-                {
-                    main.JumpToRoom(area, r);
-                    return;
-                }
-                offset += 0x3C;
+                //Get Data from the room
+                Room room = new Room(area, r);
+                if (room.Contains(x, y)) matchingRooms.Add(r);
             }
+
+            if (matchingRooms.Count == 1) main.JumpToRoom(area, matchingRooms[0]);
+
+            if (matchingRooms.Count > 1)
+            {
+                //Set data up for cycling
+                if (!lastList.SequenceEqual(matchingRooms))
+                {
+                    lastIndex = 0;
+                    lastList = matchingRooms;
+                }
+                else
+                {
+                    lastIndex++;
+                    if (lastIndex >= matchingRooms.Count) lastIndex = 0;
+                    lastList = matchingRooms;
+                }
+                main.JumpToRoom(area, matchingRooms[lastIndex]);
+            }
+
+            return;
         }
 
         private void button_generate_Click(object sender, EventArgs e)

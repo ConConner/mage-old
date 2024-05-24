@@ -29,6 +29,8 @@ namespace mage
                     form.OpenROM(path);
             }
 
+            Sound.PlaySound("mage.wav");
+
             Application.Run(form);
         }
 

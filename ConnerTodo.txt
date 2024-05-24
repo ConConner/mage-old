@@ -1,9 +1,12 @@
 MAGE 1.5.0:
 - Theming support
+- Fix crashes
 - Drag on Minimap Editor
 - Enable apply on "Auto connect" in Edit Door
 - Edit Sprites/Scrolls/Doors with double click
+- Added 'Go through Door' to right-click menu
 - Input screens directly in Room Options
+- Input screens directly in Add Room
 - Screen number gets displayed as hex
 - Added [MUSIC_STOP] Label for Fusion -> [\xBXXX]
 - Added Zoom to Text Editor
@@ -13,3 +16,13 @@ MAGE 1.5.0:
 - Zoom with Ctrl + Mouse Wheel in main view
 - Clear Sprites, Scrolls and Doors in Room Options
 - Drop Probability can be input as Percentage
+- Significantly improved Test Room feature for Zero Mission
+- Room map coordinates can be seleted directly from a map
+- Jump To Room (G) on minimap works on every screen of a room.
+  Not only top left corner.
+- Bulk Room export (per Area)
+- Area Image export
+- Automatically connect doors if they are on adjacent screens
+- Edit Effect Y Position inside the room editor
+- Copy symbol file of current ROM into the test ROM folder
+- Add optional Soundpack support to add sounds to the MAGE UI

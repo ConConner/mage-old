@@ -136,6 +136,10 @@ namespace mage
                 checkBox_scrolls.Checked = false;
             }
 
+            chb_all.Checked = false;
+
+            Sound.PlaySound("clear.wav");
+
             main.ReloadRoom(true);
             room = main.Room;
             main.UpdateUiAfterClear();
@@ -173,10 +177,7 @@ namespace mage
             room = main.Room;
         }
 
-        private void button_close_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void button_close_Click(object sender, EventArgs e) => Close();
 
         private void textbox_screenX_TextChanged(object sender, EventArgs e)
         {
@@ -188,6 +189,15 @@ namespace mage
         {
             if (updatedScreenBoxes) return;
             UpdateTextBlocks(sender as FlatTextBox, textBox_height, 10);
+        }
+
+        private void chb_all_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (Control c in groupBox_clear.Controls)
+            {
+                if (c is not CheckBox || !c.Enabled) continue;
+                ((CheckBox)c).Checked = chb_all.Checked;
+            }
         }
     }
 }

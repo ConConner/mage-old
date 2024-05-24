@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 
 namespace mage
 {
@@ -11,6 +13,8 @@ namespace mage
         public byte RoomID { get; private set; }
         public byte Width { get { return backgrounds.width; } }
         public byte Height { get { return backgrounds.height; } }
+        public byte WidthInScreens => (byte)Math.Ceiling((double)((Width - 4) / 15));
+        public byte HeightInScreens => (byte)Math.Ceiling((double)((Height - 4) / 10));
 
         public BG BG0 { get { return backgrounds.bg0; } }
         public BG BG1 { get { return backgrounds.bg1; } }
@@ -203,6 +207,12 @@ namespace mage
 
         public void Export(string filename)
         {
+            ByteStream dst = ExportToBytestream();
+            dst.Export(filename);
+        }
+
+        public ByteStream ExportToBytestream()
+        {
             // file format:
             // 00 MAGE 1.4 ROOM
             // 10 Game# Area# Room#
@@ -271,7 +281,16 @@ namespace mage
             dst.Write32(doorListOffset);    // doors
             dst.Write32(scrollListOffset);  // scrolls
 
-            dst.Export(filename);
+            return dst;
+        }
+
+        /// <summary>
+        /// Check if the room contains the specified map coordinates
+        /// </summary>
+        public bool Contains(int x, int y)
+        {
+            Rectangle bound = new Rectangle(header.mapX, header.mapY, WidthInScreens, HeightInScreens);
+            return bound.Contains(new Point(x, y));
         }
 
         public void Import(ByteStream src, bool[] items, bool diffGame, bool convertClip, bool shared)

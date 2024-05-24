@@ -167,7 +167,7 @@ namespace mage
             romStream.WritePtr(ptr, offset);
             main.ReloadRoom(true);
         }
-        
+
         // room sprites
         private void AddRoomSprites()
         {
@@ -209,7 +209,7 @@ namespace mage
             int numOfRooms = Version.RoomsPerArea[area];
             AdjustNumOfItems(comboBox_roomCopyRoom, numOfRooms);
         }
-        
+
         private void AddRoom()
         {
             byte area = (byte)comboBox_roomArea.SelectedIndex;
@@ -222,12 +222,18 @@ namespace mage
 
             if (radioButton_roomBlank.Checked)
             {
-                byte width, height;                
+                byte width, height;
+                bool inScreens = chb_screens.Checked;
                 try
                 {
                     // get width and height
                     width = Hex.ToByte(textBox_roomWidth.Text);
                     height = Hex.ToByte(textBox_roomHeight.Text);
+                    if (inScreens)
+                    {
+                        width = (byte)(width * 15 + 4);
+                        height = (byte)(height * 10 + 4);
+                    }
                     // check if valid
                     Room.CheckValidSize(width, height);
                 }
@@ -245,10 +251,10 @@ namespace mage
                 byte copyRoom = (byte)comboBox_roomCopyRoom.SelectedIndex;
                 Add.RoomCopy(area, copyArea, copyRoom);
             }
-            
+
             main.LoadAddedRoom(area);
             main.Focus();
-        }        
+        }
 
         // tileset
         private void AddTileset()
@@ -407,7 +413,7 @@ namespace mage
 
             comboBox.SelectedIndex = 0;
         }
-        
+
         private void radioButton_option_CheckedChanged(object sender, EventArgs e)
         {
             button_add.Enabled = true;
@@ -454,7 +460,5 @@ namespace mage
         {
             Close();
         }
-
-
     }
 }

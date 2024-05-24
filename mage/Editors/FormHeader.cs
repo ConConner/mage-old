@@ -1,5 +1,7 @@
 ﻿using mage.Theming;
+using mage.Tools;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace mage
@@ -137,7 +139,7 @@ namespace mage
             textBox_effectYpos.Text = Hex.ToString(effectY);
             textBox_music.Text = Hex.ToString(music);
 
-            textBox_offsetVal.Text = Hex.ToString(offset);
+            lbl_offset.Text = $"Offset: {Hex.ToString(offset)}";
 
             loading = false;
             status.LoadNew();
@@ -236,6 +238,18 @@ namespace mage
         private void button_close_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btn_open_map_Click(object sender, EventArgs e)
+        {
+            Room r = new Room(comboBox_area.SelectedIndex, comboBox_room.SelectedIndex);
+
+            FormMinimapDialog dialog = new FormMinimapDialog(r.AreaID, new Size(r.WidthInScreens, r.HeightInScreens));
+            if (dialog.ShowDialog() != DialogResult.OK) return;
+
+            Point p = dialog.SelectedPoint;
+            textBox_mapX.Text = Hex.ToString(p.X);
+            textBox_mapY.Text = Hex.ToString(p.Y);
         }
     }
 }

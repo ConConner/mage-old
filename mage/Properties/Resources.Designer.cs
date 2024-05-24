@@ -22,7 +22,7 @@ namespace mage.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace mage.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("mage.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace mage.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap button_bg_color {
+        public static System.Drawing.Bitmap button_bg_color {
             get {
                 object obj = ResourceManager.GetObject("button_bg_color", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap clipNums {
+        public static System.Drawing.Bitmap clipNums {
             get {
                 object obj = ResourceManager.GetObject("clipNums", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -94,7 +94,7 @@ namespace mage.Properties {
         ///54C074,54C094,54C0B4,54C0D4,54C0F4,Less than 2 hours;16-99%;Normal/Hard mode
         ///54C07 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string endings {
+        public static string endings {
             get {
                 return ResourceManager.GetString("endings", resourceCulture);
             }
@@ -103,7 +103,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap flip_h {
+        public static System.Drawing.Bitmap flip_h {
             get {
                 object obj = ResourceManager.GetObject("flip_h", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap flip_v {
+        public static System.Drawing.Bitmap flip_v {
             get {
                 object obj = ResourceManager.GetObject("flip_v", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -121,9 +121,99 @@ namespace mage.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_disabled {
+            get {
+                object obj = ResourceManager.GetObject("item_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_enabled {
+            get {
+                object obj = ResourceManager.GetObject("item_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_full_gravity {
+            get {
+                object obj = ResourceManager.GetObject("item_full_gravity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_full_power {
+            get {
+                object obj = ResourceManager.GetObject("item_full_power", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_full_varia {
+            get {
+                object obj = ResourceManager.GetObject("item_full_varia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_gravity {
+            get {
+                object obj = ResourceManager.GetObject("item_gravity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_power {
+            get {
+                object obj = ResourceManager.GetObject("item_power", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_varia {
+            get {
+                object obj = ResourceManager.GetObject("item_varia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_zero {
+            get {
+                object obj = ResourceManager.GetObject("item_zero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon mage {
+        public static System.Drawing.Icon mage {
             get {
                 object obj = ResourceManager.GetObject("mage", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
@@ -197,7 +287,7 @@ namespace mage.Properties {
         ///00C6	f
         /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string MF_chars {
+        public static string MF_chars {
             get {
                 return ResourceManager.GetString("MF_chars", resourceCulture);
             }
@@ -239,7 +329,7 @@ namespace mage.Properties {
         ///20 Door transition block
         /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string MF_clipdata {
+        public static string MF_clipdata {
             get {
                 return ResourceManager.GetString("MF_clipdata", resourceCulture);
             }
@@ -321,7 +411,7 @@ namespace mage.Properties {
         ///48=00
         ///4 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string MF_clipFromZM {
+        public static string MF_clipFromZM {
             get {
                 return ResourceManager.GetString("MF_clipFromZM", resourceCulture);
             }
@@ -351,7 +441,7 @@ namespace mage.Properties {
         ///GenericBgPaletteOffset=40805C
         ///GenericSpriteGfx [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string MF_constants {
+        public static string MF_constants {
             get {
                 return ResourceManager.GetString("MF_constants", resourceCulture);
             }
@@ -360,7 +450,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_genTileTable {
+        public static byte[] MF_genTileTable {
             get {
                 object obj = ResourceManager.GetObject("MF_genTileTable", resourceCulture);
                 return ((byte[])(obj));
@@ -370,7 +460,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string MF_J_patches {
+        public static string MF_J_patches {
             get {
                 return ResourceManager.GetString("MF_J_patches", resourceCulture);
             }
@@ -379,7 +469,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string MF_J_pSpriteOAM {
+        public static string MF_J_pSpriteOAM {
             get {
                 return ResourceManager.GetString("MF_J_pSpriteOAM", resourceCulture);
             }
@@ -415,7 +505,7 @@ namespace mage.Properties {
         ///C7=0,-8
         ///C8=0,-8.
         /// </summary>
-        internal static string MF_spritePositions {
+        public static string MF_spritePositions {
             get {
                 return ResourceManager.GetString("MF_spritePositions", resourceCulture);
             }
@@ -424,7 +514,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_addMinimapTiles {
+        public static byte[] MF_U_addMinimapTiles {
             get {
                 object obj = ResourceManager.GetObject("MF_U_addMinimapTiles", resourceCulture);
                 return ((byte[])(obj));
@@ -434,7 +524,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_debugMenu {
+        public static byte[] MF_U_debugMenu {
             get {
                 object obj = ResourceManager.GetObject("MF_U_debugMenu", resourceCulture);
                 return ((byte[])(obj));
@@ -466,7 +556,7 @@ namespace mage.Properties {
         ///16,2,Samus X position
         ///18,2,Samus Y position.
         /// </summary>
-        internal static string MF_U_demoRAM {
+        public static string MF_U_demoRAM {
             get {
                 return ResourceManager.GetString("MF_U_demoRAM", resourceCulture);
             }
@@ -475,7 +565,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_eventConnections {
+        public static byte[] MF_U_eventConnections {
             get {
                 object obj = ResourceManager.GetObject("MF_U_eventConnections", resourceCulture);
                 return ((byte[])(obj));
@@ -485,7 +575,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_getMissiles {
+        public static byte[] MF_U_getMissiles {
             get {
                 object obj = ResourceManager.GetObject("MF_U_getMissiles", resourceCulture);
                 return ((byte[])(obj));
@@ -495,7 +585,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_getPowerBombs {
+        public static byte[] MF_U_getPowerBombs {
             get {
                 object obj = ResourceManager.GetObject("MF_U_getPowerBombs", resourceCulture);
                 return ((byte[])(obj));
@@ -505,7 +595,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_infiniteBombJump {
+        public static byte[] MF_U_infiniteBombJump {
             get {
                 object obj = ResourceManager.GetObject("MF_U_infiniteBombJump", resourceCulture);
                 return ((byte[])(obj));
@@ -515,7 +605,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_locationNames {
+        public static byte[] MF_U_locationNames {
             get {
                 object obj = ResourceManager.GetObject("MF_U_locationNames", resourceCulture);
                 return ((byte[])(obj));
@@ -525,7 +615,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_noMinimap {
+        public static byte[] MF_U_noMinimap {
             get {
                 object obj = ResourceManager.GetObject("MF_U_noMinimap", resourceCulture);
                 return ((byte[])(obj));
@@ -542,7 +632,7 @@ namespace mage.Properties {
         ///MF_U_addMinimapTiles,Add minimap tiles,biospark
         ///MF_U_noMinimap,No minimap,biospark.
         /// </summary>
-        internal static string MF_U_patches {
+        public static string MF_U_patches {
             get {
                 return ResourceManager.GetString("MF_U_patches", resourceCulture);
             }
@@ -573,7 +663,7 @@ namespace mage.Properties {
         ///High spin jump;91B8;1
         ///Sp [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string MF_U_physics {
+        public static string MF_U_physics {
             get {
                 return ResourceManager.GetString("MF_U_physics", resourceCulture);
             }
@@ -628,7 +718,7 @@ namespace mage.Properties {
         ///3D=31ACA0
         ///3E=31B [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string MF_U_pSpriteOAM {
+        public static string MF_U_pSpriteOAM {
             get {
                 return ResourceManager.GetString("MF_U_pSpriteOAM", resourceCulture);
             }
@@ -637,7 +727,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_singleWallJump {
+        public static byte[] MF_U_singleWallJump {
             get {
                 object obj = ResourceManager.GetObject("MF_U_singleWallJump", resourceCulture);
                 return ((byte[])(obj));
@@ -647,7 +737,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_skipIntro {
+        public static byte[] MF_U_skipIntro {
             get {
                 object obj = ResourceManager.GetObject("MF_U_skipIntro", resourceCulture);
                 return ((byte[])(obj));
@@ -693,7 +783,7 @@ namespace mage.Properties {
         ///25=1C,2F7754
         ///26=21,31 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string MF_U_sSpriteOAM {
+        public static string MF_U_sSpriteOAM {
             get {
                 return ResourceManager.GetString("MF_U_sSpriteOAM", resourceCulture);
             }
@@ -702,7 +792,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_testDemo {
+        public static byte[] MF_U_testDemo {
             get {
                 object obj = ResourceManager.GetObject("MF_U_testDemo", resourceCulture);
                 return ((byte[])(obj));
@@ -712,7 +802,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MF_U_testRoom {
+        public static byte[] MF_U_testRoom {
             get {
                 object obj = ResourceManager.GetObject("MF_U_testRoom", resourceCulture);
                 return ((byte[])(obj));
@@ -768,7 +858,7 @@ namespace mage.Properties {
         ///4CB63C=1F
         ///4F2D18=20 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string MF_U_tileTables {
+        public static string MF_U_tileTables {
             get {
                 return ResourceManager.GetString("MF_U_tileTables", resourceCulture);
             }
@@ -822,16 +912,26 @@ namespace mage.Properties {
         ///		Palette=58B484
         ///	 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string MF_U_weapons {
+        public static string MF_U_weapons {
             get {
                 return ResourceManager.GetString("MF_U_weapons", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] MZM {
+            get {
+                object obj = ResourceManager.GetObject("MZM", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap scrollNums {
+        public static System.Drawing.Bitmap scrollNums {
             get {
                 object obj = ResourceManager.GetObject("scrollNums", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -841,7 +941,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_acid {
+        public static System.Drawing.Bitmap shortcut_acid {
             get {
                 object obj = ResourceManager.GetObject("shortcut_acid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -851,7 +951,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_air {
+        public static System.Drawing.Bitmap shortcut_air {
             get {
                 object obj = ResourceManager.GetObject("shortcut_air", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -861,7 +961,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_bomb {
+        public static System.Drawing.Bitmap shortcut_bomb {
             get {
                 object obj = ResourceManager.GetObject("shortcut_bomb", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -871,7 +971,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_bubbly {
+        public static System.Drawing.Bitmap shortcut_bubbly {
             get {
                 object obj = ResourceManager.GetObject("shortcut_bubbly", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -881,7 +981,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_crumble {
+        public static System.Drawing.Bitmap shortcut_crumble {
             get {
                 object obj = ResourceManager.GetObject("shortcut_crumble", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -891,7 +991,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_crumble_slow {
+        public static System.Drawing.Bitmap shortcut_crumble_slow {
             get {
                 object obj = ResourceManager.GetObject("shortcut_crumble_slow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -901,7 +1001,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_dusty {
+        public static System.Drawing.Bitmap shortcut_dusty {
             get {
                 object obj = ResourceManager.GetObject("shortcut_dusty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -911,7 +1011,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_dusty_very {
+        public static System.Drawing.Bitmap shortcut_dusty_very {
             get {
                 object obj = ResourceManager.GetObject("shortcut_dusty_very", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -921,7 +1021,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_energy {
+        public static System.Drawing.Bitmap shortcut_energy {
             get {
                 object obj = ResourceManager.GetObject("shortcut_energy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -931,7 +1031,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_energy_hidden {
+        public static System.Drawing.Bitmap shortcut_energy_hidden {
             get {
                 object obj = ResourceManager.GetObject("shortcut_energy_hidden", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -941,7 +1041,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_energy_water {
+        public static System.Drawing.Bitmap shortcut_energy_water {
             get {
                 object obj = ResourceManager.GetObject("shortcut_energy_water", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -951,7 +1051,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_lava_strong {
+        public static System.Drawing.Bitmap shortcut_lava_strong {
             get {
                 object obj = ResourceManager.GetObject("shortcut_lava_strong", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -961,7 +1061,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_lava_weak {
+        public static System.Drawing.Bitmap shortcut_lava_weak {
             get {
                 object obj = ResourceManager.GetObject("shortcut_lava_weak", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -971,7 +1071,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_missile {
+        public static System.Drawing.Bitmap shortcut_missile {
             get {
                 object obj = ResourceManager.GetObject("shortcut_missile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -981,7 +1081,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_missile_block {
+        public static System.Drawing.Bitmap shortcut_missile_block {
             get {
                 object obj = ResourceManager.GetObject("shortcut_missile_block", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -991,7 +1091,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_missile_hidden {
+        public static System.Drawing.Bitmap shortcut_missile_hidden {
             get {
                 object obj = ResourceManager.GetObject("shortcut_missile_hidden", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1001,7 +1101,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_missile_water {
+        public static System.Drawing.Bitmap shortcut_missile_water {
             get {
                 object obj = ResourceManager.GetObject("shortcut_missile_water", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1011,7 +1111,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_power {
+        public static System.Drawing.Bitmap shortcut_power {
             get {
                 object obj = ResourceManager.GetObject("shortcut_power", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1021,7 +1121,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_power_block {
+        public static System.Drawing.Bitmap shortcut_power_block {
             get {
                 object obj = ResourceManager.GetObject("shortcut_power_block", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1031,7 +1131,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_power_hidden {
+        public static System.Drawing.Bitmap shortcut_power_hidden {
             get {
                 object obj = ResourceManager.GetObject("shortcut_power_hidden", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1041,7 +1141,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_power_water {
+        public static System.Drawing.Bitmap shortcut_power_water {
             get {
                 object obj = ResourceManager.GetObject("shortcut_power_water", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1051,7 +1151,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_screw {
+        public static System.Drawing.Bitmap shortcut_screw {
             get {
                 object obj = ResourceManager.GetObject("shortcut_screw", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1061,7 +1161,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_shot {
+        public static System.Drawing.Bitmap shortcut_shot {
             get {
                 object obj = ResourceManager.GetObject("shortcut_shot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1071,7 +1171,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_shot_BL {
+        public static System.Drawing.Bitmap shortcut_shot_BL {
             get {
                 object obj = ResourceManager.GetObject("shortcut_shot_BL", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1081,7 +1181,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_shot_BR {
+        public static System.Drawing.Bitmap shortcut_shot_BR {
             get {
                 object obj = ResourceManager.GetObject("shortcut_shot_BR", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1091,7 +1191,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_shot_TL {
+        public static System.Drawing.Bitmap shortcut_shot_TL {
             get {
                 object obj = ResourceManager.GetObject("shortcut_shot_TL", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1101,7 +1201,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_shot_TR {
+        public static System.Drawing.Bitmap shortcut_shot_TR {
             get {
                 object obj = ResourceManager.GetObject("shortcut_shot_TR", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1111,7 +1211,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_slope27_Lneg {
+        public static System.Drawing.Bitmap shortcut_slope27_Lneg {
             get {
                 object obj = ResourceManager.GetObject("shortcut_slope27_Lneg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1121,7 +1221,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_slope27_Lpos {
+        public static System.Drawing.Bitmap shortcut_slope27_Lpos {
             get {
                 object obj = ResourceManager.GetObject("shortcut_slope27_Lpos", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1131,7 +1231,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_slope27_Uneg {
+        public static System.Drawing.Bitmap shortcut_slope27_Uneg {
             get {
                 object obj = ResourceManager.GetObject("shortcut_slope27_Uneg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1141,7 +1241,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_slope27_Upos {
+        public static System.Drawing.Bitmap shortcut_slope27_Upos {
             get {
                 object obj = ResourceManager.GetObject("shortcut_slope27_Upos", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1151,7 +1251,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_slope45_neg {
+        public static System.Drawing.Bitmap shortcut_slope45_neg {
             get {
                 object obj = ResourceManager.GetObject("shortcut_slope45_neg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1161,7 +1261,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_slope45_pos {
+        public static System.Drawing.Bitmap shortcut_slope45_pos {
             get {
                 object obj = ResourceManager.GetObject("shortcut_slope45_pos", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1171,7 +1271,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_solid {
+        public static System.Drawing.Bitmap shortcut_solid {
             get {
                 object obj = ResourceManager.GetObject("shortcut_solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1181,7 +1281,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_speed {
+        public static System.Drawing.Bitmap shortcut_speed {
             get {
                 object obj = ResourceManager.GetObject("shortcut_speed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1191,7 +1291,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_super {
+        public static System.Drawing.Bitmap shortcut_super {
             get {
                 object obj = ResourceManager.GetObject("shortcut_super", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1201,7 +1301,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_super_block {
+        public static System.Drawing.Bitmap shortcut_super_block {
             get {
                 object obj = ResourceManager.GetObject("shortcut_super_block", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1211,7 +1311,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_super_hidden {
+        public static System.Drawing.Bitmap shortcut_super_hidden {
             get {
                 object obj = ResourceManager.GetObject("shortcut_super_hidden", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1221,7 +1321,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_super_water {
+        public static System.Drawing.Bitmap shortcut_super_water {
             get {
                 object obj = ResourceManager.GetObject("shortcut_super_water", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1231,7 +1331,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_trans_door {
+        public static System.Drawing.Bitmap shortcut_trans_door {
             get {
                 object obj = ResourceManager.GetObject("shortcut_trans_door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1241,7 +1341,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_trans_down {
+        public static System.Drawing.Bitmap shortcut_trans_down {
             get {
                 object obj = ResourceManager.GetObject("shortcut_trans_down", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1251,7 +1351,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_trans_up {
+        public static System.Drawing.Bitmap shortcut_trans_up {
             get {
                 object obj = ResourceManager.GetObject("shortcut_trans_up", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1261,7 +1361,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_water {
+        public static System.Drawing.Bitmap shortcut_water {
             get {
                 object obj = ResourceManager.GetObject("shortcut_water", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1271,9 +1371,39 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shortcut_wet {
+        public static System.Drawing.Bitmap shortcut_wet {
             get {
                 object obj = ResourceManager.GetObject("shortcut_wet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap status_screen {
+            get {
+                object obj = ResourceManager.GetObject("status_screen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap test_cancel {
+            get {
+                object obj = ResourceManager.GetObject("test_cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap test_play {
+            get {
+                object obj = ResourceManager.GetObject("test_play", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1301,7 +1431,7 @@ namespace mage.Properties {
         ///774A38,27,Messages
         ///774A54,25,File screen.
         /// </summary>
-        internal static string textLists {
+        public static string textLists {
             get {
                 return ResourceManager.GetString("textLists", resourceCulture);
             }
@@ -1310,7 +1440,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_add {
+        public static System.Drawing.Bitmap toolbar_add {
             get {
                 object obj = ResourceManager.GetObject("toolbar_add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1320,7 +1450,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_animation {
+        public static System.Drawing.Bitmap toolbar_animation {
             get {
                 object obj = ResourceManager.GetObject("toolbar_animation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1330,7 +1460,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_connection {
+        public static System.Drawing.Bitmap toolbar_connection {
             get {
                 object obj = ResourceManager.GetObject("toolbar_connection", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1340,7 +1470,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_demo {
+        public static System.Drawing.Bitmap toolbar_demo {
             get {
                 object obj = ResourceManager.GetObject("toolbar_demo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1350,7 +1480,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_edit_objects {
+        public static System.Drawing.Bitmap toolbar_edit_objects {
             get {
                 object obj = ResourceManager.GetObject("toolbar_edit_objects", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1360,7 +1490,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_graphics {
+        public static System.Drawing.Bitmap toolbar_graphics {
             get {
                 object obj = ResourceManager.GetObject("toolbar_graphics", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1370,7 +1500,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_header {
+        public static System.Drawing.Bitmap toolbar_header {
             get {
                 object obj = ResourceManager.GetObject("toolbar_header", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1380,7 +1510,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_minimap {
+        public static System.Drawing.Bitmap toolbar_minimap {
             get {
                 object obj = ResourceManager.GetObject("toolbar_minimap", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1390,7 +1520,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_open {
+        public static System.Drawing.Bitmap toolbar_open {
             get {
                 object obj = ResourceManager.GetObject("toolbar_open", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1400,7 +1530,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_options {
+        public static System.Drawing.Bitmap toolbar_options {
             get {
                 object obj = ResourceManager.GetObject("toolbar_options", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1410,7 +1540,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_outline_doors {
+        public static System.Drawing.Bitmap toolbar_outline_doors {
             get {
                 object obj = ResourceManager.GetObject("toolbar_outline_doors", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1420,7 +1550,17 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_outline_scrolls {
+        public static System.Drawing.Bitmap toolbar_outline_effect {
+            get {
+                object obj = ResourceManager.GetObject("toolbar_outline_effect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap toolbar_outline_scrolls {
             get {
                 object obj = ResourceManager.GetObject("toolbar_outline_scrolls", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1430,7 +1570,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_outline_sprites {
+        public static System.Drawing.Bitmap toolbar_outline_sprites {
             get {
                 object obj = ResourceManager.GetObject("toolbar_outline_sprites", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1440,7 +1580,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_palette {
+        public static System.Drawing.Bitmap toolbar_palette {
             get {
                 object obj = ResourceManager.GetObject("toolbar_palette", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1450,7 +1590,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_patches {
+        public static System.Drawing.Bitmap toolbar_patches {
             get {
                 object obj = ResourceManager.GetObject("toolbar_patches", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1460,7 +1600,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_physics {
+        public static System.Drawing.Bitmap toolbar_physics {
             get {
                 object obj = ResourceManager.GetObject("toolbar_physics", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1470,7 +1610,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_redo {
+        public static System.Drawing.Bitmap toolbar_redo {
             get {
                 object obj = ResourceManager.GetObject("toolbar_redo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1480,7 +1620,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_save {
+        public static System.Drawing.Bitmap toolbar_save {
             get {
                 object obj = ResourceManager.GetObject("toolbar_save", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1490,7 +1630,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_sprite {
+        public static System.Drawing.Bitmap toolbar_sprite {
             get {
                 object obj = ResourceManager.GetObject("toolbar_sprite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1500,7 +1640,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_spriteset {
+        public static System.Drawing.Bitmap toolbar_spriteset {
             get {
                 object obj = ResourceManager.GetObject("toolbar_spriteset", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1510,7 +1650,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_test {
+        public static System.Drawing.Bitmap toolbar_test {
             get {
                 object obj = ResourceManager.GetObject("toolbar_test", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1520,7 +1660,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_text {
+        public static System.Drawing.Bitmap toolbar_text {
             get {
                 object obj = ResourceManager.GetObject("toolbar_text", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1530,7 +1670,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_tile_builder {
+        public static System.Drawing.Bitmap toolbar_tile_builder {
             get {
                 object obj = ResourceManager.GetObject("toolbar_tile_builder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1540,7 +1680,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_tile_table {
+        public static System.Drawing.Bitmap toolbar_tile_table {
             get {
                 object obj = ResourceManager.GetObject("toolbar_tile_table", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1550,7 +1690,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_undo {
+        public static System.Drawing.Bitmap toolbar_undo {
             get {
                 object obj = ResourceManager.GetObject("toolbar_undo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1560,7 +1700,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_view_sprites {
+        public static System.Drawing.Bitmap toolbar_view_sprites {
             get {
                 object obj = ResourceManager.GetObject("toolbar_view_sprites", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1570,7 +1710,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_weapon {
+        public static System.Drawing.Bitmap toolbar_weapon {
             get {
                 object obj = ResourceManager.GetObject("toolbar_weapon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1580,7 +1720,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toolbar_zoom {
+        public static System.Drawing.Bitmap toolbar_zoom {
             get {
                 object obj = ResourceManager.GetObject("toolbar_zoom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1654,7 +1794,7 @@ namespace mage.Properties {
         ///00C3	c
         /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_chars {
+        public static string ZM_chars {
             get {
                 return ResourceManager.GetString("ZM_chars", resourceCulture);
             }
@@ -1694,7 +1834,7 @@ namespace mage.Properties {
         ///1E Unused (solid)
         ///1F Un [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_clipdata {
+        public static string ZM_clipdata {
             get {
                 return ResourceManager.GetString("ZM_clipdata", resourceCulture);
             }
@@ -1776,7 +1916,7 @@ namespace mage.Properties {
         ///48=36
         ///4 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_clipFromMF {
+        public static string ZM_clipFromMF {
             get {
                 return ResourceManager.GetString("ZM_clipFromMF", resourceCulture);
             }
@@ -1808,7 +1948,7 @@ namespace mage.Properties {
         ///GenericSpriteGfxOffset=32BAC8
         /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_constants {
+        public static string ZM_constants {
             get {
                 return ResourceManager.GetString("ZM_constants", resourceCulture);
             }
@@ -1817,7 +1957,17 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_genTileTable {
+        public static byte[] zm_digits {
+            get {
+                object obj = ResourceManager.GetObject("zm_digits", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ZM_genTileTable {
             get {
                 object obj = ResourceManager.GetObject("ZM_genTileTable", resourceCulture);
                 return ((byte[])(obj));
@@ -1881,7 +2031,7 @@ namespace mage.Properties {
         ///AC=8,-16
         ///B3= [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_spritePositions {
+        public static string ZM_spritePositions {
             get {
                 return ResourceManager.GetString("ZM_spritePositions", resourceCulture);
             }
@@ -1890,7 +2040,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_addElevators1 {
+        public static byte[] ZM_U_addElevators1 {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_addElevators1", resourceCulture);
                 return ((byte[])(obj));
@@ -1900,7 +2050,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_addElevators2 {
+        public static byte[] ZM_U_addElevators2 {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_addElevators2", resourceCulture);
                 return ((byte[])(obj));
@@ -1910,7 +2060,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_addMinimapTiles {
+        public static byte[] ZM_U_addMinimapTiles {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_addMinimapTiles", resourceCulture);
                 return ((byte[])(obj));
@@ -1942,7 +2092,7 @@ namespace mage.Properties {
         ///	20,1,Animation counter
         ///	21,1,Current [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_U_demoRAM {
+        public static string ZM_U_demoRAM {
             get {
                 return ResourceManager.GetString("ZM_U_demoRAM", resourceCulture);
             }
@@ -1951,7 +2101,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_disableChozoHints {
+        public static byte[] ZM_U_disableChozoHints {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_disableChozoHints", resourceCulture);
                 return ((byte[])(obj));
@@ -1961,7 +2111,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_eventConnections {
+        public static byte[] ZM_U_eventConnections {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_eventConnections", resourceCulture);
                 return ((byte[])(obj));
@@ -1971,7 +2121,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_itemToggle {
+        public static byte[] ZM_U_itemToggle {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_itemToggle", resourceCulture);
                 return ((byte[])(obj));
@@ -1981,7 +2131,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_locationNames {
+        public static byte[] ZM_U_locationNames {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_locationNames", resourceCulture);
                 return ((byte[])(obj));
@@ -1991,7 +2141,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_noMinimap {
+        public static byte[] ZM_U_noMinimap {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_noMinimap", resourceCulture);
                 return ((byte[])(obj));
@@ -2007,7 +2157,7 @@ namespace mage.Properties {
         ///ZM_U_disableChozoHints,Disable Chozo statue hints,biospark
         ///ZM_U_removeCloseup,Remove Samus closeup,biospark.
         /// </summary>
-        internal static string ZM_U_patches {
+        public static string ZM_U_patches {
             get {
                 return ResourceManager.GetString("ZM_U_patches", resourceCulture);
             }
@@ -2037,7 +2187,7 @@ namespace mage.Properties {
         ///Spin jump;6A50;1
         ///High  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_U_physics {
+        public static string ZM_U_physics {
             get {
                 return ResourceManager.GetString("ZM_U_physics", resourceCulture);
             }
@@ -2092,7 +2242,7 @@ namespace mage.Properties {
         ///3E=2CEA28
         ///3F=2CE [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_U_pSpriteOAM {
+        public static string ZM_U_pSpriteOAM {
             get {
                 return ResourceManager.GetString("ZM_U_pSpriteOAM", resourceCulture);
             }
@@ -2101,7 +2251,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_removeCloseup {
+        public static byte[] ZM_U_removeCloseup {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_removeCloseup", resourceCulture);
                 return ((byte[])(obj));
@@ -2147,7 +2297,7 @@ namespace mage.Properties {
         ///24=4E,2DE168
         ///25=77,2F [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_U_sSpriteOAM {
+        public static string ZM_U_sSpriteOAM {
             get {
                 return ResourceManager.GetString("ZM_U_sSpriteOAM", resourceCulture);
             }
@@ -2156,7 +2306,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_testDemo {
+        public static byte[] ZM_U_testDemo {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_testDemo", resourceCulture);
                 return ((byte[])(obj));
@@ -2166,7 +2316,7 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ZM_U_testRoom {
+        public static byte[] ZM_U_testRoom {
             get {
                 object obj = ResourceManager.GetObject("ZM_U_testRoom", resourceCulture);
                 return ((byte[])(obj));
@@ -2223,7 +2373,7 @@ namespace mage.Properties {
         ///6DB5D4=1A
         /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_U_tileTables {
+        public static string ZM_U_tileTables {
             get {
                 return ResourceManager.GetString("ZM_U_tileTables", resourceCulture);
             }
@@ -2278,7 +2428,7 @@ namespace mage.Properties {
         ///		Graphics=328F34
         ///		Palette=327148        /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ZM_U_weapons {
+        public static string ZM_U_weapons {
             get {
                 return ResourceManager.GetString("ZM_U_weapons", resourceCulture);
             }

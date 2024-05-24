@@ -94,6 +94,9 @@ namespace mage
                     room.scrollList.RemoveScroll(objNum);
                 }
             }
+
+            if (add) Sound.PlaySound("add.wav");
+            else Sound.PlaySound("remove.wav");
         }
 
         public override Rectangle AffectedRegion
