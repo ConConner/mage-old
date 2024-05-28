@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Windows.Forms;
 
 namespace mage
@@ -464,7 +465,10 @@ namespace mage
             for (byte r = 0; r < numOfRooms; r++)
             {
                 //Get Data from the room
-                Room room = new Room(area, r);
+                Room room = null;
+                try { room = new Room(area, r); }
+                catch { continue; }
+
                 if (room.Contains(x, y)) matchingRooms.Add(r);
             }
 
