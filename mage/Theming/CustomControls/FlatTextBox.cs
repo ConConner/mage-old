@@ -63,7 +63,7 @@ partial class FlatTextBox : UserControl
         }
     }
 
-    public string Text { get => textBox.Text; set => textBox.Text = value; }
+    override public string Text { get => textBox.Text; set => textBox.Text = value; }
 
     public int MaxLength { get => textBox.MaxLength; set => textBox.MaxLength = value; }
 

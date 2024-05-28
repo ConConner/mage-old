@@ -1,6 +1,7 @@
 ﻿using mage.Theming;
 using mage.Theming.CustomControls;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -27,6 +28,17 @@ namespace mage
         {
             InitializeComponent();
 
+            //Adding events because fucking designer wont show them for fucks sake
+            textBox_healthXP.TextChanged += textBox_dropPercent_TextChanged;
+            textBox_missileXP.TextChanged += textBox_dropPercent_TextChanged;
+            textBox_redXP.TextChanged += textBox_dropPercent_TextChanged;
+            textBox_noDropP.TextChanged += textBox_dropPercent_TextChanged;
+            textBox_smallHealthP.TextChanged += textBox_dropPercent_TextChanged;
+            textBox_largeHealthP.TextChanged += textBox_dropPercent_TextChanged;
+            textBox_missileP.TextChanged += textBox_dropPercent_TextChanged;
+            textBox_superMissileP.TextChanged += textBox_dropPercent_TextChanged;
+            textBox_powerBombP.TextChanged += textBox_dropPercent_TextChanged;
+
             ThemeSwitcher.ChangeTheme(Controls, this);
             ThemeSwitcher.InjectPaintOverrides(Controls);
 
@@ -48,17 +60,6 @@ namespace mage
 
             status = new Status(statusLabel_changes, button_apply);
             comboBox_type.SelectedIndex = 0;
-
-            //Adding events because fucking designer wont show them for fucks sake
-            textBox_healthXP.TextChanged += textBox_dropPercent_TextChanged;
-            textBox_missileXP.TextChanged += textBox_dropPercent_TextChanged;
-            textBox_redXP.TextChanged += textBox_dropPercent_TextChanged;
-            textBox_noDropP.TextChanged += textBox_dropPercent_TextChanged;
-            textBox_smallHealthP.TextChanged += textBox_dropPercent_TextChanged;
-            textBox_largeHealthP.TextChanged += textBox_dropPercent_TextChanged;
-            textBox_missileP.TextChanged += textBox_dropPercent_TextChanged;
-            textBox_superMissileP.TextChanged += textBox_dropPercent_TextChanged;
-            textBox_powerBombP.TextChanged += textBox_dropPercent_TextChanged;
         }
 
         public void UpdateEditor()
@@ -192,6 +193,7 @@ namespace mage
         private void ClearDropsText()
         {
             label_totalProb.Text = "–";
+            label_totalPercent.Text = "-";
             textBox_healthX.Text = "";
             textBox_missileX.Text = "";
             textBox_redX.Text = "";
@@ -334,7 +336,7 @@ namespace mage
 
             var controls = panel_percentage.Controls;
             double total = 0;
-
+            
             try
             {
                 foreach (Control ctrl in controls)
