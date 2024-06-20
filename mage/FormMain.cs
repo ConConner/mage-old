@@ -57,6 +57,7 @@ namespace mage
             get { return (ushort)comboBox_clipdata.SelectedIndex; }
             set { comboBox_clipdata.SelectedIndex = value; }
         }
+        public ushort Bg3Color = 0;
 
         public PrivateFontCollection pfc { get; set; } = new PrivateFontCollection();
         public sRam TestRoomSettings { get; set; } = null;
@@ -182,6 +183,9 @@ namespace mage
             else if (zoom == 3) { menuItem_zoom800.Checked = true; }
             roomView.UpdateZoom(zoom, false);
 
+            //Room Viewer Settings
+            Bg3Color = Settings.Default.bg3color;
+
             //Loading themes
             try
             {
@@ -224,6 +228,9 @@ namespace mage
             Settings.Default.hexadecimal = menuItem_hexadecimal.Checked;
             Settings.Default.tooltips = menuItem_tooltips.Checked;
             Settings.Default.zoom = zoom;
+
+            //Room Viewer Settings
+            Settings.Default.bg3color = Bg3Color;
 
             //Saving themes
             string themeDictionary = ThemeSwitcher.Serialize(ThemeSwitcher.Themes);
@@ -1112,6 +1119,7 @@ namespace mage
             FormAdd form = new FormAdd(this, 0);
             form.Show();
         }
+
 
         #endregion
 
@@ -2728,10 +2736,15 @@ namespace mage
 
 
         private void changeEmulatorPathToolStripMenuItem_Click(object sender, EventArgs e) => Test.SetEmulatorPath();
-        
+
         private void btn_soundpacks_Click(object sender, EventArgs e)
         {
             new FormSoundPack().Show();
+        }
+
+        private void menuItem_backgroundColor_Click(object sender, EventArgs e)
+        {
+            new RoomViewSettings(this).ShowDialog();
         }
     }
 }

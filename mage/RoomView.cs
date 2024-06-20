@@ -119,7 +119,7 @@ namespace mage
             {
                 for (int x = 0; x < dstWidth; x++)
                 {
-                    *dstPtr++ = 0;
+                    *dstPtr++ = main.Bg3Color;
                 }
                 dstPtr += imgWidth - dstWidth;
             }

@@ -285,5 +285,17 @@ namespace mage.Properties {
                 this["soundPackName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ushort bg3color {
+            get {
+                return ((ushort)(this["bg3color"]));
+            }
+            set {
+                this["bg3color"] = value;
+            }
+        }
     }
 }
