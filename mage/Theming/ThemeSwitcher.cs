@@ -110,7 +110,8 @@ namespace mage.Theming
             {
                 //excludes
                 if (component is TileView ||
-                    component is RoomView)
+                    component is RoomView ||
+                    component.Tag?.ToString() == "unthemed")
                     continue;
 
                 //base change
@@ -119,7 +120,7 @@ namespace mage.Theming
                 component.Invalidate();
                 if (component.Tag?.ToString() == "accent") component.BackColor = theme.AccentColor;
 
-                if (component.Controls.Count > 0)
+                if (component.HasChildren)
                 {
                     ChangeTheme(component.Controls);
                 }

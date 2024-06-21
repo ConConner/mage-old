@@ -162,7 +162,7 @@ namespace mage
 
         private void LoadMinimap()
         {
-            button_generate.Enabled = comboBox_area.SelectedIndex <= 6;
+            //button_generate.Enabled = comboBox_area.SelectedIndex <= 6;
 
             byte areaID = (byte)comboBox_area.SelectedIndex;
             try
