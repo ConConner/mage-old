@@ -9,11 +9,12 @@ MAGE 1.5.0:
 - Input screens directly in Add Room
 - Screen number gets displayed as hex
 - Added [MUSIC_STOP] Label for Fusion -> [\xBXXX]
-- Added Zoom to Text Editor
 - Input hex color in palette editor
 - Door Exit Distance Presets
 - Added clipdata shortcuts button to main view
+- Added Zoom button to the status bar of the main view
 - Zoom with Ctrl + Mouse Wheel in main view
+- Added Zoom to Text Editor
 - Clear Sprites, Scrolls and Doors in Room Options
 - Drop Probability can be input as Percentage
 - Significantly improved Test Room feature for Zero Mission

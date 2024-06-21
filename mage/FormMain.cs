@@ -963,6 +963,11 @@ namespace mage
         }
 
         // options
+        private void menuItem_backgroundColor_Click(object sender, EventArgs e)
+        {
+            new RoomViewSettings(this).ShowDialog();
+        }
+
         private void menuItem_defaultView_Click(object sender, EventArgs e)
         {
             var item = (ToolStripMenuItem)sender;
@@ -999,6 +1004,11 @@ namespace mage
             UpdateRoomNumbers();
         }
 
+        private void btn_soundpacks_Click(object sender, EventArgs e)
+        {
+            new FormSoundPack().Show();
+        }
+
         private void menuItem_tooltips_Click(object sender, EventArgs e)
         {
             menuItem_tooltips.Checked = !menuItem_tooltips.Checked;
@@ -1014,6 +1024,8 @@ namespace mage
                 tileTimer.Tick += tileTimer_Tick;
             }
         }
+
+        private void changeEmulatorPathToolStripMenuItem_Click(object sender, EventArgs e) => Test.SetEmulatorPath();
 
         private void themeToolStripMenuItem_Click(object sender, EventArgs e) => new ThemeEditor().ShowDialog();
 
@@ -1671,6 +1683,8 @@ namespace mage
             menuItem_zoom200.Checked = zoom == 1;
             menuItem_zoom400.Checked = zoom == 2;
             menuItem_zoom800.Checked = zoom == 3;
+
+            lbl_zoom_percent.Text = $"{1 << zoom}00%";
 
             if (!roomView.UpdateZoom(zoom, true)) { return; }
 
@@ -2733,18 +2747,5 @@ namespace mage
 
         private void contextItem_removeEffectPos_Click(object sender, EventArgs e) => SetNewEffectYPosition(0xFF);
         #endregion
-
-
-        private void changeEmulatorPathToolStripMenuItem_Click(object sender, EventArgs e) => Test.SetEmulatorPath();
-
-        private void btn_soundpacks_Click(object sender, EventArgs e)
-        {
-            new FormSoundPack().Show();
-        }
-
-        private void menuItem_backgroundColor_Click(object sender, EventArgs e)
-        {
-            new RoomViewSettings(this).ShowDialog();
-        }
     }
 }
