@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace mage
 {
@@ -42,17 +44,23 @@ namespace mage
             {
                 // check image
                 Bitmap image = new Bitmap(tilesetFile.FileName);
+
                 if (image.PixelFormat != System.Drawing.Imaging.PixelFormat.Format32bppArgb)
                 {
-                    MessageBox.Show("Invalid pixel format. Image must be 32bpp.", 
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorMessage("Invalid pixel format. Image must be 32bpp.");
                     image.Dispose();
                     return;
                 }
+
                 if (image.Width != 256 || image.Height % 16 != 0 || image.Height > 1024)
                 {
-                    MessageBox.Show("Invalid dimensions. Image must have a width of 256 and a height divisible by 16.", 
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string message = "Invalid dimensions.\n\r";
+
+                    if (image.Width != 256) message += "\n\rImage width is not 256!";
+                    if (image.Height % 16 != 0) message += "\n\rImage height is not divisible by 16!";
+                    if (image.Height > 1024) message += "\n\rImage height is bigger than 1024!";
+
+                    errorMessage(message);
                     image.Dispose();
                     return;
                 }
@@ -63,7 +71,7 @@ namespace mage
                 }
                 catch (FormatException ex)
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorMessage(ex.Message);
                     return;
                 }
 
@@ -74,6 +82,8 @@ namespace mage
                 radioButton_current.Checked = true;
             }
         }
+
+        private void errorMessage(string message) => MessageBox.Show(message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         private void checkBox_autoRows_CheckedChanged(object sender, EventArgs e)
         {
