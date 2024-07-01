@@ -1,4 +1,5 @@
-﻿using mage.Theming;
+﻿using mage.Dialogs;
+using mage.Theming;
 using mage.Tools;
 using System;
 using System.Drawing;
@@ -250,6 +251,13 @@ namespace mage
             Point p = dialog.SelectedPoint;
             textBox_mapX.Text = Hex.ToString(p.X);
             textBox_mapY.Text = Hex.ToString(p.Y);
+        }
+
+        private void btn_bg3_presets_Click(object sender, EventArgs e)
+        {
+            BG3ScrollDialog d = new BG3ScrollDialog();
+            if (d.ShowDialog() != DialogResult.OK) return;
+            textBox_BG3scroll.Text = Hex.ToString(d.Value);
         }
     }
 }
