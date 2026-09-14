@@ -179,7 +179,7 @@
             group_selection.Dock = System.Windows.Forms.DockStyle.Top;
             group_selection.Location = new System.Drawing.Point(6, 3);
             group_selection.Name = "group_selection";
-            group_selection.Size = new System.Drawing.Size(450, 87);
+            group_selection.Size = new System.Drawing.Size(451, 87);
             group_selection.TabIndex = 13;
             group_selection.TabStop = false;
             group_selection.Text = "Selection";
@@ -245,7 +245,7 @@
             splitContainer_main.Panel2.Controls.Add(groupBox_map);
             splitContainer_main.Panel2.Padding = new System.Windows.Forms.Padding(3, 3, 6, 3);
             splitContainer_main.Size = new System.Drawing.Size(973, 569);
-            splitContainer_main.SplitterDistance = 459;
+            splitContainer_main.SplitterDistance = 460;
             splitContainer_main.SplitterWidth = 3;
             splitContainer_main.TabIndex = 14;
             // 
@@ -256,7 +256,7 @@
             groupBox_mapTiles.Dock = System.Windows.Forms.DockStyle.Fill;
             groupBox_mapTiles.Location = new System.Drawing.Point(6, 90);
             groupBox_mapTiles.Name = "groupBox_mapTiles";
-            groupBox_mapTiles.Size = new System.Drawing.Size(450, 476);
+            groupBox_mapTiles.Size = new System.Drawing.Size(451, 476);
             groupBox_mapTiles.TabIndex = 14;
             groupBox_mapTiles.TabStop = false;
             groupBox_mapTiles.Text = "Tiles";
@@ -268,7 +268,7 @@
             panel_tileView.Dock = System.Windows.Forms.DockStyle.Fill;
             panel_tileView.Location = new System.Drawing.Point(3, 44);
             panel_tileView.Name = "panel_tileView";
-            panel_tileView.Size = new System.Drawing.Size(444, 429);
+            panel_tileView.Size = new System.Drawing.Size(445, 429);
             panel_tileView.TabIndex = 2;
             // 
             // tileDisplay_tiles
@@ -294,6 +294,7 @@
             tileDisplay_tiles.TileMouseUp += tileDisplay_tiles_TileMouseUp;
             tileDisplay_tiles.TileMouseMove += tileDisplay_tiles_TileMouseMove;
             tileDisplay_tiles.Scrolled += tileDisplay_tiles_Scrolled;
+            tileDisplay_tiles.KeyDown += FormMinimapNew_KeyDown;
             // 
             // toolStrip_tiles
             // 
@@ -302,7 +303,7 @@
             toolStrip_tiles.Location = new System.Drawing.Point(3, 19);
             toolStrip_tiles.Name = "toolStrip_tiles";
             toolStrip_tiles.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            toolStrip_tiles.Size = new System.Drawing.Size(444, 25);
+            toolStrip_tiles.Size = new System.Drawing.Size(445, 25);
             toolStrip_tiles.TabIndex = 1;
             toolStrip_tiles.Text = "toolStrip1";
             // 
@@ -396,7 +397,7 @@
             groupBox_map.Dock = System.Windows.Forms.DockStyle.Fill;
             groupBox_map.Location = new System.Drawing.Point(3, 3);
             groupBox_map.Name = "groupBox_map";
-            groupBox_map.Size = new System.Drawing.Size(502, 563);
+            groupBox_map.Size = new System.Drawing.Size(501, 563);
             groupBox_map.TabIndex = 0;
             groupBox_map.TabStop = false;
             groupBox_map.Text = "Map";
@@ -408,7 +409,7 @@
             panel_mapView.Dock = System.Windows.Forms.DockStyle.Fill;
             panel_mapView.Location = new System.Drawing.Point(3, 44);
             panel_mapView.Name = "panel_mapView";
-            panel_mapView.Size = new System.Drawing.Size(496, 516);
+            panel_mapView.Size = new System.Drawing.Size(495, 516);
             panel_mapView.TabIndex = 2;
             // 
             // tileDisplay_map
@@ -434,6 +435,7 @@
             tileDisplay_map.TileMouseUp += tileDisplay_map_TileMouseUp;
             tileDisplay_map.TileMouseMove += tileDisplay_map_TileMouseMove;
             tileDisplay_map.Scrolled += tileDisplay_map_Scrolled;
+            tileDisplay_map.KeyDown += FormMinimapNew_KeyDown;
             // 
             // toolStrip_map
             // 
@@ -442,7 +444,7 @@
             toolStrip_map.Location = new System.Drawing.Point(3, 19);
             toolStrip_map.Name = "toolStrip_map";
             toolStrip_map.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            toolStrip_map.Size = new System.Drawing.Size(496, 25);
+            toolStrip_map.Size = new System.Drawing.Size(495, 25);
             toolStrip_map.TabIndex = 1;
             toolStrip_map.Text = "toolStrip1";
             // 
@@ -575,7 +577,6 @@
             Name = "FormMinimapNew";
             Text = "Map Editor";
             FormClosing += FormMinimapNew_FormClosing;
-            KeyDown += FormMinimapNew_KeyDown;
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             group_selection.ResumeLayout(false);

@@ -159,6 +159,7 @@
             gfxView.TileMouseUp += tile_gfxView_TileMouseUp;
             gfxView.TileMouseMove += tile_gfxView_TileMouseMove;
             gfxView.Scrolled += gfxView_Scrolled;
+            gfxView.KeyDown += KeyPressed;
             // 
             // panel_Main
             // 
@@ -735,6 +736,7 @@
             tableView.TileMouseUp += tableView_TileMouseUp;
             tableView.TileMouseMove += tableView_TileMouseMove;
             tableView.Scrolled += tableView_Scrolled;
+            tableView.KeyDown += KeyPressed;
             // 
             // toolStrip_table
             // 
@@ -984,7 +986,6 @@
             Name = "FormTileTableNew";
             Text = "Tile Table Editor";
             FormClosing += FormTileTableNew_FormClosing;
-            KeyDown += KeyPressed;
             panel_gfxView.ResumeLayout(false);
             panel_Main.Panel1.ResumeLayout(false);
             panel_Main.Panel2.ResumeLayout(false);

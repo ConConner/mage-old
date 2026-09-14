@@ -154,7 +154,7 @@ public partial class FormPaletteNew : Form
         textBox_hex_color.TextChanged += TextBox_hex_color_TextChanged;
 
         KeyPreview = true;
-        KeyDown += FormPaletteNew_KeyDown;
+        tileDisplay_pal.KeyDown += FormPaletteNew_KeyDown;
 
         button_copy.Enabled = false;
         button_copy.Click += (_, _) => Copy();
