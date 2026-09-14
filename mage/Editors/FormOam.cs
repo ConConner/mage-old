@@ -417,6 +417,19 @@ public partial class FormOam : Form
 
     private void KeyPressed(object sender, KeyEventArgs e)
     {
+        // Ignore key presses when a textbox is selected
+        var control = ActiveControl;
+        while (true)
+        {
+            if (control is TextBox)
+                return;
+
+            if (control is ContainerControl container && container.ActiveControl != null)
+                control = container.ActiveControl;
+            else
+                break;
+        }
+
         switch (e.KeyCode)
         {
             case Keys.H:
