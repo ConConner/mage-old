@@ -17,5 +17,7 @@ public interface IClipdataRule
     bool MfExclusive { get; }
     bool ZmExclusive { get; }
 
+    string RuleKey => GetType().Name;
+
     ClipdataError? Check(TileContext ctx);
 }

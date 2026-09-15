@@ -15,6 +15,7 @@ using mage.Tweaks;
 using mage.Updates;
 using mage.Utility;
 using mage.Warnings;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -2019,7 +2020,7 @@ namespace mage
 
         private void ResetRoomRuleValidator()
         {
-            roomRuleValidator = new(room.backgrounds);
+            roomRuleValidator = ActivatorUtilities.CreateInstance<RuleValidator>(Program.Services, room.backgrounds);
             roomRuleValidator.ErrorsChanged += roomView.OnErrorsChanged;
             roomRuleValidator.ValidateRoom();
             errorList.SetSource(roomRuleValidator);

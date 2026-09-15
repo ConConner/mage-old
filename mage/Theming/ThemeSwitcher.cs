@@ -260,6 +260,19 @@ namespace mage.Theming
                 sw.SwapGlyphHotColor = theme.AccentColor;
             }
 
+            if (control is FlatCheckedListBox clb)
+            {
+                clb.BackColor = theme.BackgroundColor;
+                clb.ForeColor = theme.TextColor;
+                clb.BorderColor = theme.PrimaryOutline;
+                clb.BorderColorDisabled = theme.PrimaryOutlineDisabled;
+                clb.AccentColor = theme.AccentColor;
+                clb.CheckColor = theme.TextColorHighlight;
+                clb.DisabledTextColor = theme.TextColorDisabled;
+                clb.SelectionColor = Color.FromArgb(0x3F, theme.AccentColor);
+                clb.Invalidate();
+            }
+
             if (control is RecentColorDisplay rcd)
             {
                 rcd.OutlineColor = theme.SecondaryOutline;

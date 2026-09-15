@@ -18,21 +18,22 @@ public class RuleValidator
 
     public event System.Action<RuleValidator>? ErrorsChanged;
 
-    public RuleValidator(Backgrounds grid)
+    public RuleValidator(Backgrounds grid, IEnumerable<IClipdataRule> allRules)
     {
-        // Register Rules here:
-        _rules.Add(new SlopeBelowCeilingRule());
-        _rules.Add(new SlopeFloatingRule());
-        _rules.Add(new SlopeSupportRule());
-        _rules.Add(new SlopeWallRule());
-        _rules.Add(new CeilingSlopeRule());
-        _rules.Add(new SlopeUnfinishedRule());
-        _rules.Add(new SlopeConnectionRule());
-        _rules.Add(new UnderwaterTankRule());
-        _rules.Add(new RegularTankUnderwaterRule());
+        _rules = allRules
+            .Where(r => Program.Config.IsRuleEnabled(r.RuleKey) && isCorrectGame(r))
+            .ToList();
 
         _maxRadius = _rules.Max(r => r.NeighborhoodRadius);
         _grid = grid;
+    }
+
+    private bool isCorrectGame(IClipdataRule rule)
+    {
+        if (rule.ZmExclusive && rule.MfExclusive) throw new Exception("Rule cannot be both ZM and MF exclusive");
+        if (rule.ZmExclusive && Version.IsMF) return false;
+        if (rule.MfExclusive && !Version.IsMF) return false;
+        return true;
     }
 
     public bool HasErrorAt(int x, int y) =>
@@ -111,7 +112,7 @@ public class RuleValidator
 
     /// <summary>
     /// Full re-validation of the entire room. Use on room load or when
-    /// rules change. O(width * height * ruleCount) — fine as a one-time
+    /// rules change. O(width * height * ruleCount), fine as a one-time
     /// cost, don't call it per edit.
     /// </summary>
     public void ValidateRoom()
