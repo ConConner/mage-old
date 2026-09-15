@@ -46,7 +46,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Dialogs\BackgroundPropertyDialog.cs" />
+    <Compile Update="Options\PagesProject\PageSprites.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Options\PagesApplication\PageMusiclists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Options\PagesApplication\PageRules.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Options\PagesApplication\PageUpdates.cs">
@@ -56,6 +62,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Options\PagesApplication\PageRom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Options\PagesProject\PageSprites.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Options\PagesProject\PageCompiling.cs">
@@ -97,6 +106,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="RoomView.cs" />
+    <Compile Update="Tools\FormTestRoomFusion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Tweaks\ParameterControls\TweakParameterSelection.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FuzzySharp" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12" />
     <PackageReference Include="NCalcSync" Version="6.3.3" />
     <PackageReference Include="System.Reactive" Version="6.0.1" />
     <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />

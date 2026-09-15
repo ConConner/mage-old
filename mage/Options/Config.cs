@@ -24,6 +24,17 @@ public class Config
     public bool OnlyNotifyOnMajor { get; set; } = false;
     #endregion
 
+    #region Rule Validator
+    public bool WarningsEnabled { get; set; } = true;
+    public HashSet<string> DisabledRules { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    public bool IsRuleEnabled(string ruleKey) => !DisabledRules.Contains(ruleKey);
+    public void SetRuleEnabled(string ruleKey, bool enabled)
+    {
+        if (enabled) DisabledRules.Remove(ruleKey);
+        else DisabledRules.Add(ruleKey);
+    }
+    #endregion
+
     #region Pixel Image exporting
     public PixelImageColors PixelImageColors { get; set; } = new();
     #endregion

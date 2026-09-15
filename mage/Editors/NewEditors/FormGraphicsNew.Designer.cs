@@ -86,6 +86,7 @@
             button_undo = new System.Windows.Forms.ToolStripSplitButton();
             button_redo = new System.Windows.Forms.ToolStripSplitButton();
             toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            button_cut = new System.Windows.Forms.ToolStripButton();
             button_copy = new System.Windows.Forms.ToolStripButton();
             button_paste = new System.Windows.Forms.ToolStripButton();
             toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -106,7 +107,6 @@
             button_imageZoomOut = new System.Windows.Forms.ToolStripButton();
             label_imageZoom = new System.Windows.Forms.ToolStripLabel();
             panel_imageContainer = new mage.Controls.ExtendedPanel();
-            button_cut = new System.Windows.Forms.ToolStripButton();
             groupBox_imageControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown_height).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown_width).BeginInit();
@@ -552,6 +552,7 @@
             tileDisplay_gfx.TileMouseUp += tileDisplay_gfx_TileMouseUp;
             tileDisplay_gfx.TileMouseMove += tileDisplay_gfx_TileMouseMove;
             tileDisplay_gfx.Scrolled += tileDisplay_gfx_Scrolled;
+            tileDisplay_gfx.KeyDown += FormGraphicsNew_KeyDown;
             // 
             // toolStrip_palette
             // 
@@ -688,6 +689,17 @@
             // 
             toolStripSeparator8.Name = "toolStripSeparator8";
             toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            // 
+            // button_cut
+            // 
+            button_cut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            button_cut.Enabled = false;
+            button_cut.Image = Properties.Resources.cut_red;
+            button_cut.ImageTransparentColor = System.Drawing.Color.Magenta;
+            button_cut.Name = "button_cut";
+            button_cut.Size = new System.Drawing.Size(23, 22);
+            button_cut.Text = "Cut";
+            button_cut.Click += button_cut_Click;
             // 
             // button_copy
             // 
@@ -867,17 +879,6 @@
             panel_imageContainer.Size = new System.Drawing.Size(621, 428);
             panel_imageContainer.TabIndex = 6;
             // 
-            // button_cut
-            // 
-            button_cut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            button_cut.Enabled = false;
-            button_cut.Image = Properties.Resources.cut_red;
-            button_cut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            button_cut.Name = "button_cut";
-            button_cut.Size = new System.Drawing.Size(23, 22);
-            button_cut.Text = "Cut";
-            button_cut.Click += button_cut_Click;
-            // 
             // FormGraphicsNew
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -890,7 +891,6 @@
             Name = "FormGraphicsNew";
             Text = "Graphics Editor";
             FormClosing += FormGraphicsNew_FormClosing;
-            KeyDown += FormGraphicsNew_KeyDown;
             groupBox_imageControl.ResumeLayout(false);
             groupBox_imageControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown_height).EndInit();

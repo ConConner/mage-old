@@ -233,6 +233,16 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap error {
+            get {
+                object obj = ResourceManager.GetObject("error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap eyedropper {
             get {
                 object obj = ResourceManager.GetObject("eyedropper", resourceCulture);
@@ -323,9 +333,49 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap item_disabled_fusion {
+            get {
+                object obj = ResourceManager.GetObject("item_disabled_fusion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_disabled_fusion_secondary {
+            get {
+                object obj = ResourceManager.GetObject("item_disabled_fusion_secondary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap item_enabled {
             get {
                 object obj = ResourceManager.GetObject("item_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_enabled_fusion {
+            get {
+                object obj = ResourceManager.GetObject("item_enabled_fusion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap item_enabled_fusion_secondary {
+            get {
+                object obj = ResourceManager.GetObject("item_enabled_fusion_secondary", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -396,6 +446,56 @@ namespace mage.Properties {
         public static System.Drawing.Bitmap item_zero {
             get {
                 object obj = ResourceManager.GetObject("item_zero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap lock_fusion_0 {
+            get {
+                object obj = ResourceManager.GetObject("lock_fusion_0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap lock_fusion_1 {
+            get {
+                object obj = ResourceManager.GetObject("lock_fusion_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap lock_fusion_2 {
+            get {
+                object obj = ResourceManager.GetObject("lock_fusion_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap lock_fusion_3 {
+            get {
+                object obj = ResourceManager.GetObject("lock_fusion_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap lock_fusion_4 {
+            get {
+                object obj = ResourceManager.GetObject("lock_fusion_4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1769,6 +1869,36 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap status_screen_fusion {
+            get {
+                object obj = ResourceManager.GetObject("status_screen_fusion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap status_screen_fusion_extension {
+            get {
+                object obj = ResourceManager.GetObject("status_screen_fusion_extension", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap status_screen_fusion1 {
+            get {
+                object obj = ResourceManager.GetObject("status_screen_fusion1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap test_cancel {
             get {
                 object obj = ResourceManager.GetObject("test_cancel", resourceCulture);
@@ -1779,9 +1909,29 @@ namespace mage.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap test_cancel_fusion {
+            get {
+                object obj = ResourceManager.GetObject("test_cancel_fusion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap test_play {
             get {
                 object obj = ResourceManager.GetObject("test_play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap test_play_fusion {
+            get {
+                object obj = ResourceManager.GetObject("test_play_fusion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

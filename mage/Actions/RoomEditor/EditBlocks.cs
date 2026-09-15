@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mage.Warnings;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -12,6 +13,7 @@ namespace mage.Actions.RoomEditor
         private int _bgNum;
         private bool _updateClip;
         private Backgrounds _backgrounds;
+
 
         // constructor
         public EditBlocks(Backgrounds backgrounds, Block[,] clipboard, Point ptDst, int bgNum, ushort clipVal, bool combine)
@@ -54,9 +56,11 @@ namespace mage.Actions.RoomEditor
         {
             Dictionary<Point, Block> backup = new Dictionary<Point, Block>();
 
+            List<(int x, int y)> changedTiles = new();
             foreach (KeyValuePair<Point, Block> kvp in blocks)
             {
                 Point p = kvp.Key;
+                changedTiles.Add((p.X, p.Y));
                 Block b = room.backgrounds.GetBlock(p.X, p.Y);
                 backup.Add(p, b);
                 room.backgrounds.SetBlock(kvp.Value, p.X, p.Y);
@@ -73,6 +77,7 @@ namespace mage.Actions.RoomEditor
             if (_updateClip)
             {
                 _backgrounds.clip.Edited = true;
+                FormMain.Instance.roomRuleValidator?.OnTilesChanged(changedTiles);
             }
         }
 

@@ -32,6 +32,11 @@ namespace mage
             b.CLP = clip.blocks[x, y];
             return b;
         }
+        public Block? GetBlockClamped(int x, int y)
+        {
+            if (x < 0 || y < 0 || x >= width || y >= height) return null;
+            return GetBlock(x, y);
+        }
         public void SetBlock(Block b, int x, int y)
         {
             if (bg0.IsRLE) { bg0.blocks[x, y] = b.BG0; }
@@ -121,7 +126,7 @@ namespace mage
             catch { throw new CorruptDataException(Corrupt.BG0); }
             try { DrawLZ77(bg3); }
             catch { throw new CorruptDataException(Corrupt.BG3); }
-            
+
 
             width = clip.width;
             height = clip.height;
@@ -631,7 +636,7 @@ namespace mage
             {
                 this[i].Resize(w, h);
             }
-            
+
             // clipdata
             clipTypes.ResizeClip(w, h);
 

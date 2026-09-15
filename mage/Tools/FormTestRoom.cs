@@ -13,10 +13,10 @@ public partial class FormTestRoom : Form
 {
     // fields
     private FormMain main;
-    private sRam save;
+    private sRamZm save;
 
     // constructor
-    public FormTestRoom(FormMain main, sRam save = null)
+    public FormTestRoom(FormMain main, sRamZm save = null)
     {
         InitializeComponent();
 
@@ -28,7 +28,7 @@ public partial class FormTestRoom : Form
         this.main = main;
 
         SetUIValues();
-        
+
         SetUIColors();
         ToggleSuitGraphic();
     }

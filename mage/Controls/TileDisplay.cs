@@ -159,7 +159,10 @@ public partial class TileDisplay : Control
         InitializeComponent();
 
         // Setup
-        SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
+        SetStyle(ControlStyles.AllPaintingInWmPaint |
+             ControlStyles.OptimizedDoubleBuffer |
+             ControlStyles.Selectable |
+             ControlStyles.UserPaint, true);
         BackgroundImageLayout = ImageLayout.Stretch;
         BackColor = Color.FromArgb(32, 32, 32);
         TabStop = false;

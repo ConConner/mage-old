@@ -15,10 +15,11 @@ public static class PageLists
         new() { Name = "Appearance", Page = AppearancePage, RequiresROM = false, CustomStatusStrip = AppearancePage.CustomStrip},
         new() { Name = "Default View", Page = new PageDefaults(), RequiresROM = true },
         new() { Name = "Tools", Page = new PageRom(), RequiresROM=false },
+        new() { Name = "Warnings", Page = new PageRules(), RequiresROM=false },
         new() { Name = "Soundpacks", Page = new PageSoundpacks(), RequiresROM = false },
         new() { Name = "Updates", Page = new PageUpdates(), RequiresROM = false },
-        new() { Name = "Advanced", Page = new PageAdvanced(), RequiresROM=false },
         new() { Name = "Music Names", Page = new PageMusiclists(), RequiresROM=false },
+        new() { Name = "Advanced", Page = new PageAdvanced(), RequiresROM=false },
     };
 
     public static List<OptionsPage> ProjectOptionsPages = new()
@@ -26,5 +27,6 @@ public static class PageLists
         new() { Name = "Overview", Page = new PageOverview(), RequiresROM = true},
         new() { Name = "Compiling", Page = new PageCompiling(), RequiresROM = true},
         new() { Name = "Backups", Page = new PageBackups(), RequiresROM = true },
+        new() { Name = "Sprites", Page = new PageSprites(), RequiresROM = true },
     };
 }

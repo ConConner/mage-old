@@ -219,6 +219,8 @@
             contextItem_removeEffectPos = new System.Windows.Forms.ToolStripMenuItem();
             toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             contextItem_testRoom = new System.Windows.Forms.ToolStripMenuItem();
+            splitter_issues = new System.Windows.Forms.Splitter();
+            errorList = new mage.Warnings.ErrorListPanel();
             groupBox_viewBG = new System.Windows.Forms.GroupBox();
             checkBox_viewBG3 = new System.Windows.Forms.CheckBox();
             checkBox_viewBG2 = new System.Windows.Forms.CheckBox();
@@ -547,7 +549,7 @@
             // 
             menuItem_viewClipCollision.Name = "menuItem_viewClipCollision";
             menuItem_viewClipCollision.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D5;
-            menuItem_viewClipCollision.Size = new System.Drawing.Size(180, 22);
+            menuItem_viewClipCollision.Size = new System.Drawing.Size(165, 22);
             menuItem_viewClipCollision.Text = "Collision";
             menuItem_viewClipCollision.Click += menuItem_viewClipCollision_Click;
             // 
@@ -555,7 +557,7 @@
             // 
             menuItem_viewClipBreakable.Name = "menuItem_viewClipBreakable";
             menuItem_viewClipBreakable.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D6;
-            menuItem_viewClipBreakable.Size = new System.Drawing.Size(180, 22);
+            menuItem_viewClipBreakable.Size = new System.Drawing.Size(165, 22);
             menuItem_viewClipBreakable.Text = "Breakable";
             menuItem_viewClipBreakable.Click += menuItem_viewClipBreakable_Click;
             // 
@@ -563,7 +565,7 @@
             // 
             menuItem_viewClipValues.Name = "menuItem_viewClipValues";
             menuItem_viewClipValues.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D7;
-            menuItem_viewClipValues.Size = new System.Drawing.Size(180, 22);
+            menuItem_viewClipValues.Size = new System.Drawing.Size(165, 22);
             menuItem_viewClipValues.Text = "Values";
             menuItem_viewClipValues.Click += menuItem_viewClipValues_Click;
             // 
@@ -1238,7 +1240,7 @@
             // 
             menuItem_options.Image = Properties.Resources.cog;
             menuItem_options.Name = "menuItem_options";
-            menuItem_options.Size = new System.Drawing.Size(180, 22);
+            menuItem_options.Size = new System.Drawing.Size(165, 22);
             menuItem_options.Text = "Preferences...";
             menuItem_options.Click += programSettingsToolStripMenuItem_Click;
             // 
@@ -1247,21 +1249,21 @@
             menuItem_projectSettings.Enabled = false;
             menuItem_projectSettings.Image = Properties.Resources.script_gear;
             menuItem_projectSettings.Name = "menuItem_projectSettings";
-            menuItem_projectSettings.Size = new System.Drawing.Size(180, 22);
+            menuItem_projectSettings.Size = new System.Drawing.Size(165, 22);
             menuItem_projectSettings.Text = "Project Settings...";
             menuItem_projectSettings.Click += menuItem_projectSettings_Click;
             // 
             // toolStripSeparator31
             // 
             toolStripSeparator31.Name = "toolStripSeparator31";
-            toolStripSeparator31.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator31.Size = new System.Drawing.Size(162, 6);
             // 
             // menuItem_defaultView
             // 
             menuItem_defaultView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem_defaultBG0, menuItem_defaultBG1, menuItem_defaultBG2, menuItem_defaultBG3, menuItem_defaultClipdata, toolStripSeparator13, menuItem_defaultSprites, menuItem_defaultSpriteOutlines, menuItem_defaultDoors, menuItem_defaultScrolls, menuItem_defaultScreens });
             menuItem_defaultView.Enabled = false;
             menuItem_defaultView.Name = "menuItem_defaultView";
-            menuItem_defaultView.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultView.Size = new System.Drawing.Size(165, 22);
             menuItem_defaultView.Text = "Default View";
             // 
             // menuItem_defaultBG0
@@ -1269,7 +1271,7 @@
             menuItem_defaultBG0.Checked = true;
             menuItem_defaultBG0.CheckState = System.Windows.Forms.CheckState.Checked;
             menuItem_defaultBG0.Name = "menuItem_defaultBG0";
-            menuItem_defaultBG0.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultBG0.Size = new System.Drawing.Size(156, 22);
             menuItem_defaultBG0.Text = "BG 0";
             menuItem_defaultBG0.Click += menuItem_defaultView_Click;
             // 
@@ -1278,7 +1280,7 @@
             menuItem_defaultBG1.Checked = true;
             menuItem_defaultBG1.CheckState = System.Windows.Forms.CheckState.Checked;
             menuItem_defaultBG1.Name = "menuItem_defaultBG1";
-            menuItem_defaultBG1.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultBG1.Size = new System.Drawing.Size(156, 22);
             menuItem_defaultBG1.Text = "BG 1";
             menuItem_defaultBG1.Click += menuItem_defaultView_Click;
             // 
@@ -1287,7 +1289,7 @@
             menuItem_defaultBG2.Checked = true;
             menuItem_defaultBG2.CheckState = System.Windows.Forms.CheckState.Checked;
             menuItem_defaultBG2.Name = "menuItem_defaultBG2";
-            menuItem_defaultBG2.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultBG2.Size = new System.Drawing.Size(156, 22);
             menuItem_defaultBG2.Text = "BG 2";
             menuItem_defaultBG2.Click += menuItem_defaultView_Click;
             // 
@@ -1296,7 +1298,7 @@
             menuItem_defaultBG3.Checked = true;
             menuItem_defaultBG3.CheckState = System.Windows.Forms.CheckState.Checked;
             menuItem_defaultBG3.Name = "menuItem_defaultBG3";
-            menuItem_defaultBG3.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultBG3.Size = new System.Drawing.Size(156, 22);
             menuItem_defaultBG3.Text = "BG 3";
             menuItem_defaultBG3.Click += menuItem_defaultView_Click;
             // 
@@ -1304,41 +1306,41 @@
             // 
             menuItem_defaultClipdata.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem_defaultClipCollision, menuItem_defaultClipBreakable, menuItem_defaultClipValues });
             menuItem_defaultClipdata.Name = "menuItem_defaultClipdata";
-            menuItem_defaultClipdata.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultClipdata.Size = new System.Drawing.Size(156, 22);
             menuItem_defaultClipdata.Text = "Clipdata";
             // 
             // menuItem_defaultClipCollision
             // 
             menuItem_defaultClipCollision.Name = "menuItem_defaultClipCollision";
-            menuItem_defaultClipCollision.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultClipCollision.Size = new System.Drawing.Size(125, 22);
             menuItem_defaultClipCollision.Text = "Collision";
             menuItem_defaultClipCollision.Click += menuItem_defaultClipCollision_Click;
             // 
             // menuItem_defaultClipBreakable
             // 
             menuItem_defaultClipBreakable.Name = "menuItem_defaultClipBreakable";
-            menuItem_defaultClipBreakable.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultClipBreakable.Size = new System.Drawing.Size(125, 22);
             menuItem_defaultClipBreakable.Text = "Breakable";
             menuItem_defaultClipBreakable.Click += menuItem_defaultClipBreakable_Click;
             // 
             // menuItem_defaultClipValues
             // 
             menuItem_defaultClipValues.Name = "menuItem_defaultClipValues";
-            menuItem_defaultClipValues.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultClipValues.Size = new System.Drawing.Size(125, 22);
             menuItem_defaultClipValues.Text = "Values";
             menuItem_defaultClipValues.Click += menuItem_defaultClipValues_Click;
             // 
             // toolStripSeparator13
             // 
             toolStripSeparator13.Name = "toolStripSeparator13";
-            toolStripSeparator13.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator13.Size = new System.Drawing.Size(153, 6);
             // 
             // menuItem_defaultSprites
             // 
             menuItem_defaultSprites.Checked = true;
             menuItem_defaultSprites.CheckState = System.Windows.Forms.CheckState.Checked;
             menuItem_defaultSprites.Name = "menuItem_defaultSprites";
-            menuItem_defaultSprites.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultSprites.Size = new System.Drawing.Size(156, 22);
             menuItem_defaultSprites.Text = "Sprites";
             menuItem_defaultSprites.Click += menuItem_defaultView_Click;
             // 
@@ -1347,7 +1349,7 @@
             menuItem_defaultSpriteOutlines.Checked = true;
             menuItem_defaultSpriteOutlines.CheckState = System.Windows.Forms.CheckState.Checked;
             menuItem_defaultSpriteOutlines.Name = "menuItem_defaultSpriteOutlines";
-            menuItem_defaultSpriteOutlines.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultSpriteOutlines.Size = new System.Drawing.Size(156, 22);
             menuItem_defaultSpriteOutlines.Text = "Sprite Outlines";
             menuItem_defaultSpriteOutlines.Click += menuItem_defaultView_Click;
             // 
@@ -1356,21 +1358,21 @@
             menuItem_defaultDoors.Checked = true;
             menuItem_defaultDoors.CheckState = System.Windows.Forms.CheckState.Checked;
             menuItem_defaultDoors.Name = "menuItem_defaultDoors";
-            menuItem_defaultDoors.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultDoors.Size = new System.Drawing.Size(156, 22);
             menuItem_defaultDoors.Text = "Doors";
             menuItem_defaultDoors.Click += menuItem_defaultView_Click;
             // 
             // menuItem_defaultScrolls
             // 
             menuItem_defaultScrolls.Name = "menuItem_defaultScrolls";
-            menuItem_defaultScrolls.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultScrolls.Size = new System.Drawing.Size(156, 22);
             menuItem_defaultScrolls.Text = "Scrolls";
             menuItem_defaultScrolls.Click += menuItem_defaultView_Click;
             // 
             // menuItem_defaultScreens
             // 
             menuItem_defaultScreens.Name = "menuItem_defaultScreens";
-            menuItem_defaultScreens.Size = new System.Drawing.Size(180, 22);
+            menuItem_defaultScreens.Size = new System.Drawing.Size(156, 22);
             menuItem_defaultScreens.Text = "Screen Outlines";
             menuItem_defaultScreens.Click += menuItem_defaultView_Click;
             // 
@@ -1378,14 +1380,14 @@
             // 
             menuItem_tooltips.Enabled = false;
             menuItem_tooltips.Name = "menuItem_tooltips";
-            menuItem_tooltips.Size = new System.Drawing.Size(180, 22);
+            menuItem_tooltips.Size = new System.Drawing.Size(165, 22);
             menuItem_tooltips.Text = "Disable Tooltips";
             menuItem_tooltips.Click += menuItem_tooltips_Click;
             // 
             // toolStripSeparator21
             // 
             toolStripSeparator21.Name = "toolStripSeparator21";
-            toolStripSeparator21.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator21.Size = new System.Drawing.Size(162, 6);
             // 
             // menuStrip_help
             // 
@@ -1614,6 +1616,8 @@
             // groupBox_room
             // 
             groupBox_room.Controls.Add(panel_room);
+            groupBox_room.Controls.Add(splitter_issues);
+            groupBox_room.Controls.Add(errorList);
             groupBox_room.Dock = System.Windows.Forms.DockStyle.Fill;
             groupBox_room.Enabled = false;
             groupBox_room.Location = new System.Drawing.Point(3, 6);
@@ -1633,7 +1637,7 @@
             panel_room.Location = new System.Drawing.Point(4, 19);
             panel_room.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panel_room.Name = "panel_room";
-            panel_room.Size = new System.Drawing.Size(497, 390);
+            panel_room.Size = new System.Drawing.Size(497, 361);
             panel_room.TabIndex = 0;
             // 
             // roomView
@@ -1769,6 +1773,37 @@
             contextItem_testRoom.Size = new System.Drawing.Size(196, 22);
             contextItem_testRoom.Text = "Test Room Here";
             contextItem_testRoom.Click += contextItem_testRoom_Click;
+            // 
+            // splitter_issues
+            // 
+            splitter_issues.Dock = System.Windows.Forms.DockStyle.Bottom;
+            splitter_issues.Location = new System.Drawing.Point(4, 380);
+            splitter_issues.Name = "splitter_issues";
+            splitter_issues.Size = new System.Drawing.Size(497, 3);
+            splitter_issues.TabIndex = 1;
+            splitter_issues.TabStop = false;
+            // 
+            // errorList
+            // 
+            errorList.AlternateRowBackColor = System.Drawing.Color.FromArgb(35, 35, 38);
+            errorList.Collapsed = true;
+            errorList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            errorList.GridLineColor = System.Drawing.Color.FromArgb(50, 50, 53);
+            errorList.HeaderBackColor = System.Drawing.Color.FromArgb(45, 45, 48);
+            errorList.HeaderForeColor = System.Drawing.Color.Gainsboro;
+            errorList.HoverRowBackColor = System.Drawing.Color.FromArgb(45, 45, 50);
+            errorList.ListBackColor = System.Drawing.Color.FromArgb(30, 30, 30);
+            errorList.Location = new System.Drawing.Point(4, 383);
+            errorList.Name = "errorList";
+            errorList.OutlineColor = System.Drawing.Color.FromArgb(63, 63, 70);
+            errorList.Padding = new System.Windows.Forms.Padding(1);
+            errorList.RowForeColor = System.Drawing.Color.Gainsboro;
+            errorList.SelectedRowBackColor = System.Drawing.Color.FromArgb(38, 79, 120);
+            errorList.SelectedRowForeColor = System.Drawing.Color.White;
+            errorList.Size = new System.Drawing.Size(497, 26);
+            errorList.TabIndex = 1;
+            errorList.WarningIcon = Properties.Resources.error;
+            errorList.ErrorActivated += errorList_ErrorActivated;
             // 
             // groupBox_viewBG
             // 
@@ -2738,6 +2773,8 @@
         private System.Windows.Forms.ToolStripMenuItem button_exportAreaRegular;
         private System.Windows.Forms.ToolStripMenuItem button_exportAreaPixel;
         private System.Windows.Forms.ToolStripButton toolStripButton_tweaks;
+        private Warnings.ErrorListPanel errorList;
+        private System.Windows.Forms.Splitter splitter_issues;
     }
 }
 
