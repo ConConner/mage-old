@@ -12,6 +12,8 @@ namespace mage
         {
             get
             {
+                if (pSpriteID >= Version.NumOfSprites1) return 1;
+
                 int addVal = (pSpriteID - 0x10) * 4;
                 int offset = Version.SpriteGfxOffset + addVal;
                 return romStream.ReadPtr(offset);
@@ -21,6 +23,8 @@ namespace mage
         {
             get
             {
+                if (pSpriteID >= Version.NumOfSprites1) return 0;
+
                 int addVal = (pSpriteID - 0x10) * 4;
                 int offset = Version.SpritePaletteOffset + addVal;
                 return romStream.ReadPtr(offset);
@@ -30,6 +34,8 @@ namespace mage
         {
             get
             {
+                if (pSpriteID >= Version.NumOfSprites1) return 1;
+
                 int addVal = (pSpriteID - 0x10) * 4;
                 int rows;
                 if (Version.IsMF)
@@ -98,22 +104,7 @@ namespace mage
 
             gfxRow &= 7;
 
-            // If OAM crashes, mark OAM as invalid
-            OAM oam;
-            //try
-            //{
-            oam = new OAM(offset);
-            /*}
-            catch
-            {
-                if (
-                    MessageBox.Show(
-                    $"OAM for Sprite {Hex.ToString(pSpriteID)} could not be loaded.\n\nDo you want to disable the preview for this Sprite?",
-                    "OAM Invalid", MessageBoxButtons.YesNo, MessageBoxIcon.Error)
-                    == DialogResult.Yes
-                ) Version.MarkOAMInvalid(primary ? pSpriteID : sSpriteID, !primary);
-                return;
-            }*/
+            OAM oam = new OAM(offset);
 
             previewImg = oam.Draw(vramObj.objTiles, vramObj.palette, gfxRow, 0);
             xOffset = oam.Frames[0].xOffset;

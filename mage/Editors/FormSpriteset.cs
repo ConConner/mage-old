@@ -59,11 +59,11 @@ namespace mage
             palLabels = new Label[] { label_pal0, label_pal1, label_pal2, label_pal3, label_pal4, label_pal5, label_pal6, label_pal7 };
 
             // number of sprites
-            byte numOfSprites = Version.NumOfSprites1;
+            int numOfSprites =
+                Version.ProjectConfig.SpritesetAddMoreSprites ? 0x100 : Version.NumOfSprites1;
+
             for (int i = 0x10; i < numOfSprites; i++)
-            {
                 comboBox_sprite.Items.Add(Hex.ToString(i));
-            }
 
             // number of spritesets
             byte numOfSpritesets = Version.NumOfSpritesets;
@@ -336,7 +336,7 @@ namespace mage
                 int gfxSlot = gfxRows[slot];
                 if (gfxSlot == 8) { continue; }
                 gfxSlot &= 7;
-                
+
                 int end = gfxSlot + spriteGfx[slot].NumGfxRows;
                 if (end > 8)
                 {

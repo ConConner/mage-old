@@ -23,6 +23,8 @@ public class ProjectConfig
     public bool BackupsCreatePeriodically { get; set; } = false;
     public int BackupsAutoCreationInterval { get; set; } = 30;
 
+    public bool SpritesetAddMoreSprites { get; set; } = false;
+
     public static ProjectConfig DefaultConfig { get; } = new ProjectConfig() { };
 
 
