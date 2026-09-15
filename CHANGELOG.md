@@ -1,3 +1,17 @@
+# [1.21.0](https://github.com/ConConner/MAGE-Themes/compare/v1.20.0...v1.21.0) (2026-09-15)
+
+
+### Bug Fixes
+
+* keyboard shortcuts get triggered when writing in textboxes ([9bef272](https://github.com/ConConner/MAGE-Themes/commit/9bef272fec3b0bcfe1b376b9df53d08d72daf6f2))
+
+
+### Features
+
+* optionally allow sprite IDs up to 0xFF in spriteset editor ([f218285](https://github.com/ConConner/MAGE-Themes/commit/f2182857109a3e4aa9023ee64e3534806200ae01)), closes [#88](https://github.com/ConConner/MAGE-Themes/issues/88)
+* test room settings for fusion ([5b9d49a](https://github.com/ConConner/MAGE-Themes/commit/5b9d49a2140aba1f1c16ceace51230239e04df28)), closes [#96](https://github.com/ConConner/MAGE-Themes/issues/96)
+* warning system for incorrectly used clipdata ([459bf74](https://github.com/ConConner/MAGE-Themes/commit/459bf74678127c72be9bc50907efe85ee6162b88))
+
 # [1.20.0](https://github.com/ConConner/MAGE-Themes/compare/v1.19.1...v1.20.0) (2026-08-30)
 
 
