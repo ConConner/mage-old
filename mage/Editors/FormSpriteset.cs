@@ -277,9 +277,11 @@ namespace mage
             int slot = comboBox_slot.SelectedIndex;
             if (slot == -1) { return; }
 
+            byte spriteID = (byte)(comboBox_sprite.SelectedIndex + 0x10);
+            button_editSprite.Enabled = spriteID < Version.NumOfSprites1;
+
             if (!loading)
             {
-                byte spriteID = (byte)(comboBox_sprite.SelectedIndex + 0x10);
                 spriteIDs[slot] = spriteID;
                 vramObj = new VramObj(spriteset);
                 SpriteGFX sp = new SpriteGFX(vramObj, gfxRows[slot], spriteID, true);

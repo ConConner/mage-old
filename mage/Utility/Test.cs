@@ -11,7 +11,7 @@ namespace mage
 {
     public static class Test
     {
-        public static void Room(FormMain main, bool debug, int xPos, int yPos, sRam ram = null)
+        public static void Room(FormMain main, bool debug, int xPos, int yPos, IsRam? ram = null)
         {
             ByteStream bs = ROM.Stream;
             Room room = main.Room;
@@ -88,6 +88,9 @@ namespace mage
                 bs.Write16(sramAddr + 0x46, yScreen);
                 bs.Write16(sramAddr + 0x48, xScreen);
                 bs.Write16(sramAddr + 0x4A, yScreen);
+
+                //Setting samus equipment
+                ram?.WriteToRom();
             }
             else
             {

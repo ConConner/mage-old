@@ -87,7 +87,8 @@ namespace mage
         public ushort Bg3Color = 0;
 
         public PrivateFontCollection pfc { get; set; } = new PrivateFontCollection();
-        public sRam TestRoomSettings { get; set; } = null;
+        public sRamZm TestRoomSettingsZM { get; set; } = null;
+        public sRamMf TestRoomSettingsMF { get; set; } = null;
 
         #endregion
 
@@ -279,12 +280,16 @@ namespace mage
             ThemeSwitcher.ProjectThemeName = Settings.Default.selectedTheme;
 
             //Loading Test Room settings
-            string testRoomSettings = Settings.Default.testRoomSRAM;
-            if (testRoomSettings != "")
-            {
-                TestRoomSettings = JsonSerializer.Deserialize<sRam>(testRoomSettings);
-            }
-            if (TestRoomSettings == null) TestRoomSettings = new();
+            string testRoomSettingsZM = Settings.Default.testRoomSRAM;
+            if (testRoomSettingsZM != "")
+                TestRoomSettingsZM = JsonSerializer.Deserialize<sRamZm>(testRoomSettingsZM);
+            if (TestRoomSettingsZM == null) TestRoomSettingsZM = new();
+
+            string testRoomSettingsMF = Settings.Default.testRoomSramMF;
+            if (testRoomSettingsMF != "")
+                TestRoomSettingsMF = JsonSerializer.Deserialize<sRamMf>(testRoomSettingsMF);
+            if (TestRoomSettingsMF == null) TestRoomSettingsMF = new();
+
 
             //Loading Sound path
             Sound.SoundPacksPath = Settings.Default.soundPackPath;
@@ -341,8 +346,10 @@ namespace mage
             Settings.Default.selectedTheme = ThemeSwitcher.ProjectThemeName;
 
             //Saving TestROM save
-            string testRoomSettings = JsonSerializer.Serialize(TestRoomSettings);
-            Settings.Default.testRoomSRAM = testRoomSettings;
+            string testRoomSettingsZM = JsonSerializer.Serialize(TestRoomSettingsZM);
+            string testRoomSettingsMF = JsonSerializer.Serialize(TestRoomSettingsMF);
+            Settings.Default.testRoomSRAM = testRoomSettingsZM;
+            Settings.Default.testRoomSramMF = testRoomSettingsZM;
 
             //Sound
             Settings.Default.soundPackPath = Sound.SoundPacksPath;
@@ -1020,7 +1027,7 @@ namespace mage
         {
             if (!Version.IsMF)
             {
-                FormTestRoom form = new FormTestRoom(this, TestRoomSettings);
+                FormTestRoom form = new FormTestRoom(this, TestRoomSettingsZM);
                 form.ShowDialog();
             }
             else
@@ -2351,8 +2358,8 @@ namespace mage
                     ResizeDoor(e.KeyCode);
                     break;
                 case Keys.T:
-                    bool debug = Version.IsMF ? true : TestRoomSettings.DebugMenu;
-                    Test.Room(this, debug, roomCursor.X, roomCursor.Y, TestRoomSettings);
+                    IsRam saveram = Version.IsMF ? TestRoomSettingsMF : TestRoomSettingsZM;
+                    Test.Room(this, saveram.DebugMenu, roomCursor.X, roomCursor.Y, saveram);
                     break;
                 case Keys.G:
                     GoThroughDoor();
@@ -3221,13 +3228,15 @@ namespace mage
         {
             if (Version.IsMF)
             {
+                TestRoomSettingsMF.xPos = roomCursor.X;
+                TestRoomSettingsMF.yPos = roomCursor.Y;
                 Test.Room(this, true, roomCursor.X, roomCursor.Y);
                 return;
             }
 
-            TestRoomSettings.xPos = roomCursor.X;
-            TestRoomSettings.yPos = roomCursor.Y;
-            FormTestRoom settings = new FormTestRoom(this, TestRoomSettings);
+            TestRoomSettingsZM.xPos = roomCursor.X;
+            TestRoomSettingsZM.yPos = roomCursor.Y;
+            FormTestRoom settings = new FormTestRoom(this, TestRoomSettingsZM);
             settings.ShowDialog();
         }
 

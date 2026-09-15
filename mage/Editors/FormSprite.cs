@@ -76,6 +76,8 @@ namespace mage
             this.sprite2ID = 0;
             this.romStream = ROM.Stream;
 
+            if (sprite1ID >= Version.NumOfSprites1) sprite1ID = 0;
+
             if (Version.IsMF)
             {
                 EnableZMdrops(false);

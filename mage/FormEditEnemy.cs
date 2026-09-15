@@ -36,7 +36,7 @@ namespace mage
             this.enemyList = room.enemyList;
             this.spriteset = room.spritesets[ssNum];
             this.vramObj = room.vramObj;
-            
+
             Initialize();
         }
 
@@ -62,6 +62,8 @@ namespace mage
             else { spriteID = spriteset.GetSpriteID(index); }
             label_IDval.Text = Hex.ToString(spriteID);
 
+            button_editSprite.Enabled = spriteID < Version.NumOfSprites1;
+
             // try drawing preview
             if (index < spriteset.spriteIDs.Count)
             {
@@ -75,7 +77,7 @@ namespace mage
                     pictureBox_preview.Image = img;
                 }
                 else { pictureBox_preview.Image = null; }
-            }  
+            }
             else { pictureBox_preview.Image = null; }
 
             if (!loading) { status.ChangeMade(); }

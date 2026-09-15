@@ -10,20 +10,21 @@ namespace mage.Data;
 /// <summary>
 /// Data structure storing sRAM data. Only used for ZM as of now since Fusion has a debug menu
 /// </summary>
-public class sRam
+public class sRamZm : IsRam
 {
     private int sramAddr = 0x7D8000;
 
 
     [JsonConstructor]
-    public sRam() { }
+    public sRamZm() { }
 
 
-    //Not SRAM stuff
+    //Not SRAM stuff but for general testing
     public bool DebugMenu { get; set; } = true;
     public int xPos { get; set; } = 0;
     public int yPos { get; set; } = 0;
 
+    // SRAM in order
     public ushort MaxEnergy { get; set; } = 99;
     public ushort MaxMissiles { get; set; } = 0x5;
     public byte MaxSupers { get; set; } = 0x2;
