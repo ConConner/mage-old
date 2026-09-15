@@ -11,9 +11,9 @@ public static class ClipdataLists
 
     // SOLID
     private static readonly FrozenSet<int> zmSolidClip =
-        new[] { 0x10 }.ToFrozenSet();
+        new[] { 0x02, 0x09, 0x10, 0x18, 0x19, 0x1A, 0x1C, 0x1D, 0x1E, 0x29, 0x2A, 0x2C, 0x2D }.ToFrozenSet();
     private static readonly FrozenSet<int> mfSolidClip =
-        new[] { 0x10 }.ToFrozenSet();
+        new[] { 0x09, 0x10, 0x1C, 0x1D, 0x1E, 0x29, 0x2A, 0x2C, 0x2D }.ToFrozenSet();
     public static bool IsSolid(this Block b)
         => mf ? mfSolidClip.Contains(b.CLP) : zmSolidClip.Contains(b.CLP);
 
@@ -56,4 +56,8 @@ public static class ClipdataLists
 
     // OTHER CLIPDATA
     public static bool IsWater(this Block b) => b.CLP == 0x1B;
+    public static bool IsCeilingLadder(this Block b) => mf && b.CLP == 0x18;
+    public static bool IsRightWallLadder(this Block b) => mf && b.CLP == 0x19;
+    public static bool IsLeftWallLadder(this Block b) => mf && b.CLP == 0x1A;
+    public static bool IsPirateWallJumpPoint(this Block b) => !mf && b.CLP == 0x19;
 }

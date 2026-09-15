@@ -58,6 +58,11 @@ public partial class PageRules : UserControl, IReloadablePage
         PopulateBox(listBox_rules_mf, mfExclusive);
     }
 
+    private void ReloadRoomValidator()
+    {
+        FormMain.Instance.RoomRuleValidationSettingsChanged();
+    }
+
     private void PopulateBox(CheckedListBox clb, IEnumerable<IClipdataRule> rules)
     {
         clb.BeginUpdate();
@@ -114,6 +119,7 @@ public partial class PageRules : UserControl, IReloadablePage
     {
         if (init) return;
         Program.Config.WarningsEnabled = checkBox_warnings_enabled.Checked;
+        ReloadRoomValidator();
     }
 
     public void SaveSettings(object sender, ItemCheckEventArgs e)
@@ -122,6 +128,7 @@ public partial class PageRules : UserControl, IReloadablePage
         SaveBox(listBox_rules);
         SaveBox(listBox_rules_mf);
         SaveBox(listBox_rules_zm);
+        ReloadRoomValidator();
     }
 
     private void SaveBox(CheckedListBox clb)

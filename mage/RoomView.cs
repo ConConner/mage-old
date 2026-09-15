@@ -48,7 +48,7 @@ namespace mage
         private Room room;
 
         // rule warnings
-        private IReadOnlyDictionary<(int x, int y), List<ClipdataError>> _errors;
+        private IReadOnlyDictionary<(int x, int y), List<ClipdataError>>? _errors;
         private readonly List<Rectangle> _errorRects = new();
         public Point? HighlightedWarning = null;
         private Rectangle HighlightedWarningRect
@@ -283,9 +283,9 @@ namespace mage
             }
         }
 
-        public void OnErrorsChanged(RuleValidator rv)
+        public void OnErrorsChanged(RuleValidator? rv)
         {
-            _errors = rv.Errors;
+            _errors = rv?.Errors;
             RebuildErrorRectangles();
 
             _pulseTimer.Enabled = _errorRects.Count > 0;
@@ -293,8 +293,8 @@ namespace mage
 
         private void RebuildErrorRectangles()
         {
-            if (_errors is null) return;
             _errorRects.Clear();
+            if (_errors is null) return;
 
             foreach (var ((x, y), errList) in _errors)
             {
@@ -326,13 +326,20 @@ namespace mage
 
             _pulseBrush.Color = Color.FromArgb(alpha, Color.Gold);
 
+            bool highlightedStillThere = false;
             foreach (var rect in _errorRects)
             {
+                if (rect.Location == HighlightedWarningRect.Location)
+                {
+                    highlightedStillThere = true;
+                    continue;
+                }
                 if (!pe.ClipRectangle.IntersectsWith(rect)) continue;
-                if (rect.Location == HighlightedWarningRect.Location) continue;
                 pe.Graphics.FillRectangle(_pulseBrush, rect);
             }
 
+            if (!highlightedStillThere)
+                HighlightedWarning = null;
             if (HighlightedWarning is null) return;
 
             wave = (MathF.Sin(_pulsePhase * 3) + 1f) * 0.5f;

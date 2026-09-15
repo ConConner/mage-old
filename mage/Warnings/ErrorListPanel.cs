@@ -266,7 +266,7 @@ public class ErrorListPanel : UserControl
     private void UpdateTitle() =>
     _title.Text =
         $"{(_collapsed ? "▶" : "▼")}  {_items.Length} " +
-        $"Issue{(_items.Length == 1 ? "" : "s")}";
+        $"Warning{(_items.Length == 1 ? "" : "s")}";
 
     private void OnDrawColumnHeader(object? sender, DrawListViewColumnHeaderEventArgs e)
     {

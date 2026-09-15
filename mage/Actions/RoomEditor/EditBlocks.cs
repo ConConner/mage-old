@@ -77,7 +77,7 @@ namespace mage.Actions.RoomEditor
             if (_updateClip)
             {
                 _backgrounds.clip.Edited = true;
-                FormMain.Instance.roomRuleValidator.OnTilesChanged(changedTiles);
+                FormMain.Instance.roomRuleValidator?.OnTilesChanged(changedTiles);
             }
         }
 

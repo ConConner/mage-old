@@ -102,7 +102,7 @@ namespace mage
 
         // related to current room
         private Room room;
-        public RuleValidator roomRuleValidator;
+        public RuleValidator? roomRuleValidator;
         private bool skipEvents;
         private int enemySet;
         private RoomUndoRedo undoRedo;
@@ -1815,7 +1815,7 @@ namespace mage
             {
                 SetViewOptions();
                 ResetValues();
-                ResetRoomRuleValidator();
+                RoomRuleValidationSettingsChanged();
             }
             else
             {
@@ -2018,7 +2018,21 @@ namespace mage
             LoadRoom(comboBox_area.SelectedIndex, newRoom, true);
         }
 
-        private void ResetRoomRuleValidator()
+        public void RoomRuleValidationSettingsChanged()
+        {
+            errorList.Visible = Program.Config.WarningsEnabled;
+
+            if (!Program.Config.WarningsEnabled)
+            {
+                roomRuleValidator = null;
+                roomView.OnErrorsChanged(null);
+            }
+            else ResetRoomRuleValidator();
+
+            roomView.Invalidate();
+        }
+
+        public void ResetRoomRuleValidator()
         {
             roomRuleValidator = ActivatorUtilities.CreateInstance<RuleValidator>(Program.Services, room.backgrounds);
             roomRuleValidator.ErrorsChanged += roomView.OnErrorsChanged;
