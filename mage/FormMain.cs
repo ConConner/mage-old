@@ -349,7 +349,7 @@ namespace mage
             string testRoomSettingsZM = JsonSerializer.Serialize(TestRoomSettingsZM);
             string testRoomSettingsMF = JsonSerializer.Serialize(TestRoomSettingsMF);
             Settings.Default.testRoomSRAM = testRoomSettingsZM;
-            Settings.Default.testRoomSramMF = testRoomSettingsZM;
+            Settings.Default.testRoomSramMF = testRoomSettingsMF;
 
             //Sound
             Settings.Default.soundPackPath = Sound.SoundPacksPath;
@@ -1032,7 +1032,7 @@ namespace mage
             }
             else
             {
-                FormTestRoomFusion form = new FormTestRoomFusion(this);
+                FormTestRoomFusion form = new FormTestRoomFusion(this, TestRoomSettingsMF);
                 form.ShowDialog();
             }
         }
@@ -3230,7 +3230,8 @@ namespace mage
             {
                 TestRoomSettingsMF.xPos = roomCursor.X;
                 TestRoomSettingsMF.yPos = roomCursor.Y;
-                Test.Room(this, true, roomCursor.X, roomCursor.Y);
+                FormTestRoomFusion mfSettings = new(this, TestRoomSettingsMF);
+                mfSettings.ShowDialog();
                 return;
             }
 

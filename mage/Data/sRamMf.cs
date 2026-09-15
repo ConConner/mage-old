@@ -24,23 +24,29 @@ public class sRamMf : IsRam
     public int xPos { get; set; } = 0;
     public int yPos { get; set; } = 0;
 
+    // SRAM outside equipment
+    public byte EventCounter { get; set; } = 0;
+
     // SRAM in order
-    public ushort CurrentEnergy = 99;
-    public ushort MaxEnergy = 99;
-    public ushort CurrentMissiles = 10;
-    public ushort MaxMissiles = 10;
-    public byte CurrentPowerBombs = 5;
-    public byte MaxPowerBombs = 5;
-    public BeamStatus BeamStatus = 0;
-    public MissileBombStatus MissileBombStatus = 0;
-    public SuitMiscStatus SuitMiscStatus = 0;
-    public SecurityHatchLevel SecurityHatchLevel = 0;
-    public byte DownloadedMaps = 0xFF;
-    public byte LowHealthFlag = 0;
+    public ushort CurrentEnergy { get; set; } = 99;
+    public ushort MaxEnergy { get; set; } = 99;
+    public ushort CurrentMissiles { get; set; } = 10;
+    public ushort MaxMissiles { get; set; } = 10;
+    public byte CurrentPowerBombs { get; set; } = 5;
+    public byte MaxPowerBombs { get; set; } = 5;
+    public BeamStatus BeamStatus { get; set; } = 0;
+    public MissileBombStatus MissileBombStatus { get; set; } = 0;
+    public SuitMiscStatus SuitMiscStatus { get; set; } = 0;
+    public SecurityHatchLevel SecurityHatchLevel { get; set; } = 0;
+    public byte DownloadedMaps { get; set; } = 0xFF;
+    public byte LowHealthFlag { get; set; } = 0;
 
     public void WriteToRom()
     {
         if (ROM.Stream == null) throw new Exception("No ROM Stream specified");
+
+        //Writing Event
+        ROM.Stream.Write8(sramAddr + 0x21, EventCounter);
 
         //Writing Samus Equipment Data
         ROM.Stream.Seek(sramAddr + 0xC4);

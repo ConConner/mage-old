@@ -106,6 +106,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="RoomView.cs" />
+    <Compile Update="Tools\FormTestRoomFusion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Tweaks\ParameterControls\TweakParameterSelection.cs">
       <SubType>UserControl</SubType>
     </Compile>
